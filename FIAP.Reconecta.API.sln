@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Reconecta.API", "Fiap.Api.AspNet\FIAP.Reconecta.API.csproj", "{E42BA912-99CE-46AB-A98F-513BF1A4B809}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Reconecta.Contracts", "FIAP.Reconecta.Contracts\FIAP.Reconecta.Contracts.csproj", "{2B49018F-1A47-404F-ACAF-3325F778F87F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Reconecta.Application", "FIAP.Reconecta.Services\FIAP.Reconecta.Application.csproj", "{14EF9A0D-432A-4EED-AC72-BC052DCA2E43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Reconecta.Infrastructure", "FIAP.Reconecta.Infrastructure\FIAP.Reconecta.Infrastructure.csproj", "{5E25C861-4A2D-4FAB-9AB6-D7732E8F9D08}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIAP.Reconecta.Domain", "FIAP.Reconecta.Domain\FIAP.Reconecta.Domain.csproj", "{2B290D5F-1092-412A-9520-90109336CDCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E42BA912-99CE-46AB-A98F-513BF1A4B809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E42BA912-99CE-46AB-A98F-513BF1A4B809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E42BA912-99CE-46AB-A98F-513BF1A4B809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E42BA912-99CE-46AB-A98F-513BF1A4B809}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B49018F-1A47-404F-ACAF-3325F778F87F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B49018F-1A47-404F-ACAF-3325F778F87F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B49018F-1A47-404F-ACAF-3325F778F87F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B49018F-1A47-404F-ACAF-3325F778F87F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14EF9A0D-432A-4EED-AC72-BC052DCA2E43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14EF9A0D-432A-4EED-AC72-BC052DCA2E43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14EF9A0D-432A-4EED-AC72-BC052DCA2E43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14EF9A0D-432A-4EED-AC72-BC052DCA2E43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E25C861-4A2D-4FAB-9AB6-D7732E8F9D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E25C861-4A2D-4FAB-9AB6-D7732E8F9D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E25C861-4A2D-4FAB-9AB6-D7732E8F9D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E25C861-4A2D-4FAB-9AB6-D7732E8F9D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B290D5F-1092-412A-9520-90109336CDCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B290D5F-1092-412A-9520-90109336CDCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B290D5F-1092-412A-9520-90109336CDCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B290D5F-1092-412A-9520-90109336CDCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {000C3796-C164-482A-9AAC-B8D2C4B683B0}
+	EndGlobalSection
+EndGlobal

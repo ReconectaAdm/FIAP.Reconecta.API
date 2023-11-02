@@ -1,0 +1,2703 @@
+{
+	"info": {
+		"_postman_id": "baa789cc-760b-4b3a-8b7b-3bc97d966840",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20110966"
+	},
+	"item": [
+		{
+			"name": "ESTABELECIMENTO",
+			"item": [
+				{
+					"name": "GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Estabelecimento/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Estabelecimento",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Estabelecimento/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Estabelecimento",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 13:31:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"estabelecimentoId\": 1,\n        \"estabelecimentoCnpj\": \"74563210000199\",\n        \"estabelecimentoNome\": \"Restaurante da Praça\",\n        \"estabelecimentoEndereco\": \"Praça dos Girassóis, 32 - Centro\",\n        \"estabelecimentoCep\": \"65000000\",\n        \"estabelecimentoCidade\": \"São Paulo\",\n        \"estabelecimentoEstado\": \"SP\",\n        \"estabelecimentoTelefone\": \"(11)98765-4321\",\n        \"collection\": null,\n        \"residuoEstabelecimento\": null\n    },\n    {\n        \"estabelecimentoId\": 2,\n        \"estabelecimentoCnpj\": \"78541236985201\",\n        \"estabelecimentoNome\": \"Restaurante do André\",\n        \"estabelecimentoEndereco\": \"Avenida Paulista, 1000 - Bela Vista\",\n        \"estabelecimentoCep\": \"01310100\",\n        \"estabelecimentoCidade\": \"São Paulo\",\n        \"estabelecimentoEstado\": \"SP\",\n        \"estabelecimentoTelefone\": \"(11)88888-7777\",\n        \"collection\": null,\n        \"residuoEstabelecimento\": null\n    },\n    {\n        \"estabelecimentoId\": 3,\n        \"estabelecimentoCnpj\": \"35468974512365\",\n        \"estabelecimentoNome\": \"Supermercado da Economia\",\n        \"estabelecimentoEndereco\": \"Rua das Palmeiras, 100 - Jardim Paulista\",\n        \"estabelecimentoCep\": \"01400000\",\n        \"estabelecimentoCidade\": \"São Paulo\",\n        \"estabelecimentoEstado\": \"SP\",\n        \"estabelecimentoTelefone\": \"(11) 4444-4444\",\n        \"collection\": null,\n        \"residuoEstabelecimento\": null\n    },\n    {\n        \"estabelecimentoId\": 4,\n        \"estabelecimentoCnpj\": \"47896321457852\",\n        \"estabelecimentoNome\": \"Restaurante Sabor do Mar\",\n        \"estabelecimentoEndereco\": \"Avenida Paulista, 15 - Bela Vista\",\n        \"estabelecimentoCep\": \"01310100\",\n        \"estabelecimentoCidade\": \"São Paulo\",\n        \"estabelecimentoEstado\": \"SP\",\n        \"estabelecimentoTelefone\": \"(11) 7777-7777\",\n        \"collection\": null,\n        \"residuoEstabelecimento\": null\n    },\n    {\n        \"estabelecimentoId\": 5,\n        \"estabelecimentoCnpj\": \"12111236694119\",\n        \"estabelecimentoNome\": \"Pizzaria 33\",\n        \"estabelecimentoEndereco\": \"Rua nove de maio, 07 - Centro\",\n        \"estabelecimentoCep\": \"12345678\",\n        \"estabelecimentoCidade\": \"Rio de Janeiro\",\n        \"estabelecimentoEstado\": \"RJ\",\n        \"estabelecimentoTelefone\": \"(22)934556677\",\n        \"collection\": null,\n        \"residuoEstabelecimento\": null\n    },\n    {\n        \"estabelecimentoId\": 6,\n        \"estabelecimentoCnpj\": \"15478596587412\",\n        \"estabelecimentoNome\": \"Farmácia Popular\",\n        \"estabelecimentoEndereco\": \"Rua da Praia, 200 - Ipanema\",\n        \"estabelecimentoCep\": \"22420040\",\n        \"estabelecimentoCidade\": \"Rio de Janeiro\",\n        \"estabelecimentoEstado\": \"RJ\",\n        \"estabelecimentoTelefone\": \"(21) 4444-4444\",\n        \"collection\": null,\n        \"residuoEstabelecimento\": null\n    },\n    {\n        \"estabelecimentoId\": 7,\n        \"estabelecimentoCnpj\": \"19874563214789\",\n        \"estabelecimentoNome\": \"Bar do Zé\",\n        \"estabelecimentoEndereco\": \"Rua da Figueira, 101 - Vila\",\n        \"estabelecimentoCep\": \"80000000\",\n        \"estabelecimentoCidade\": \"Curitiba\",\n        \"estabelecimentoEstado\": \"PR\",\n        \"estabelecimentoTelefone\": \"(41)99999-8888\",\n        \"collection\": null,\n        \"residuoEstabelecimento\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Estabelecimento/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Estabelecimento",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Estabelecimento/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Estabelecimento",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 13:34:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"estabelecimentoId\": 3,\n    \"estabelecimentoCnpj\": \"35468974512365\",\n    \"estabelecimentoNome\": \"Supermercado da Economia\",\n    \"estabelecimentoEndereco\": \"Rua das Palmeiras, 100 - Jardim Paulista\",\n    \"estabelecimentoCep\": \"01400000\",\n    \"estabelecimentoCidade\": \"São Paulo\",\n    \"estabelecimentoEstado\": \"SP\",\n    \"estabelecimentoTelefone\": \"(11) 4444-4444\",\n    \"collection\": null,\n    \"residuoEstabelecimento\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"estabelecimentoCnpj\": \"35789456123014\",\r\n    \"estabelecimentoNome\": \"Cafeteria da Esquina\",\r\n    \"estabelecimentoEndereco\": \"Rua das Flores, 23 - Centro\",\r\n    \"estabelecimentoCep\": \"07000000\",\r\n    \"estabelecimentoCidade\": \"Guarulhos\",\r\n    \"estabelecimentoEstado\": \"SP\",\r\n    \"estabelecimentoTelefone\": \"(11)33333-5555\",\r\n    \"collection\": null,\r\n    \"residuoEstabelecimento\": null\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Estabelecimento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Estabelecimento"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"estabelecimentoCnpj\": \"35789456123014\",\r\n\"estabelecimentoNome\": \"Cafeteria da Esquina\",\r\n\"estabelecimentoEndereco\": \"Rua das Flores, 23 - Centro\",\r\n\"estabelecimentoCep\": \"07000000\",\r\n\"estabelecimentoCidade\": \"Guarulhos\",\r\n\"estabelecimentoEstado\": \"SP\",\r\n\"estabelecimentoTelefone\": \"(11)33333-5555\",\r\n\"collection\": null,\r\n\"residuoEstabelecimento\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Estabelecimento",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Estabelecimento"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 13:41:09 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:5202/api/Estabelecimento/8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"estabelecimentoId\": 8,\n    \"estabelecimentoCnpj\": \"35789456123014\",\n    \"estabelecimentoNome\": \"Cafeteria da Esquina\",\n    \"estabelecimentoEndereco\": \"Rua das Flores, 23 - Centro\",\n    \"estabelecimentoCep\": \"07000000\",\n    \"estabelecimentoCidade\": \"Guarulhos\",\n    \"estabelecimentoEstado\": \"SP\",\n    \"estabelecimentoTelefone\": \"(11)33333-5555\",\n    \"collection\": null,\n    \"residuoEstabelecimento\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"estabelecimentoId\": 1,\r\n    \"estabelecimentoCnpj\": \"74563210000199\",\r\n    \"estabelecimentoNome\": \"Restaurante da Praça\",\r\n    \"estabelecimentoEndereco\": \"Praça dos Girassóis, 60 - Centro\",\r\n    \"estabelecimentoCep\": \"66000000\",\r\n    \"estabelecimentoCidade\": \"São Paulo\",\r\n    \"estabelecimentoEstado\": \"SP\",\r\n    \"estabelecimentoTelefone\": \"(11)98765-4321\",\r\n    \"collection\": null,\r\n    \"residuoEstabelecimento\": null\r\n}\r\n\r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Estabelecimento/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Estabelecimento",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"estabelecimentoId\": 1,\r\n    \"estabelecimentoCnpj\": \"74563210000199\",\r\n    \"estabelecimentoNome\": \"Restaurante da Praça\",\r\n    \"estabelecimentoEndereco\": \"Praça dos Girassóis, 60 - Centro\",\r\n    \"estabelecimentoCep\": \"66000000\",\r\n    \"estabelecimentoCidade\": \"São Paulo\",\r\n    \"estabelecimentoEstado\": \"SP\",\r\n    \"estabelecimentoTelefone\": \"(11)98765-4321\",\r\n    \"collection\": null,\r\n    \"residuoEstabelecimento\": null\r\n}\r\n\r\n    ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Estabelecimento/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Estabelecimento",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 13:58:36 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Estabelecimento/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Estabelecimento",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Estabelecimento/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Estabelecimento",
+										"4"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 14:01:58 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ORGANIZACAO",
+			"item": [
+				{
+					"name": "GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Organizacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Organizacao"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Organizacao",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Organizacao"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 14:37:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"organizacaoId\": 1,\n        \"organizacaoCnpj\": \"7654440987654\",\n        \"organizacaoNome\": \"GreenCycle\",\n        \"organizacaoEndereco\": \"Rua dos Pinheiros, 80 - Bairro Pinheiros\",\n        \"organizacaoCep\": \"01234567\",\n        \"organizacaoCidade\": \"São Paulo\",\n        \"organizacaoEstado\": \"SP\",\n        \"organizacaoTelefone\": \"(11)999888777\",\n        \"organizacaoDescricao\": \"Empresa especializada na collection e reciclagem de papel e papelão\",\n        \"collection\": null,\n        \"residuoOrganizacao\": null\n    },\n    {\n        \"organizacaoId\": 2,\n        \"organizacaoCnpj\": \"98967432401234\",\n        \"organizacaoNome\": \"RecicleTudo\",\n        \"organizacaoEndereco\": \"Avenida Paulista, 1000 - Bairro Bela Vista\",\n        \"organizacaoCep\": \"01310100\",\n        \"organizacaoCidade\": \"São Paulo\",\n        \"organizacaoEstado\": \"SP\",\n        \"organizacaoTelefone\": \"(11)888777666\",\n        \"organizacaoDescricao\": \"Empresa especializada na collection e reciclagem de plásticos\",\n        \"collection\": null,\n        \"residuoOrganizacao\": null\n    },\n    {\n        \"organizacaoId\": 3,\n        \"organizacaoCnpj\": \"55544433221100\",\n        \"organizacaoNome\": \"Reciclare\",\n        \"organizacaoEndereco\": \"Rua das Flores, 20 - Centro\",\n        \"organizacaoCep\": \"80020220\",\n        \"organizacaoCidade\": \"Curitiba\",\n        \"organizacaoEstado\": \"PR\",\n        \"organizacaoTelefone\": \"(41)3333-3333\",\n        \"organizacaoDescricao\": \"Empresa especializada na collection e reciclagem de vidros\",\n        \"collection\": null,\n        \"residuoOrganizacao\": null\n    },\n    {\n        \"organizacaoId\": 4,\n        \"organizacaoCnpj\": \"12345678901234\",\n        \"organizacaoNome\": \"EcoVida\",\n        \"organizacaoEndereco\": \"Rua das Palmeiras, 10 - Bairro Jardim Botânico\",\n        \"organizacaoCep\": \"22371001\",\n        \"organizacaoCidade\": \"Rio de Janeiro\",\n        \"organizacaoEstado\": \"RJ\",\n        \"organizacaoTelefone\": \"(21)4444-5555\",\n        \"organizacaoDescricao\": \"Empresa especializada na collection e reciclagem de resíduos eletrônicos\",\n        \"collection\": null,\n        \"residuoOrganizacao\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Organizacao/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Organizacao",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Organizacao/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Organizacao",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 14:39:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"organizacaoId\": 2,\n    \"organizacaoCnpj\": \"98967432401234\",\n    \"organizacaoNome\": \"RecicleTudo\",\n    \"organizacaoEndereco\": \"Avenida Paulista, 1000 - Bairro Bela Vista\",\n    \"organizacaoCep\": \"01310100\",\n    \"organizacaoCidade\": \"São Paulo\",\n    \"organizacaoEstado\": \"SP\",\n    \"organizacaoTelefone\": \"(11)888777666\",\n    \"organizacaoDescricao\": \"Empresa especializada na collection e reciclagem de plásticos\",\n    \"collection\": null,\n    \"residuoOrganizacao\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"organizacaoCnpj\": \"12345678901234\",\r\n   \"organizacaoNome\": \"ReciclaMais\",\r\n   \"organizacaoEndereco\": \"Rua das Oliveiras, 30 - Bairro Vila Madalena\",\r\n   \"organizacaoCep\": \"05412001\",\r\n   \"organizacaoCidade\": \"São Paulo\",\r\n   \"organizacaoEstado\": \"SP\",\r\n   \"organizacaoTelefone\": \"(11)7777-8888\",\r\n   \"organizacaoDescricao\": \"Empresa especializada na collection e reciclagem de plásticos e metais\",\r\n   \"collection\": null,\r\n   \"residuoOrganizacao\": null  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Organizacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Organizacao"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"organizacaoCnpj\": \"12345678901234\",\r\n   \"organizacaoNome\": \"ReciclaMais\",\r\n   \"organizacaoEndereco\": \"Rua das Oliveiras, 30 - Bairro Vila Madalena\",\r\n   \"organizacaoCep\": \"05412001\",\r\n   \"organizacaoCidade\": \"São Paulo\",\r\n   \"organizacaoEstado\": \"SP\",\r\n   \"organizacaoTelefone\": \"(11)7777-8888\",\r\n   \"organizacaoDescricao\": \"Empresa especializada na collection e reciclagem de plásticos e metais\",\r\n   \"collection\": null,\r\n   \"residuoOrganizacao\": null  \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Organizacao",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Organizacao"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 14:40:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:5202/api/Organizacao/5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"organizacaoId\": 5,\n    \"organizacaoCnpj\": \"12345678901234\",\n    \"organizacaoNome\": \"ReciclaMais\",\n    \"organizacaoEndereco\": \"Rua das Oliveiras, 30 - Bairro Vila Madalena\",\n    \"organizacaoCep\": \"05412001\",\n    \"organizacaoCidade\": \"São Paulo\",\n    \"organizacaoEstado\": \"SP\",\n    \"organizacaoTelefone\": \"(11)7777-8888\",\n    \"organizacaoDescricao\": \"Empresa especializada na collection e reciclagem de plásticos e metais\",\n    \"collection\": null,\n    \"residuoOrganizacao\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organizacaoId\": 2,\r\n    \"organizacaoCnpj\": \"98967432401234\",\r\n    \"organizacaoNome\": \"RecicleTudo\",\r\n    \"organizacaoEndereco\": \"Avenida Paulista, 90 - Bairro Bela Vista\",\r\n    \"organizacaoCep\": \"01410100\",\r\n    \"organizacaoCidade\": \"São Paulo\",\r\n    \"organizacaoEstado\": \"SP\",\r\n    \"organizacaoTelefone\": \"(11)888777666\",\r\n    \"organizacaoDescricao\": \"Empresa especializada na collection e reciclagem de plásticos\",\r\n    \"collection\": null,\r\n    \"residuoOrganizacao\": null\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Organizacao/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Organizacao",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"organizacaoId\": 2,\r\n    \"organizacaoCnpj\": \"98967432401234\",\r\n    \"organizacaoNome\": \"RecicleTudo\",\r\n    \"organizacaoEndereco\": \"Avenida Paulista, 90 - Bairro Bela Vista\",\r\n    \"organizacaoCep\": \"01410100\",\r\n    \"organizacaoCidade\": \"São Paulo\",\r\n    \"organizacaoEstado\": \"SP\",\r\n    \"organizacaoTelefone\": \"(11)888777666\",\r\n    \"organizacaoDescricao\": \"Empresa especializada na collection e reciclagem de plásticos\",\r\n    \"collection\": null,\r\n    \"residuoOrganizacao\": null\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Organizacao/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Organizacao",
+										"2"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 14:48:04 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Organizacao/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Organizacao",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Organizacao/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Organizacao",
+										"4"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 14:50:22 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "RESIDUO",
+			"item": [
+				{
+					"name": "GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Residuo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Residuo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Residuo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Residuo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 14:51:39 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"residuoId\": 3,\n        \"residuoNome\": \"Vidro\",\n        \"residuocollection\": null,\n        \"residuoEstabelecimento\": null,\n        \"residuoOrganizacao\": null\n    },\n    {\n        \"residuoId\": 1,\n        \"residuoNome\": \"Papel\",\n        \"residuocollection\": null,\n        \"residuoEstabelecimento\": null,\n        \"residuoOrganizacao\": null\n    },\n    {\n        \"residuoId\": 2,\n        \"residuoNome\": \"Papelão\",\n        \"residuocollection\": null,\n        \"residuoEstabelecimento\": null,\n        \"residuoOrganizacao\": null\n    },\n    {\n        \"residuoId\": 4,\n        \"residuoNome\": \"Plástico\",\n        \"residuocollection\": null,\n        \"residuoEstabelecimento\": null,\n        \"residuoOrganizacao\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organizacaoId\": 2,\r\n    \"organizacaoCnpj\": \"98765432000199\",\r\n    \"organizacaoNome\": \"Recicla+\",\r\n    \"organizacaoEndereco\": \"Rua das Árvores, 133 - Bairro Jardim Botânico\",\r\n    \"organizacaoCep\": \"23456789\",\r\n    \"organizacaoCidade\": \"São Paulo\",\r\n    \"organizacaoEstado\": \"SP\",\r\n    \"organizacaoTelefone\": \"(11)922338899\",\r\n    \"organizacaoDescricao\": \"Empresa que oferece serviços de reciclagem de plásticos, metais e vidros\",\r\n    \"collection\": null,\r\n    \"residuoOrganizacao\": null\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Residuo/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Residuo",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"organizacaoId\": 2,\r\n    \"organizacaoCnpj\": \"98765432000199\",\r\n    \"organizacaoNome\": \"Recicla+\",\r\n    \"organizacaoEndereco\": \"Rua das Árvores, 133 - Bairro Jardim Botânico\",\r\n    \"organizacaoCep\": \"23456789\",\r\n    \"organizacaoCidade\": \"São Paulo\",\r\n    \"organizacaoEstado\": \"SP\",\r\n    \"organizacaoTelefone\": \"(11)922338899\",\r\n    \"organizacaoDescricao\": \"Empresa que oferece serviços de reciclagem de plásticos, metais e vidros\",\r\n    \"collection\": null,\r\n    \"residuoOrganizacao\": null\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Residuo/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Residuo",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:08:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"residuoId\": 1,\n    \"residuoNome\": \"Papel\",\n    \"residuocollection\": null,\n    \"residuoEstabelecimento\": null,\n    \"residuoOrganizacao\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"residuoNome\": \"Metal\",\r\n    \"residuocollection\": null,\r\n    \"residuoEstabelecimento\": null,\r\n    \"residuoOrganizacao\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Residuo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Residuo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"residuoNome\": \"Metal\",\r\n    \"residuocollection\": null,\r\n    \"residuoEstabelecimento\": null,\r\n    \"residuoOrganizacao\": null\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Residuo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Residuo"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:10:36 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:5202/api/Residuo/5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"residuoId\": 5,\n    \"residuoNome\": \"Metal\",\n    \"residuocollection\": null,\n    \"residuoEstabelecimento\": null,\n    \"residuoOrganizacao\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"residuoId\": 5,\r\n    \"residuoNome\": \"Orgânico\",\r\n    \"residuocollection\": null,\r\n    \"residuoEstabelecimento\": null,\r\n    \"residuoOrganizacao\": null\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Residuo/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Residuo",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"residuoId\": 5,\r\n    \"residuoNome\": \"Orgânico\",\r\n    \"residuocollection\": null,\r\n    \"residuoEstabelecimento\": null,\r\n    \"residuoOrganizacao\": null\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Residuo/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Residuo",
+										"5"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:12:11 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5202/api/Residuo/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Residuo",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5202/api/Residuo/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Residuo",
+										"6"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:13:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "RESIDUOESTABELECIMENTO",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5202/api/ResiduoEstabelecimento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"ResiduoEstabelecimento"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5202/api/ResiduoEstabelecimento",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"ResiduoEstabelecimento"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:24:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"residuoEstabelecimentoId\": 1,\n        \"residuoId\": 1,\n        \"residuo\": null,\n        \"estabelecimentoId\": 2,\n        \"estabelecimento\": null\n    },\n    {\n        \"residuoEstabelecimentoId\": 2,\n        \"residuoId\": 1,\n        \"residuo\": null,\n        \"estabelecimentoId\": 5,\n        \"estabelecimento\": null\n    },\n    {\n        \"residuoEstabelecimentoId\": 3,\n        \"residuoId\": 3,\n        \"residuo\": null,\n        \"estabelecimentoId\": 5,\n        \"estabelecimento\": null\n    },\n    {\n        \"residuoEstabelecimentoId\": 4,\n        \"residuoId\": 2,\n        \"residuo\": null,\n        \"estabelecimentoId\": 1,\n        \"estabelecimento\": null\n    },\n    {\n        \"residuoEstabelecimentoId\": 5,\n        \"residuoId\": 1,\n        \"residuo\": null,\n        \"estabelecimentoId\": 1,\n        \"estabelecimento\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5202/api/ResiduoEstabelecimento/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"ResiduoEstabelecimento",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5202/api/ResiduoEstabelecimento/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"ResiduoEstabelecimento",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:24:59 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"residuoEstabelecimentoId\": 2,\n    \"residuoId\": 1,\n    \"residuo\": null,\n    \"estabelecimentoId\": 5,\n    \"estabelecimento\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"residuoId\": 2,\r\n    \"residuo\": null,\r\n    \"estabelecimentoId\": 5,\r\n    \"estabelecimento\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/ResiduoEstabelecimento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"ResiduoEstabelecimento"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"residuoId\": 2,\r\n    \"residuo\": null,\r\n    \"estabelecimentoId\": 5,\r\n    \"estabelecimento\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/ResiduoEstabelecimento",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"ResiduoEstabelecimento"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:31:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:5202/api/ResiduoEstabelecimento/12"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"residuoEstabelecimentoId\": 12,\n    \"residuoId\": 2,\n    \"residuo\": null,\n    \"estabelecimentoId\": 5,\n    \"estabelecimento\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"residuoEstabelecimentoId\": 3,\r\n    \"residuoId\": 5,\r\n    \"residuo\": null,\r\n    \"estabelecimentoId\": 1,\r\n    \"estabelecimento\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/ResiduoEstabelecimento/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"ResiduoEstabelecimento",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n    \"residuoEstabelecimentoId\": 3,\r\n    \"residuoId\": 5,\r\n    \"residuo\": null,\r\n    \"estabelecimentoId\": 1,\r\n    \"estabelecimento\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/ResiduoEstabelecimento/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"ResiduoEstabelecimento",
+										"3"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Apr 2023 22:41:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5202/api/ResiduoEstabelecimento/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"ResiduoEstabelecimento",
+								"12"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5202/api/ResiduoEstabelecimento/12",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"ResiduoEstabelecimento",
+										"12"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:33:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "RESIDUOORGANIZACAO",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5202/api/ResiduoOrganizacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"ResiduoOrganizacao"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5202/api/ResiduoOrganizacao",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"ResiduoOrganizacao"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:17:03 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"residuoOrganizacaoId\": 1,\n        \"residuoId\": 1,\n        \"residuo\": null,\n        \"organizacaoId\": 1,\n        \"organizacao\": null\n    },\n    {\n        \"residuoOrganizacaoId\": 2,\n        \"residuoId\": 2,\n        \"residuo\": null,\n        \"organizacaoId\": 1,\n        \"organizacao\": null\n    },\n    {\n        \"residuoOrganizacaoId\": 3,\n        \"residuoId\": 3,\n        \"residuo\": null,\n        \"organizacaoId\": 3,\n        \"organizacao\": null\n    },\n    {\n        \"residuoOrganizacaoId\": 4,\n        \"residuoId\": 4,\n        \"residuo\": null,\n        \"organizacaoId\": 2,\n        \"organizacao\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5202/api/ResiduoEstabelecimento/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"ResiduoEstabelecimento",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5202/api/ResiduoEstabelecimento/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"ResiduoEstabelecimento",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:17:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"residuoEstabelecimentoId\": 1,\n    \"residuoId\": 1,\n    \"residuo\": null,\n    \"estabelecimentoId\": 2,\n    \"estabelecimento\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"residuoOrganizacaoId\": 5,\r\n    \"residuoId\": 2,\r\n    \"residuo\": null,\r\n    \"organizacaoId\": 1,\r\n    \"organizacao\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/ResiduoOrganizacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"ResiduoOrganizacao"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"residuoOrganizacaoId\": 5,\r\n    \"residuoId\": 2,\r\n    \"residuo\": null,\r\n    \"organizacaoId\": 1,\r\n    \"organizacao\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/ResiduoOrganizacao",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"ResiduoOrganizacao"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:20:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:5202/api/ResiduoOrganizacao/5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"residuoOrganizacaoId\": 5,\n    \"residuoId\": 2,\n    \"residuo\": null,\n    \"organizacaoId\": 1,\n    \"organizacao\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"residuoOrganizacaoId\": 3,\r\n    \"residuoId\": 1,\r\n    \"residuo\": null,\r\n    \"organizacaoId\": 1,\r\n    \"organizacao\": null\r\n  }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/ResiduoOrganizacao/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"ResiduoOrganizacao",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"residuoOrganizacaoId\": 3,\r\n    \"residuoId\": 1,\r\n    \"residuo\": null,\r\n    \"organizacaoId\": 1,\r\n    \"organizacao\": null\r\n  }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/ResiduoOrganizacao/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"ResiduoOrganizacao",
+										"3"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:22:26 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/ResiduoOrganizacao/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"ResiduoOrganizacao",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/ResiduoOrganizacao/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"ResiduoOrganizacao",
+										"5"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:23:22 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "RESIDUOcollection",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5202/api/Residuocollection",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Residuocollection"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5202/api/Residuocollection",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Residuocollection"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Apr 2023 22:55:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"residuocollectionId\": 2,\n        \"residuoId\": 1,\n        \"residuo\": null,\n        \"collectionId\": 2,\n        \"collection\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5202/api/Residuocollection/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Residuocollection",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5202/api/Residuocollection/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Residuocollection",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Apr 2023 22:55:41 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"residuocollectionId\": 2,\n    \"residuoId\": 1,\n    \"residuo\": null,\n    \"collectionId\": 2,\n    \"collection\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"residuoId\": 1,\r\n    \"residuo\": null,\r\n    \"collectionId\": 3,\r\n    \"collection\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Residuocollection",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Residuocollection"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"residuoId\": 1,\r\n    \"residuo\": null,\r\n    \"collectionId\": 3,\r\n    \"collection\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Residuocollection",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Residuocollection"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:03:39 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:5202/api/Residuocollection/4"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"residuocollectionId\": 4,\n    \"residuoId\": 1,\n    \"residuo\": null,\n    \"collectionId\": 3,\n    \"collection\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"residuocollectionId\": 2,\r\n    \"residuoId\": 4,\r\n    \"residuo\": null,\r\n    \"collectionId\": 2,\r\n    \"collection\": null\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Residuocollection/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Residuocollection",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"residuocollectionId\": 2,\r\n    \"residuoId\": 4,\r\n    \"residuo\": null,\r\n    \"collectionId\": 2,\r\n    \"collection\": null\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Residuocollection/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Residuocollection",
+										"2"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:05:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5202/api/Residuocollection/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Residuocollection",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5202/api/Residuocollection/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Residuocollection",
+										"5"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:07:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "collection",
+			"item": [
+				{
+					"name": "GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/collection",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"collection"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/collection",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"collection"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 13:43:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"collectionId\": 1,\n        \"collectionData\": \"2023-04-13T09:40:00\",\n        \"collectionQuantidade\": 4,\n        \"estabelecimentoId\": 1,\n        \"estabelecimento\": null,\n        \"organizacaoId\": 2,\n        \"organizacao\": null,\n        \"residuocollection\": null\n    },\n    {\n        \"collectionId\": 2,\n        \"collectionData\": \"2023-04-19T10:22:00\",\n        \"collectionQuantidade\": 4,\n        \"estabelecimentoId\": 3,\n        \"estabelecimento\": null,\n        \"organizacaoId\": 1,\n        \"organizacao\": null,\n        \"residuocollection\": null\n    },\n    {\n        \"collectionId\": 3,\n        \"collectionData\": \"2023-04-12T11:10:00\",\n        \"collectionQuantidade\": 6,\n        \"estabelecimentoId\": 2,\n        \"estabelecimento\": null,\n        \"organizacaoId\": 1,\n        \"organizacao\": null,\n        \"residuocollection\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/Residuocollection/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"Residuocollection",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/Residuocollection/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"Residuocollection",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 14:53:33 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"residuocollectionId\": 2,\n    \"residuoId\": 1,\n    \"residuo\": null,\n    \"collectionId\": 2,\n    \"collection\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"collectionData\": \"2023-04-12T09:22:00\",\r\n    \"collectionQuantidade\": 9,\r\n    \"estabelecimentoId\": 2,\r\n    \"estabelecimento\": null,\r\n    \"organizacaoId\": 1,\r\n    \"organizacao\": null,\r\n    \"residuocollection\": null\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/collection",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"collection"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"collectionData\": \"2023-04-12T09:22:00\",\r\n    \"collectionQuantidade\": 9,\r\n    \"estabelecimentoId\": 2,\r\n    \"estabelecimento\": null,\r\n    \"organizacaoId\": 1,\r\n    \"organizacao\": null,\r\n    \"residuocollection\": null\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/collection",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"collection"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 14:55:59 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost:5202/api/collection/4"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collectionId\": 4,\n    \"collectionData\": \"2023-04-12T09:22:00\",\n    \"collectionQuantidade\": 9,\n    \"estabelecimentoId\": 2,\n    \"estabelecimento\": null,\n    \"organizacaoId\": 1,\n    \"organizacao\": null,\n    \"residuocollection\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"collectionId\": 2,\r\n    \"collectionData\": \"2023-05-11T14:00:00\",\r\n    \"collectionQuantidade\": 8,\r\n    \"estabelecimentoId\": 1,\r\n    \"estabelecimento\": null,\r\n    \"organizacaoId\": 3,\r\n    \"organizacao\": null,\r\n    \"residuocollection\": null\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/collection/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"collection",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"collectionId\": 2,\r\n    \"collectionData\": \"2023-05-11T14:00:00\",\r\n    \"collectionQuantidade\": 8,\r\n    \"estabelecimentoId\": 1,\r\n    \"estabelecimento\": null,\r\n    \"organizacaoId\": 3,\r\n    \"organizacao\": null,\r\n    \"residuocollection\": null\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/collection/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"collection",
+										"2"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 14:57:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5202/api/collection/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5202",
+							"path": [
+								"api",
+								"collection",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5202/api/collection/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5202",
+									"path": [
+										"api",
+										"collection",
+										"5"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 11 Apr 2023 15:00:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}
