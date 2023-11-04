@@ -43,6 +43,8 @@ namespace FIAP.Reconecta.API.Controllers
                 return BadRequest(ModelState);
 
             var establishment = (Company)dto;
+            establishment.Type = 2;
+
             _establishmentService.Add(establishment);
 
             var location = new Uri(Request.GetEncodedUrl() + "/" + establishment.Id);

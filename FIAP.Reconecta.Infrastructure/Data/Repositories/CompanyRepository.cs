@@ -14,9 +14,10 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
             dataBaseContext = ctx;
         }
 
+        #region Base
         public IEnumerable<Company> Get()
         {
-            return dataBaseContext.Company.Include(company => company.Enderecos);
+            return dataBaseContext.Company.Include(company => company.Addresses);
         }
 
         public Company? GetById(int id)
@@ -47,6 +48,18 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
             dataBaseContext.Company.Remove(company);
             dataBaseContext.SaveChanges();
         }
+
+        #endregion
+
+        #region Organization
+
+        public IEnumerable<Company> GetOrganizations(int establishmentId = 0)
+        {
+            return dataBaseContext.Company.Where(company => company.Type == 1)
+                .Include(comp => comp.Favorites.Where(f => f.EstablishmentId == establishmentId));
+        }
+
+        #endregion
 
     }
 }

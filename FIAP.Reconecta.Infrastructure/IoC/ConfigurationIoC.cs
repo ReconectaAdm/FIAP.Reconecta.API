@@ -15,6 +15,7 @@ namespace FIAP.Reconecta.Infrastructure.IoC
             services.AddTransient<IOrganizationService, OrganizationService>();
             services.AddTransient<ICollectService, CollectService>();
             services.AddTransient<IResidueService, ResidueService>();
+            services.AddTransient<IResidueTypeService, ResidueTypeService>();
 
             return services;
         }
@@ -23,9 +24,9 @@ namespace FIAP.Reconecta.Infrastructure.IoC
         {
 
             services.AddTransient<ICompanyRepository>((ctx) => new CompanyRepository(ctx.GetRequiredService<DataBaseContext>()));
-            services.AddTransient<ICompanyAddressRepository>((ctx) => new CompanyAddressRepository(ctx.GetRequiredService<DataBaseContext>()));
             services.AddTransient<ICollectRepository>((ctx) => new CollectRepository(ctx.GetRequiredService<DataBaseContext>()));
             services.AddTransient<IResidueRepository>((ctx) => new ResidueRepository(ctx.GetRequiredService<DataBaseContext>()));
+            services.AddTransient<IResidueTypeRepository>((ctx) => new ResidueTypeRepository(ctx.GetRequiredService<DataBaseContext>()));
 
             return services;
         }

@@ -11,17 +11,21 @@ namespace FIAP.Reconecta.API.Controllers
     [ApiController]
     public class ResidueController : ControllerBase
     {
-        private readonly IResidueService _collectService;
+        private readonly IResidueService _residueService;
+        private readonly IResidueTypeService _residueTypeService;
 
-        public ResidueController(IResidueService collectService)
+        public ResidueController(IResidueService residueService, IResidueTypeService residueTypeService)
         {
-            _collectService = collectService;
+            _residueService = residueService;
+            _residueTypeService = residueTypeService;
         }
+
+        #region Base
 
         [HttpGet]
         public ActionResult<IEnumerable<Residue>> Get()
         {
-            var lista = _collectService.Get();
+            var lista = _residueService.Get();
 
             if (lista != null)
                 return Ok(lista);
@@ -32,10 +36,10 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet("{id}")]
         public ActionResult<Residue> Get([FromRoute] int id)
         {
-            var collectionModel = _collectService.GetById(id);
+            var residueionModel = _residueService.GetById(id);
 
-            if (collectionModel != null)
-                return Ok(collectionModel);
+            if (residueionModel != null)
+                return Ok(residueionModel);
             else
                 return NotFound();
         }
@@ -46,11 +50,11 @@ namespace FIAP.Reconecta.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var collect = (Residue)dto;
-            _collectService.Add(collect);
+            var residue = (Residue)dto;
+            _residueService.Add(residue);
 
-            var location = new Uri(Request.GetEncodedUrl() + "/" + collect.Id);
-            return Created(location, collect);
+            var location = new Uri(Request.GetEncodedUrl() + "/" + residue.Id);
+            return Created(location, residue);
         }
 
         [HttpPut("{id}")]
@@ -59,25 +63,38 @@ namespace FIAP.Reconecta.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var collect = (Residue)dto;
-            collect.Id = id;
+            var residue = (Residue)dto;
+            residue.Id = id;
 
-            _collectService.Update(collect);
+            _residueService.Update(residue);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public ActionResult<Residue> Delete([FromRoute] int id)
         {
-            var collectionModel = _collectService.GetById(id);
+            var residueionModel = _residueService.GetById(id);
 
-            if (collectionModel != null)
+            if (residueionModel != null)
             {
-                _collectService.Delete(id);
+                _residueService.Delete(id);
                 return NoContent();
             }
             else
                 return NotFound();
         }
+
+        #endregion
+
+        #region Type
+
+        [HttpGet("type")]
+        public ActionResult<ResidueType> GetTypes()
+        {
+            var residueTypes = _residueTypeService.Get();
+            return Ok(residueTypes);
+        }
+
+        #endregion
     }
 }

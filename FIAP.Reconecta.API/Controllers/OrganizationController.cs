@@ -18,6 +18,8 @@ namespace FIAP.Reconecta.API.Controllers
             _organizationService = organizationService;
         }
 
+        #region Base
+
         [HttpGet]
         public ActionResult<IEnumerable<Company>> Get()
         {
@@ -45,6 +47,8 @@ namespace FIAP.Reconecta.API.Controllers
             }
 
             var organization = (Company)dto;
+            organization.Type = 2;
+
             _organizationService.Add(organization);
 
             var location = new Uri(Request.GetEncodedUrl() + "/" + organization.Id);
@@ -81,5 +85,7 @@ namespace FIAP.Reconecta.API.Controllers
                 return NotFound();
             }
         }
+
+        #endregion
     }
 }

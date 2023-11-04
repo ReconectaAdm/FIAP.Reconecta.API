@@ -18,28 +18,28 @@ namespace FIAP.Reconecta.Contracts.Models
 
         [Display(Name = "Nome da Empresa")]
         [Column("empresa_nome")]
-        public string? Nome { get; set; }
+        public string? Name { get; set; }
 
         [Display(Name = "Descrição")]
         [Column("empresa_descricao")]
-        public string? Descricao { get; set; }
+        public string? Description { get; set; }
 
         [Display(Name = "Tipo de empresa")]
         [Column("empresa_tipo")]
-        public string? Tipo { get; set; }
-
-        //[Column("razao_social")]
-        //public string? CorporateReason { get; set; }
+        public int Type { get; set; }
 
         [Column("razao_social")]
-        public string? RazaoSocial { get; set; }
+        public string? CorporateReason { get; set; }
 
         [Column("empresa_data_criacao")]
-        public DateTime DataCriacao { get; set; }
-        [Column("empresa_data_atualizacao")]
-        public DateTime DataAtualizacao { get; set; }
+        public DateTime CreationDate { get; set; }
 
-        public ICollection<CompanyAddress>? Enderecos { get; set; }
+        [Column("empresa_data_atualizacao")]
+        public DateTime UpdatedDate { get; set; }
+
+        public ICollection<CompanyFavorite> Favorites { get; set; } = new List<CompanyFavorite>();
+        
+        public ICollection<CompanyAddress>? Addresses { get; set; }
         //public IEnumerable<Collection>? collections { get; set; }
         //public IEnumerable<Residue>? Residuos { get; set; }
     }
