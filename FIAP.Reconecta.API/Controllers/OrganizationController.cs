@@ -47,7 +47,7 @@ namespace FIAP.Reconecta.API.Controllers
             }
 
             var organization = (Company)dto;
-            organization.Type = 2;
+            organization.Type = 1;
 
             _organizationService.Add(organization);
 
@@ -65,6 +65,7 @@ namespace FIAP.Reconecta.API.Controllers
 
             var organization = (Company)dto;
             organization.Id = id;
+            organization.Type = 1;
 
             _organizationService.Update(organization);
             return NoContent();

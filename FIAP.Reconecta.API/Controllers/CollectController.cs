@@ -24,7 +24,6 @@ namespace FIAP.Reconecta.API.Controllers
             return Ok(lista);
         }
 
-
         [HttpGet("{id}")]
         public ActionResult<Collect> Get([FromRoute] int id)
         {

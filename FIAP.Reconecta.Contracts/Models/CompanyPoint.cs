@@ -14,13 +14,13 @@ namespace FIAP.Reconecta.Contracts.Models
         public int Pontos { get; set; }
 
         [Column("ponto_empresa_data_criacao")]
-        public DateTime DataCriacao { get; set; }
+        public DateTime CreationDate { get; set; }
 
         [Column("ponto_empresa_data_atualizacao")]
-        public DateTime DataAtualizacao { get; set; }
+        public DateTime UpdateDate { get; set; }
 
         [Column("empresa_id")]
-        public int EmpresaId { get; set; }
+        public int CompanyId { get; set; }
 
         public Company? Empresa { get; set; }
     }

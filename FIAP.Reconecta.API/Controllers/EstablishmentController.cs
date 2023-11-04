@@ -57,10 +57,11 @@ namespace FIAP.Reconecta.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var company = (Company)dto;
-            company.Id = id;
+            var establishment = (Company)dto;
+            establishment.Id = id;
+            establishment.Type = 2;
 
-            _establishmentService.Update(company);
+            _establishmentService.Update(establishment);
             return NoContent();
         }
 

@@ -28,7 +28,7 @@ namespace FIAP.Reconecta.Application.Middlewares
                 {
                     AppException => (int)HttpStatusCode.BadRequest,// custom application error
                     KeyNotFoundException => (int)HttpStatusCode.NotFound,// not found error
-                    _ => (int)HttpStatusCode.InternalServerError,// unhandled error
+                    _ => (int)HttpStatusCode.BadRequest,// unhandled error
                 };
                 var result = JsonSerializer.Serialize(new { error?.Message, InnerExceptionMessage = error?.InnerException?.Message });
                 await response.WriteAsync(result);

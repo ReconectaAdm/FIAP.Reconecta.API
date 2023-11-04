@@ -24,18 +24,40 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            #region Company
+
+            modelBuilder.Entity<CompanyFavorite>().HasKey(k => new { k.EstablishmentId, k.OrganizationId });
+            modelBuilder.Entity<CompanyResidue>().HasKey(k => new { k.ResidueId, k.OrganizationId });
 
             modelBuilder.Entity<Company>()
              .HasMany(c => c.Addresses)
-             .WithOne(s => s.Empresa)
-             .HasForeignKey(k => k.EmpresaId);
-
-            modelBuilder.Entity<CompanyFavorite>().HasKey(k => new { k.EstablishmentId, k.OrganizationId });
+             .WithOne(s => s.Company)
+             .HasForeignKey(k => k.CompanyId);
 
             modelBuilder.Entity<Company>()
-             .HasMany(cf => cf.Favorites)
+             .HasMany(c => c.Favorites)
              .WithOne(cf => cf.Organization)
              .HasForeignKey(k => k.OrganizationId);
+
+            modelBuilder.Entity<Company>()
+             .HasMany(c => c.Residues)
+             .WithOne(cr => cr.Organization)
+             .HasForeignKey(k => k.OrganizationId);
+
+            modelBuilder.Entity<Company>()
+              .HasOne(c => c.Availability)
+              .WithOne(ca => ca.Company);
+
+            #endregion
+
+            #region Collect
+
+            modelBuilder.Entity<Collect>()
+                .HasMany(c => c.Residues)
+                .WithOne(r => r.Collect)
+                .HasForeignKey(k => k.CollectId);
+
+            #endregion
         }
 
     }

@@ -19,7 +19,7 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
             return dataBaseContext.Residue;
         }
 
-        public Residue GetById(int id)
+        public Residue? GetById(int id)
         {
             return dataBaseContext.Residue.AsNoTracking().FirstOrDefault(t => t.Id == id);
         }

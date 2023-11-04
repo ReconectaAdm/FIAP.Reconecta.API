@@ -8,15 +8,15 @@ namespace FIAP.Reconecta.Contracts.Models
         public int UsuarioId { get; set; }
 
         [Column("empresa_id")]
-        public int EmpresaId { get; set; }
+        public int CompanyId { get; set; }
 
         [Column("role_id")]
         public int RoleId { get; set; }
 
         [Column("usuario_empresa_data_criacao")]
-        public DateTime DataCriacao { get; set; }
+        public DateTime CreationDate { get; set; }
 
         [Column("usuario_empresa_data_atualizacao")]
-        public DateTime DataAtualizacao { get; set; }
+        public DateTime UpdateDate { get; set; }
     }
 }

@@ -8,21 +8,21 @@ namespace FIAP.Reconecta.Contracts.Models
         [Column("endereco_empresa_id")]
         public int Id { get; set; }
         [Column("logradouro")]
-        public string? Logradouro { get; set; }
+        public string? Street { get; set; }
         [Column("numero")]
-        public string? Numero { get; set; }
+        public string? Number { get; set; }
         [Column("cidade")]
-        public string? Cidade { get; set; }
+        public string? City { get; set; }
         [Column("estado")]
-        public string? Estado { get; set; }
+        public string? State { get; set; }
         [Column("cep")]
-        public string? Cep { get; set; }
+        public string? PostalCode { get; set; }
         [Column("empresa_id")]
-        public int EmpresaId { get; set; }
+        public int CompanyId { get; set; }
         [Column("endereco_empresa_data_criacao")]
-        public DateTime DataCriacao { get; set; }
+        public DateTime CreationDate { get; set; }
         [Column("endereco_empresa_data_atualizacao")]
-        public DateTime DataAtualizacao { get; set; }
-        public Company? Empresa { get; set; }
+        public DateTime UpdateDate { get; set; }
+        public Company? Company { get; set; }
     }
 }

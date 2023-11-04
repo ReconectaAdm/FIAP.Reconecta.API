@@ -1,27 +1,28 @@
-﻿using FIAP.Reconecta.Contracts.Models;
+﻿using FIAP.Reconecta.Contracts.DTO.Collect.Residue;
+using FIAP.Reconecta.Contracts.Models;
 
 namespace FIAP.Reconecta.Contracts.DTO.Collect
 {
     public class PostCollect
     {
-        public DateTime Data { get; set; }
-        public int StatusColeta { get; set; }
-        public DateTime DataCriacao { get; set; }
-        public DateTime DataAtualizacao { get; set; }
-        public int EstabelecimentoId { get; set; }
-        public int OrganizacaoId { get; set; }
-        public decimal ValorColeta { get; set; }
+        public DateTime Date { get; set; }
+        public int Status { get; set; }
+        public int EstablishmentId { get; set; }
+        public int OrganizationId { get; set; }
+        public decimal Value { get; set; }
+        public string? Hour { get; set; }
+        public IEnumerable<PostCollectResidue>? Residues { get; set; }
 
         public static explicit operator Models.Collect(PostCollect collect)
             => new()
             {
-                Data = collect.Data,
-                StatusColeta = collect.StatusColeta,
-                DataCriacao = collect.DataCriacao,
-                DataAtualizacao = collect.DataAtualizacao,
-                EstabelecimentoId = collect.EstabelecimentoId,
-                OrganizacaoId = collect.OrganizacaoId,
-                ValorColeta = collect.ValorColeta
+                Date = collect.Date,
+                Status = collect.Status,
+                EstablishmentId = collect.EstablishmentId,
+                OrganizationId = collect.OrganizationId,
+                Value = collect.Value,
+                Hour = collect.Hour,
+                Residues = collect.Residues?.Select(residue => (CollectResidue)residue).ToArray()
             };
     }
 }

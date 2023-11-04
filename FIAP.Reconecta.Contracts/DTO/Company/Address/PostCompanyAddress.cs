@@ -2,20 +2,20 @@
 {
     public class PostCompanyAddress
     {
-        public string? Logradouro { get; set; }
-        public string? Numero { get; set; }
-        public string? Cidade { get; set; }
-        public string? Estado { get; set; }
-        public string? Cep { get; set; }
+        public string? Street { get; set; }
+        public string? Number { get; set; }
+        public string? City { get; set; }
+        public string? State { get; set; }
+        public string? PostalCode { get; set; }
 
         public static explicit operator Models.CompanyAddress(PostCompanyAddress companyAddress)
             => new()
             {
-                Logradouro = companyAddress.Logradouro,
-                Numero = companyAddress.Numero,
-                Cidade = companyAddress.Cidade,
-                Estado = companyAddress.Estado,
-                Cep = companyAddress.Cep,
+                Street = companyAddress.Street,
+                Number = companyAddress.Number,
+                City = companyAddress.City,
+                State = companyAddress.State,
+                PostalCode = companyAddress.PostalCode
             };
     }
 }

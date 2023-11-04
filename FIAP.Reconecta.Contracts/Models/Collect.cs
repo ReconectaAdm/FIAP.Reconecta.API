@@ -13,29 +13,33 @@ namespace FIAP.Reconecta.Contracts.Models
         public int Id { get; set; }
 
         [Display(Name = "Data e hora da coleta")]
-        [Column("coleta_data")]
-        public DateTime Data { get; set; }
 
         [Column("status_coleta")]
-        public int StatusColeta { get; set; }
+        public int Status { get; set; }
 
-        [Column("valor_coleta")]
-        public decimal ValorColeta { get; set; }
+        [Column("coleta_valor")]
+        public decimal Value { get; set; }
 
         [Column("coleta_data_criacao")]
-        public DateTime DataCriacao { get; set; }
+        public DateTime CreationDate { get; set; }
 
         [Column("coleta_data_atualizacao")]
-        public DateTime DataAtualizacao { get; set; }
+        public DateTime UpdateDate { get; set; }
 
         [Column("estabelecimento_id")]
-        public int EstabelecimentoId { get; set; }
+        public int EstablishmentId { get; set; }
 
         [Column("organizacao_id")]
-        public int OrganizacaoId { get; set; }
+        public int OrganizationId { get; set; }
+
+        [Column("coleta_data")]
+        public DateTime Date { get; set; }
+
+        [Column("coleta_hora")]
+        public string? Hour { get; set; }
 
         //public Company? Estabelecimento { get; set; }
-        //public Company? Organizacao { get; set; }
-        //public IList<Residue>? Residuos { get; set; }
+        public Company? Organization { get; set; }
+        public ICollection<CollectResidue>? Residues { get; set; }
     }
 }

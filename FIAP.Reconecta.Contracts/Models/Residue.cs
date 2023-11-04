@@ -26,13 +26,17 @@ namespace FIAP.Reconecta.Contracts.Models
 
         [Column("residuo_data_criacao")]
         [NotMapped]
-        public DateTime DataCriacao { get; set; }
+        public DateTime CreationDate { get; set; }
 
         [Column("residuo_data_atualizacao")]
-        public DateTime DataAtualizacao { get; set; }
+        public DateTime UpdateDate { get; set; }
+
+        [Column("organizacao_id")]
+        public int OrganizationId { get; set; }
+        
+        public Company? Organization { get; set; }
 
         //public IList<Collect>? Coletas { get; set; }
         //public IList<Company>? Estabelecimentos { get; set; }
-        //public IList<Company>? Organizacoes { get; set; }
     }
 }

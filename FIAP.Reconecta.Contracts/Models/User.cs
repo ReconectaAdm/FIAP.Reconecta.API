@@ -17,9 +17,9 @@ namespace FIAP.Reconecta.Contracts.Models
         public string? Senha { get; set; }
 
         [Column("usuario_data_criacao")]
-        public DateTime DataCriacao { get; set; }
+        public DateTime CreationDate { get; set; }
 
         [Column("usuario_data_atualizacao")]
-        public DateTime DataAtualizacao { get; set; }
+        public DateTime UpdateDate { get; set; }
     }
 }

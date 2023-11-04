@@ -23,6 +23,8 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
         public Company? GetById(int id)
         {
             return dataBaseContext.Company.AsNoTracking()
+                .Include(c => c.Residues)
+                .Include(c => c.Availability)
                 .FirstOrDefault(e => e.Id == id);
         }
 
@@ -30,10 +32,6 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
         {
             dataBaseContext.Company.Add(company);
             dataBaseContext.SaveChanges();
-        }
-        public void AddRange(IEnumerable<Company> entities)
-        {
-            throw new NotImplementedException();
         }
 
         public void Update(Company company)

@@ -16,8 +16,7 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
 
         public IEnumerable<Collect> Get()
         {
-            return dataBaseContext.Collect
-                    .ToList();
+            return dataBaseContext.Collect.Include(c => c.Residues);
         }
 
         public Collect? GetById(int id)

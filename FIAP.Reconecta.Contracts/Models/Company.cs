@@ -35,12 +35,11 @@ namespace FIAP.Reconecta.Contracts.Models
         public DateTime CreationDate { get; set; }
 
         [Column("empresa_data_atualizacao")]
-        public DateTime UpdatedDate { get; set; }
+        public DateTime UpdateDate { get; set; }
 
+        public CompanyAvailability? Availability { get; set; } 
+        public ICollection<Residue>? Residues { get; set; }
         public ICollection<CompanyFavorite> Favorites { get; set; } = new List<CompanyFavorite>();
-        
         public ICollection<CompanyAddress>? Addresses { get; set; }
-        //public IEnumerable<Collection>? collections { get; set; }
-        //public IEnumerable<Residue>? Residuos { get; set; }
     }
 }
