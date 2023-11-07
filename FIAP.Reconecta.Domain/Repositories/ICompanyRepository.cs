@@ -1,4 +1,4 @@
-﻿using FIAP.Reconecta.Contracts.Models;
+﻿using FIAP.Reconecta.Contracts.Models.Company;
 
 namespace FIAP.Reconecta.Domain.Repositories
 {

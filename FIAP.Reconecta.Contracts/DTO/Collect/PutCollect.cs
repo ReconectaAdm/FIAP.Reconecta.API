@@ -8,7 +8,7 @@
         public int OrganizationId { get; set; }
         public decimal Value { get; set; }
 
-        public static explicit operator Models.Collect(PutCollect collect) 
+        public static explicit operator Models.Collect.Collect(PutCollect collect) 
             => new()
             {
                 Date = collect.Date,

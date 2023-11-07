@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FIAP.Reconecta.Contracts.Models
+namespace FIAP.Reconecta.Contracts.Models.Company
 {
     [Table("t_endereco_empresa")]
     public class CompanyAddress

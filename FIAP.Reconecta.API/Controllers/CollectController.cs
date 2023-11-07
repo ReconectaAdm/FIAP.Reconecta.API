@@ -1,5 +1,6 @@
 ﻿using FIAP.Reconecta.Contracts.DTO.Collect;
-using FIAP.Reconecta.Contracts.Models;
+using FIAP.Reconecta.Contracts.Enums;
+using FIAP.Reconecta.Contracts.Models.Collect;
 using FIAP.Reconecta.Domain.Services;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -11,17 +12,21 @@ namespace FIAP.Reconecta.API.Controllers
     public class CollectController : ControllerBase
     {
         private readonly ICollectService _collectService;
+        private readonly ICollectRatingService _collectRatingService;
 
-        public CollectController(ICollectService collectService)
+        public CollectController(ICollectService collectService, ICollectRatingService collectRatingService)
         {
             _collectService = collectService;
+            _collectRatingService = collectRatingService;
         }
 
+        #region Base
+
         [HttpGet]
-        public ActionResult<IEnumerable<Collect>> Get()
+        public ActionResult<IEnumerable<Collect>> Get([FromQuery] CollectStatus? status = null)
         {
-            var lista = _collectService.Get();
-            return Ok(lista);
+            var collects = _collectService.Get(status);
+            return Ok(collects);
         }
 
         [HttpGet("{id}")]
@@ -75,6 +80,25 @@ namespace FIAP.Reconecta.API.Controllers
                 return NotFound();
         }
 
+        #endregion
+
+        #region Rating
+
+        [HttpGet("rating")]
+        public ActionResult<CollectRating> GetRatings()
+        {
+            var ratings = _collectRatingService.Get();
+            return Ok(ratings);
+        }
+
+        [HttpGet("rating/summary")]
+        public ActionResult<CollectRating> GetRatingSummary()
+        {
+            var ratings = _collectRatingService.Get();
+            return Ok(ratings);
+        }
+
+        #endregion
     }
 }
 

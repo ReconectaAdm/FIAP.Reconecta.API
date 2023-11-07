@@ -1,5 +1,6 @@
 ﻿using FIAP.Reconecta.Contracts.DTO.Company;
-using FIAP.Reconecta.Contracts.Models;
+using FIAP.Reconecta.Contracts.Enums;
+using FIAP.Reconecta.Contracts.Models.Company;
 using FIAP.Reconecta.Domain.Services;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -43,7 +44,7 @@ namespace FIAP.Reconecta.API.Controllers
                 return BadRequest(ModelState);
 
             var establishment = (Company)dto;
-            establishment.Type = 2;
+            establishment.Type = CompanyType.ESTABLISHMENT;
 
             _establishmentService.Add(establishment);
 
@@ -59,7 +60,7 @@ namespace FIAP.Reconecta.API.Controllers
 
             var establishment = (Company)dto;
             establishment.Id = id;
-            establishment.Type = 2;
+            establishment.Type = CompanyType.ESTABLISHMENT;
 
             _establishmentService.Update(establishment);
             return NoContent();

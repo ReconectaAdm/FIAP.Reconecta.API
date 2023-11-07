@@ -1,5 +1,5 @@
 ﻿using FIAP.Reconecta.Contracts.DTO.Residue;
-using FIAP.Reconecta.Contracts.Models;
+using FIAP.Reconecta.Contracts.Models.Residue;
 using FIAP.Reconecta.Domain.Services;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;

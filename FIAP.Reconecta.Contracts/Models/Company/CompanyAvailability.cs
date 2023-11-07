@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FIAP.Reconecta.Contracts.Models
+namespace FIAP.Reconecta.Contracts.Models.Company
 {
     [Table("t_disponibilidade_empresa")]
     public class CompanyAvailability

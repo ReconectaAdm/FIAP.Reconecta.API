@@ -1,4 +1,4 @@
-﻿using FIAP.Reconecta.Contracts.Models;
+﻿using FIAP.Reconecta.Contracts.Models.Residue;
 using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Infrastructure.Data.Repositories.Context;
 using Microsoft.EntityFrameworkCore;

@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FIAP.Reconecta.Contracts.Models.Company;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FIAP.Reconecta.Contracts.Models
+namespace FIAP.Reconecta.Contracts.Models.Collect
 {
     [Table("t_coleta")]
     public class Collect
@@ -38,8 +39,9 @@ namespace FIAP.Reconecta.Contracts.Models
         [Column("coleta_hora")]
         public string? Hour { get; set; }
 
-        //public Company? Estabelecimento { get; set; }
-        public Company? Organization { get; set; }
+        public Establishment? Establishment { get; set; }
+        public Organization? Organization { get; set; }
         public ICollection<CollectResidue>? Residues { get; set; }
+        public CollectRating? Rating { get; set; }
     }
 }

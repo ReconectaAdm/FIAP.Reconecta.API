@@ -1,4 +1,5 @@
-﻿using FIAP.Reconecta.Contracts.Models;
+﻿using FIAP.Reconecta.Contracts.Enums;
+using FIAP.Reconecta.Contracts.Models.Company;
 using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Infrastructure.Data.Repositories.Context;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,9 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
             return dataBaseContext.Company.AsNoTracking()
                 .Include(c => c.Residues)
                 .Include(c => c.Availability)
+                .Include(c => c.Points)
+                .Include(c => c.Collects)!
+                    .ThenInclude(cl => cl.Residues)
                 .FirstOrDefault(e => e.Id == id);
         }
 
@@ -53,7 +57,7 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
 
         public IEnumerable<Company> GetOrganizations(int establishmentId = 0)
         {
-            return dataBaseContext.Company.Where(company => company.Type == 1)
+            return dataBaseContext.Company.Where(company => company.Type == CompanyType.ORGANIZATION)
                 .Include(comp => comp.Favorites.Where(f => f.EstablishmentId == establishmentId));
         }
 

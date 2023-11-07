@@ -1,5 +1,5 @@
 ﻿using FIAP.Reconecta.Contracts.DTO.Collect.Residue;
-using FIAP.Reconecta.Contracts.Models;
+using FIAP.Reconecta.Contracts.Models.Collect;
 
 namespace FIAP.Reconecta.Contracts.DTO.Collect
 {
@@ -13,7 +13,7 @@ namespace FIAP.Reconecta.Contracts.DTO.Collect
         public string? Hour { get; set; }
         public IEnumerable<PostCollectResidue>? Residues { get; set; }
 
-        public static explicit operator Models.Collect(PostCollect collect)
+        public static explicit operator Models.Collect.Collect(PostCollect collect)
             => new()
             {
                 Date = collect.Date,

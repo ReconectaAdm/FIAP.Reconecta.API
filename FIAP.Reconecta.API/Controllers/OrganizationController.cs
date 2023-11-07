@@ -1,5 +1,6 @@
 ﻿using FIAP.Reconecta.Contracts.DTO.Company;
-using FIAP.Reconecta.Contracts.Models;
+using FIAP.Reconecta.Contracts.Enums;
+using FIAP.Reconecta.Contracts.Models.Company;
 using FIAP.Reconecta.Domain.Services;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -47,7 +48,7 @@ namespace FIAP.Reconecta.API.Controllers
             }
 
             var organization = (Company)dto;
-            organization.Type = 1;
+            organization.Type = CompanyType.ORGANIZATION;
 
             _organizationService.Add(organization);
 
@@ -65,7 +66,7 @@ namespace FIAP.Reconecta.API.Controllers
 
             var organization = (Company)dto;
             organization.Id = id;
-            organization.Type = 1;
+            organization.Type = CompanyType.ORGANIZATION;
 
             _organizationService.Update(organization);
             return NoContent();

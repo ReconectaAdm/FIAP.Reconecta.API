@@ -1,6 +1,6 @@
 ﻿using FIAP.Reconecta.Contracts.DTO.Company.Address;
 using FIAP.Reconecta.Contracts.DTO.Company.Availability;
-using FIAP.Reconecta.Contracts.Models;
+using FIAP.Reconecta.Contracts.Models.Company;
 
 namespace FIAP.Reconecta.Contracts.DTO.Company
 {
@@ -13,7 +13,7 @@ namespace FIAP.Reconecta.Contracts.DTO.Company
         public IEnumerable<PutCompanyAddress>? Addresses { get; set; }
         public PutCompanyAvailability? Availability { get; set; }
 
-        public static explicit operator Models.Company(PutCompany company)
+        public static explicit operator Models.Company.Company(PutCompany company)
             => new()
             {
                 Cnpj = company.Cnpj,

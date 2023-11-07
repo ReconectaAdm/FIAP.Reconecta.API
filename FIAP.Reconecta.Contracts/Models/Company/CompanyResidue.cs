@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FIAP.Reconecta.Contracts.Models
+namespace FIAP.Reconecta.Contracts.Models.Company
 {
     [Table("t_residuo_empresa")]
     public class CompanyResidue
@@ -22,7 +22,7 @@ namespace FIAP.Reconecta.Contracts.Models
         [Column("empresa_id")]
         public int OrganizationId { get; set; }
 
-        public Residue? Residue { get; set; }
+        public Residue.Residue? Residue { get; set; }
         public Company? Organization { get; set; }
     }
 }

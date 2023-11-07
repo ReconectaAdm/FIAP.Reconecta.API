@@ -1,4 +1,4 @@
-﻿using FIAP.Reconecta.Contracts.Models;
+﻿using FIAP.Reconecta.Contracts.Models.Company;
 using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Domain.Services;
 

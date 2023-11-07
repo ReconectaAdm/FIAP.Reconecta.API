@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FIAP.Reconecta.Contracts.Models
+namespace FIAP.Reconecta.Contracts.Models.Residue
 {
     [Table("t_residuo")]
     public class Residue
@@ -33,8 +33,8 @@ namespace FIAP.Reconecta.Contracts.Models
 
         [Column("organizacao_id")]
         public int OrganizationId { get; set; }
-        
-        public Company? Organization { get; set; }
+
+        public Company.Company? Organization { get; set; }
 
         //public IList<Collect>? Coletas { get; set; }
         //public IList<Company>? Estabelecimentos { get; set; }

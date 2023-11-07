@@ -4,9 +4,11 @@ namespace FIAP.Reconecta.Contracts.Enums
 {
     public enum CompanyType
     {
+        [Description("Empresa")]
+        BASE = 0,
         [Description("Organização")]
-        Organization = 1,
+        ORGANIZATION = 1,
         [Description("Estabelecimento")]
-        Establishment = 2
+        ESTABLISHMENT = 2
     }
 }

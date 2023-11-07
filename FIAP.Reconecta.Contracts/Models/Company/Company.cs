@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FIAP.Reconecta.Contracts.Enums;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FIAP.Reconecta.Contracts.Models
+namespace FIAP.Reconecta.Contracts.Models.Company
 {
     [Table("t_empresa")]
     public class Company
@@ -26,7 +27,7 @@ namespace FIAP.Reconecta.Contracts.Models
 
         [Display(Name = "Tipo de empresa")]
         [Column("empresa_tipo")]
-        public int Type { get; set; }
+        public CompanyType Type { get; set; }
 
         [Column("razao_social")]
         public string? CorporateReason { get; set; }
@@ -37,9 +38,11 @@ namespace FIAP.Reconecta.Contracts.Models
         [Column("empresa_data_atualizacao")]
         public DateTime UpdateDate { get; set; }
 
-        public CompanyAvailability? Availability { get; set; } 
-        public ICollection<Residue>? Residues { get; set; }
+        public CompanyAvailability? Availability { get; set; }
+        public ICollection<Residue.Residue>? Residues { get; set; }
         public ICollection<CompanyFavorite> Favorites { get; set; } = new List<CompanyFavorite>();
         public ICollection<CompanyAddress>? Addresses { get; set; }
+        public ICollection<CompanyPoint>? Points { get; set; }
+        public ICollection<Collect.Collect>? Collects { get; set; }
     }
 }

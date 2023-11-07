@@ -6,7 +6,7 @@
         public string? UnidadeMedida { get; set; }
         public int Tipo { get; set; }
 
-        public static explicit operator Models.Residue(PutResidue residue)
+        public static explicit operator Models.Residue.Residue(PutResidue residue)
             => new() { Nome = residue.Nome, UnidadeMedida = residue.UnidadeMedida, Tipo = residue.Tipo };
     }
 }

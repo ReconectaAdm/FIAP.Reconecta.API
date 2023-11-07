@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FIAP.Reconecta.Contracts.Models
+namespace FIAP.Reconecta.Contracts.Models.Company
 {
     [Table("t_ponto_empresa")]
     public class CompanyPoint
@@ -11,7 +11,7 @@ namespace FIAP.Reconecta.Contracts.Models
         public int Id { get; set; }
 
         [Column("pontos")]
-        public int Pontos { get; set; }
+        public int Point { get; set; }
 
         [Column("ponto_empresa_data_criacao")]
         public DateTime CreationDate { get; set; }
@@ -22,6 +22,6 @@ namespace FIAP.Reconecta.Contracts.Models
         [Column("empresa_id")]
         public int CompanyId { get; set; }
 
-        public Company? Empresa { get; set; }
+        public Company? Company { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using FIAP.Reconecta.Contracts.Models;
+﻿using FIAP.Reconecta.Contracts.Enums;
+using FIAP.Reconecta.Contracts.Models.Collect;
 using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Infrastructure.Data.Repositories.Context;
 using Microsoft.EntityFrameworkCore;
@@ -16,7 +17,22 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
 
         public IEnumerable<Collect> Get()
         {
-            return dataBaseContext.Collect.Include(c => c.Residues);
+            return dataBaseContext.Collect
+                 .Include(c => c.Residues)
+                 .Include(c => c.Establishment)
+                     .ThenInclude(e => e.Addresses)
+                 .Include(c => c.Organization)
+                     .ThenInclude(o => o.Addresses);
+        }
+
+        public IEnumerable<Collect> Get(CollectStatus status)
+        {
+            return dataBaseContext.Collect.Where(c => c.Status == (int)status)
+                .Include(c => c.Residues)
+                .Include(c => c.Establishment)
+                    .ThenInclude(e => e.Addresses)
+                .Include(c => c.Organization)
+                    .ThenInclude(o => o.Addresses);
         }
 
         public Collect? GetById(int id)
