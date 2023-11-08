@@ -19,6 +19,8 @@ namespace FIAP.Reconecta.Contracts.Models.Company
         public string? PostalCode { get; set; }
         [Column("empresa_id")]
         public int CompanyId { get; set; }
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column("endereco_empresa_data_criacao")]
         public DateTime CreationDate { get; set; }
         [Column("endereco_empresa_data_atualizacao")]

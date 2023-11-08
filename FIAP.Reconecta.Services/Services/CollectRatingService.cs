@@ -6,8 +6,15 @@ namespace FIAP.Reconecta.Application.Services
 {
     public class CollectRatingService : BaseService<CollectRating>, ICollectRatingService
     {
+        private readonly ICollectRatingRepository _collectionRepository;
         public CollectRatingService(ICollectRatingRepository collectionRepository) : base(collectionRepository)
         {
+            _collectionRepository = collectionRepository;
+        }
+
+        public CollectRating GetSummary(int organizationId)
+        {
+            return _collectionRepository.GetSummary(organizationId) ?? new CollectRating();
         }
     }
 }

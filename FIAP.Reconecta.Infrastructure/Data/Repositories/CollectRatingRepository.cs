@@ -1,5 +1,4 @@
 ﻿using FIAP.Reconecta.Contracts.Models.Collect;
-using FIAP.Reconecta.Contracts.Models.Residue;
 using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Infrastructure.Data.Repositories.Context;
 using Microsoft.EntityFrameworkCore;
@@ -19,12 +18,26 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
         {
             return dataBaseContext.CollectRating
                 .Include(cr => cr.Collect)
-                    .ThenInclude(c => c.Establishment);
+                    .ThenInclude(c => c!.Establishment);
         }
 
         public CollectRating? GetById(int id)
         {
             return dataBaseContext.CollectRating.AsNoTracking().FirstOrDefault(t => t.CollectId == id);
+        }
+
+        public CollectRating? GetSummary(int organizationId)
+        {
+            var summary = dataBaseContext.CollectRating
+                .Include(cr => cr.Collect)
+                .Where(cr => cr.Collect!.OrganizationId == organizationId)
+                .GroupBy(c => new { c.Collect!.OrganizationId })
+                .Select(gcr => new CollectRating { 
+                    Punctuality = Math.Round(gcr.Sum(cr => cr.Punctuality) / gcr.Count(), 2), 
+                    Satisfaction = Math.Round(gcr.Sum(cr => cr.Satisfaction) / gcr.Count(), 2)
+                });
+
+            return summary.FirstOrDefault();
         }
 
         public void Add(CollectRating residue)

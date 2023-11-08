@@ -11,15 +11,14 @@ namespace FIAP.Reconecta.Contracts.DTO.Company.Address
         public string? State { get; set; }
         public string? PostalCode { get; set; }
 
-        public static explicit operator CompanyAddress(PutCompanyAddress companyAddress)
-            => new()
-            {
-                Id = companyAddress.Id,
-                Street = companyAddress.Street,
-                Number = companyAddress.Number,
-                City = companyAddress.City,
-                State = companyAddress.State,
-                PostalCode = companyAddress.PostalCode
-            };
+        public static explicit operator CompanyAddress(PutCompanyAddress companyAddress) => new()
+        {
+            Id = companyAddress.Id,
+            Street = companyAddress.Street,
+            Number = companyAddress.Number,
+            City = companyAddress.City,
+            State = companyAddress.State,
+            PostalCode = companyAddress.PostalCode
+        };
     }
 }

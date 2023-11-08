@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace FIAP.Reconecta.Contracts.Models.Company
+﻿namespace FIAP.Reconecta.Contracts.Models.Company
 {
     public class Establishment : Company
     {

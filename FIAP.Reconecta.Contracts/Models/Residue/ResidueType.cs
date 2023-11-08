@@ -10,6 +10,6 @@ namespace FIAP.Reconecta.Contracts.Models.Residue
         [Column("tipo_residuo_id")]
         public int Id { get; set; }
         [Column("tipo_residuo_nome")]
-        public string? Nome { get; set; }
+        public string? Name { get; set; }
     }
 }

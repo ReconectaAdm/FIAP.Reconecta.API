@@ -1,4 +1,5 @@
 ﻿using FIAP.Reconecta.Contracts.DTO.Collect;
+using FIAP.Reconecta.Contracts.DTO.Collect.Rating;
 using FIAP.Reconecta.Contracts.Enums;
 using FIAP.Reconecta.Contracts.Models.Collect;
 using FIAP.Reconecta.Domain.Services;
@@ -32,10 +33,10 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet("{id}")]
         public ActionResult<Collect> Get([FromRoute] int id)
         {
-            var collectionModel = _collectService.GetById(id);
+            var collection = _collectService.GetById(id);
 
-            if (collectionModel != null)
-                return Ok(collectionModel);
+            if (collection != null)
+                return Ok(collection);
             else
                 return NotFound();
         }
@@ -91,13 +92,29 @@ namespace FIAP.Reconecta.API.Controllers
             return Ok(ratings);
         }
 
-        [HttpGet("rating/summary")]
-        public ActionResult<CollectRating> GetRatingSummary()
+        [HttpGet("rating/{id}")]
+        public ActionResult<CollectRating> GetRatingById(int id)
         {
-            var ratings = _collectRatingService.Get();
+            var rating = _collectRatingService.GetById(id);
+            return Ok(rating);
+        }
+
+        [HttpGet("rating/summary/{id}")]
+        public ActionResult<CollectRating> GetRatingSummary(int id)
+        {
+            var ratings = _collectRatingService.GetSummary(id);
             return Ok(ratings);
         }
 
+        [HttpPost("rating")]
+        public ActionResult<CollectRating> PostRating(PostCollectRating dto)
+        {
+            var collectRating = (CollectRating)dto;
+            _collectRatingService.Add(collectRating);
+
+            var location = new Uri(Request.GetEncodedUrl() + "/" + collectRating.CollectId);
+            return Created(location, collectRating);
+        }
         #endregion
     }
 }

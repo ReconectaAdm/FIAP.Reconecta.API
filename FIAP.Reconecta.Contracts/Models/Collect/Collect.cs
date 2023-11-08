@@ -21,6 +21,7 @@ namespace FIAP.Reconecta.Contracts.Models.Collect
         [Column("coleta_valor")]
         public decimal Value { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column("coleta_data_criacao")]
         public DateTime CreationDate { get; set; }
 

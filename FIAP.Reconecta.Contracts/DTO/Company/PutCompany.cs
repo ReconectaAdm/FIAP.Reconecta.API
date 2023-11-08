@@ -13,15 +13,14 @@ namespace FIAP.Reconecta.Contracts.DTO.Company
         public IEnumerable<PutCompanyAddress>? Addresses { get; set; }
         public PutCompanyAvailability? Availability { get; set; }
 
-        public static explicit operator Models.Company.Company(PutCompany company)
-            => new()
-            {
-                Cnpj = company.Cnpj,
-                Description = company.Description,
-                Name = company.Name,
-                CorporateReason = company.CorporateReason,
-                Addresses = company.Addresses?.Select(address => (CompanyAddress)address).ToArray(),
-                Availability = (CompanyAvailability)company.Availability!
-            };
+        public static explicit operator Models.Company.Company(PutCompany company) => new()
+        {
+            Cnpj = company.Cnpj,
+            Description = company.Description,
+            Name = company.Name,
+            CorporateReason = company.CorporateReason,
+            Addresses = company.Addresses?.Select(address => (CompanyAddress)address).ToArray(),
+            Availability = company.Availability is not null ? (CompanyAvailability)company.Availability : null
+        };
     }
 }

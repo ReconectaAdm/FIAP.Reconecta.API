@@ -14,18 +14,18 @@ namespace FIAP.Reconecta.Contracts.Models.Residue
 
         [Display(Name = "Nome tipo de residuo")]
         [Column("residuo_nome")]
-        public string? Nome { get; set; }
+        public string? Name { get; set; }
 
         [Display(Name = "Unidade de Medida do resíduo")]
         [Column("unidade_medida")]
-        public string? UnidadeMedida { get; set; }
+        public string? UnitOfMeasure { get; set; }
 
         [Display(Name = "Categoria do resíduo")]
         [Column("tipo_residuo_id")]
-        public int Tipo { get; set; }
+        public int Type { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column("residuo_data_criacao")]
-        [NotMapped]
         public DateTime CreationDate { get; set; }
 
         [Column("residuo_data_atualizacao")]

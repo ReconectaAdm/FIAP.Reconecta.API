@@ -10,6 +10,8 @@ namespace FIAP.Reconecta.Contracts.Models.Company
         [Column("valor_pago")]
         public decimal AmountPaid { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+
         [Column("residuo_empresa_data_criacao")]
         public DateTime CreationDate { get; set; }
 

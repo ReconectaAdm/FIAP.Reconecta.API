@@ -13,16 +13,15 @@ namespace FIAP.Reconecta.Contracts.DTO.Collect
         public string? Hour { get; set; }
         public IEnumerable<PostCollectResidue>? Residues { get; set; }
 
-        public static explicit operator Models.Collect.Collect(PostCollect collect)
-            => new()
-            {
-                Date = collect.Date,
-                Status = collect.Status,
-                EstablishmentId = collect.EstablishmentId,
-                OrganizationId = collect.OrganizationId,
-                Value = collect.Value,
-                Hour = collect.Hour,
-                Residues = collect.Residues?.Select(residue => (CollectResidue)residue).ToArray()
-            };
+        public static explicit operator Models.Collect.Collect(PostCollect collect) => new()
+        {
+            Date = collect.Date,
+            Status = collect.Status,
+            EstablishmentId = collect.EstablishmentId,
+            OrganizationId = collect.OrganizationId,
+            Value = collect.Value,
+            Hour = collect.Hour,
+            Residues = collect.Residues?.Select(residue => (CollectResidue)residue).ToArray()
+        };
     }
 }

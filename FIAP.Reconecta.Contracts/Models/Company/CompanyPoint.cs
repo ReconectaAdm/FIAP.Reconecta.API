@@ -13,6 +13,8 @@ namespace FIAP.Reconecta.Contracts.Models.Company
         [Column("pontos")]
         public int Point { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+
         [Column("ponto_empresa_data_criacao")]
         public DateTime CreationDate { get; set; }
 

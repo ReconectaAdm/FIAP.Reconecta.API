@@ -32,6 +32,7 @@ namespace FIAP.Reconecta.Contracts.Models.Company
         [Column("razao_social")]
         public string? CorporateReason { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column("empresa_data_criacao")]
         public DateTime CreationDate { get; set; }
 
