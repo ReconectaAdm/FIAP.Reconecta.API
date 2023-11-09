@@ -13,12 +13,25 @@ namespace FIAP.Reconecta.Application.Services
             _collectionRepository = collectionRepository;
         }
 
-        public IEnumerable<Collect> Get(CollectStatus? status = null)
+        public IEnumerable<Collect> Get(CompanyType companyType, int companyId, CollectStatus? status = null)
         {
             if (status is null)
-                return _collectionRepository.Get();
+            {
+                if(companyType == CompanyType.ORGANIZATION)
+                    return _collectionRepository.GetByOrganizationId(organizationId: companyId);
+                
+                else
+                    return _collectionRepository.GetByEstablishmentId(establishmentId: companyId);
+            }
+
             else
-                return _collectionRepository.Get(status.Value);
+            {
+                if (companyType == CompanyType.ORGANIZATION)
+                    return _collectionRepository.GetByOrganizationId(organizationId: companyId, status: status.Value);
+
+                else
+                    return _collectionRepository.GetByEstablishmentId(establishmentId: companyId, status: status.Value);
+            }
         }
     }
 }

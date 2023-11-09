@@ -5,6 +5,6 @@ namespace FIAP.Reconecta.Domain.Services
 {
     public interface ICollectService : IBaseService<Collect>
     {
-        IEnumerable<Collect> Get(CollectStatus? status = null);
+        IEnumerable<Collect> Get(CompanyType companyType, int companyId, CollectStatus? status = null);
     }
 }

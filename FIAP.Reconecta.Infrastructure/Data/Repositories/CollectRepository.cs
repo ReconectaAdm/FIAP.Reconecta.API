@@ -42,6 +42,50 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
             return collection;
         }
 
+        public IEnumerable<Collect> GetByOrganizationId(int organizationId)
+        {
+            return dataBaseContext.Collect
+                 .Where(c => c.OrganizationId == organizationId)
+                 .Include(c => c.Residues)
+                 .Include(c => c.Establishment)
+                     .ThenInclude(e => e.Addresses)
+                 .Include(c => c.Organization)
+                     .ThenInclude(o => o.Addresses);
+        }
+
+        public IEnumerable<Collect> GetByOrganizationId(int organizationId, CollectStatus status)
+        {
+            return dataBaseContext.Collect
+                 .Where(c => c.OrganizationId == organizationId && c.Status == (int)status)
+                 .Include(c => c.Residues)
+                 .Include(c => c.Establishment)
+                     .ThenInclude(e => e.Addresses)
+                 .Include(c => c.Organization)
+                     .ThenInclude(o => o.Addresses);
+        }
+
+        public IEnumerable<Collect> GetByEstablishmentId(int establishmentId)
+        {
+            return dataBaseContext.Collect
+                 .Where(c => c.EstablishmentId == establishmentId)
+                 .Include(c => c.Residues)
+                 .Include(c => c.Establishment)
+                     .ThenInclude(e => e.Addresses)
+                 .Include(c => c.Organization)
+                     .ThenInclude(o => o.Addresses);
+        }
+
+        public IEnumerable<Collect> GetByEstablishmentId(int establishmentId, CollectStatus status)
+        {
+            return dataBaseContext.Collect
+                 .Where(c => c.EstablishmentId == establishmentId && c.Status == (int)status)
+                 .Include(c => c.Residues)
+                 .Include(c => c.Establishment)
+                     .ThenInclude(e => e.Addresses)
+                 .Include(c => c.Organization)
+                     .ThenInclude(o => o.Addresses);
+        }
+
         public void Add(Collect collection)
         {
             dataBaseContext.Collect.Add(collection);
@@ -52,11 +96,6 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
         {
             dataBaseContext.Collect.Update(collection);
             dataBaseContext.SaveChanges();
-        }
-
-        public void AddRange(IEnumerable<Collect> entities)
-        {
-            throw new NotImplementedException();
         }
 
         public void Delete(int id)

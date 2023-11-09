@@ -8,13 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
-builder.Services.AddDbContext<DataBaseContext>(options => options.UseSqlServer(connectionString).EnableSensitiveDataLogging(true));
+builder.Services.AddDbContext<DataBaseContext>(options => options.UseSqlServer(connectionString, x => x.UseNetTopologySuite()).EnableSensitiveDataLogging(true));
 
 builder.Services
     .AddRepositories()
     .AddServices()
     .AddEndpointsApiExplorer()
     .AddSwaggerGen()
+    .AddJWTAuthentication()
     .AddControllers()
     .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
@@ -27,6 +28,7 @@ app.UseSwaggerUI();
 //prevent to put try catch in Controllers
 app.UseMiddleware<ErrorHandlerMiddleware>();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

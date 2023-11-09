@@ -1,15 +1,14 @@
 ﻿using FIAP.Reconecta.Contracts.DTO.Residue;
 using FIAP.Reconecta.Contracts.Models.Residue;
 using FIAP.Reconecta.Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace FIAP.Reconecta.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ResidueController : ControllerBase
+    [Authorize]
+    public class ResidueController : BaseController
     {
         private readonly IResidueService _residueService;
         private readonly IResidueTypeService _residueTypeService;
@@ -25,10 +24,10 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Residue>> Get()
         {
-            var lista = _residueService.Get();
+            var residues = _residueService.Get();
 
-            if (lista != null)
-                return Ok(lista);
+            if (residues != null)
+                return Ok(residues);
             else
                 return NotFound();
         }
@@ -36,10 +35,10 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet("{id}")]
         public ActionResult<Residue> Get([FromRoute] int id)
         {
-            var residueionModel = _residueService.GetById(id);
+            var residue = _residueService.GetById(id);
 
-            if (residueionModel != null)
-                return Ok(residueionModel);
+            if (residue != null)
+                return Ok(residue);
             else
                 return NotFound();
         }
@@ -73,9 +72,9 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpDelete("{id}")]
         public ActionResult<Residue> Delete([FromRoute] int id)
         {
-            var residueionModel = _residueService.GetById(id);
+            var residue = _residueService.GetById(id);
 
-            if (residueionModel != null)
+            if (residue != null)
             {
                 _residueService.Delete(id);
                 return NoContent();

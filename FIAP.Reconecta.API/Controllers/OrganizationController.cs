@@ -2,15 +2,14 @@
 using FIAP.Reconecta.Contracts.Enums;
 using FIAP.Reconecta.Contracts.Models.Company;
 using FIAP.Reconecta.Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace FIAP.Reconecta.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class OrganizationController : ControllerBase
+    [Authorize]
+    public class OrganizationController : BaseController
     {
         private readonly IOrganizationService _organizationService;
 
@@ -24,22 +23,40 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Company>> Get()
         {
-            var lista = _organizationService.Get();
-            return Ok(lista);
+            IEnumerable<Company> organizations;
+
+            if (CompanyType == CompanyType.ESTABLISHMENT)
+                organizations = _organizationService.Get(CompanyId);
+            else
+                organizations = _organizationService.Get();
+
+            return Ok(organizations);
+        }
+
+        [HttpGet("me")]
+        public ActionResult<Company> GetMyProfile()
+        {
+            var organization = _organizationService.GetById(CompanyId);
+
+            if (organization != null)
+                return Ok(organization);
+            else
+                return NotFound();
         }
 
         [HttpGet("{id}")]
         public ActionResult<Company> Get([FromRoute] int id)
         {
-            var organizations = _organizationService.GetById(id);
+            var organization = _organizationService.GetById(id);
 
-            if (organizations != null)
-                return Ok(organizations);
+            if (organization != null)
+                return Ok(organization);
             else
                 return NotFound();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult<Company> Post([FromBody] PostCompany dto)
         {
             if (!ModelState.IsValid)

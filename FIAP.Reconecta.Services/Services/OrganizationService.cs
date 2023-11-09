@@ -12,9 +12,9 @@ namespace FIAP.Reconecta.Application.Services
             _companyRepository = companyRepository;
         }
 
-        public override IEnumerable<Company> Get()
+        public IEnumerable<Company> Get(int establishmentId = 0)
         {
-            return _companyRepository.GetOrganizations(5);
+            return _companyRepository.GetOrganizations(establishmentId);
         }
     }
 }

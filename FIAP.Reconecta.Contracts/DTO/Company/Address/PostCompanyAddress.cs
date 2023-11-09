@@ -1,4 +1,5 @@
 ﻿using FIAP.Reconecta.Contracts.Models.Company;
+using System.Data.Entity.Spatial;
 
 namespace FIAP.Reconecta.Contracts.DTO.Company.Address
 {
@@ -9,6 +10,8 @@ namespace FIAP.Reconecta.Contracts.DTO.Company.Address
         public string? City { get; set; }
         public string? State { get; set; }
         public string? PostalCode { get; set; }
+        //public DbGeometry? Latitude { get; set; }
+        //public DbGeometry? Longitude { get; set; }
 
         public static explicit operator CompanyAddress(PostCompanyAddress companyAddress) => new()
         {
@@ -16,7 +19,9 @@ namespace FIAP.Reconecta.Contracts.DTO.Company.Address
             Number = companyAddress.Number,
             City = companyAddress.City,
             State = companyAddress.State,
-            PostalCode = companyAddress.PostalCode
+            PostalCode = companyAddress.PostalCode,
+            //Latitude = companyAddress.Latitude,
+            //Longitude = companyAddress.Longitude
         };
     }
 }

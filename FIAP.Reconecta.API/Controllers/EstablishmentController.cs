@@ -2,14 +2,14 @@
 using FIAP.Reconecta.Contracts.Enums;
 using FIAP.Reconecta.Contracts.Models.Company;
 using FIAP.Reconecta.Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FIAP.Reconecta.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class EstablishmentController : ControllerBase
+    [Authorize]
+    public class EstablishmentController : BaseController
     {
         private readonly IEstablishmentService _establishmentService;
 
@@ -21,23 +21,35 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Company>> Get()
         {
-            var lista = _establishmentService.Get();
-            return Ok(lista);
+            var establishments = _establishmentService.Get();
+            return Ok(establishments);
         }
 
+
+        [HttpGet("me")]
+        public ActionResult<Company> GetMyProfile()
+        {
+            var organization = _establishmentService.GetById(CompanyId);
+
+            if (organization != null)
+                return Ok(organization);
+            else
+                return NotFound();
+        }
 
         [HttpGet("{id}")]
         public ActionResult<Company> Get([FromRoute] int id)
         {
-            var establishments = _establishmentService.GetById(id);
+            var establishment = _establishmentService.GetById(id);
 
-            if (establishments != null)
-                return Ok(establishments);
+            if (establishment != null)
+                return Ok(establishment);
             else
                 return NotFound();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult<Company> Post([FromBody] PostCompany dto)
         {
             if (!ModelState.IsValid)

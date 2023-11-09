@@ -1,5 +1,6 @@
 ﻿using FIAP.Reconecta.Contracts.DTO.Company.Address;
 using FIAP.Reconecta.Contracts.DTO.Company.Availability;
+using FIAP.Reconecta.Contracts.DTO.User;
 using FIAP.Reconecta.Contracts.Models.Company;
 
 namespace FIAP.Reconecta.Contracts.DTO.Company
@@ -12,6 +13,7 @@ namespace FIAP.Reconecta.Contracts.DTO.Company
         public string? CorporateReason { get; set; }
         public IEnumerable<PostCompanyAddress>? Addresses { get; set; }
         public PostCompanyAvailability? Availability { get; set; }
+        public PostUser? User { get; set; }
 
         public static explicit operator Models.Company.Company(PostCompany company) => new()
         {
@@ -20,7 +22,8 @@ namespace FIAP.Reconecta.Contracts.DTO.Company
             Name = company.Name,
             CorporateReason = company.CorporateReason,
             Addresses = company.Addresses?.Select(address => (CompanyAddress)address).ToArray(),
-            Availability = company.Availability is not null ? (CompanyAvailability)company.Availability : null
+            Availability = company.Availability is not null ? (CompanyAvailability)company.Availability : null,
+            User = company.User is not null ? (Models.User.User)company.User : null
         };
     }
 }

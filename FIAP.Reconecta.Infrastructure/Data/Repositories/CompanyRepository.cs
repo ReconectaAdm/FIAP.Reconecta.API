@@ -27,8 +27,8 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
                 .Include(c => c.Residues)
                 .Include(c => c.Availability)
                 .Include(c => c.Points)
-                .Include(c => c.Collects)!
-                    .ThenInclude(cl => cl.Residues)
+                //.Include(c => c.Collects)
+                //    .ThenInclude(cl => cl.Residues)
                 .FirstOrDefault(e => e.Id == id);
         }
 
@@ -58,9 +58,18 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
         public IEnumerable<Company> GetOrganizations(int establishmentId = 0)
         {
             return dataBaseContext.Company.Where(company => company.Type == CompanyType.ORGANIZATION)
+                .Include(company => company.Addresses)
                 .Include(comp => comp.Favorites.Where(f => f.EstablishmentId == establishmentId));
         }
 
+        #endregion
+
+        #region Establishment
+        public IEnumerable<Company> GetEstablishments()
+        {
+            return dataBaseContext.Company.Where(company => company.Type == CompanyType.ESTABLISHMENT)
+                .Include(company => company.Addresses);
+        }
         #endregion
 
     }

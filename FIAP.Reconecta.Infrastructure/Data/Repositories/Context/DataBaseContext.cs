@@ -2,6 +2,7 @@
 using FIAP.Reconecta.Contracts.Models.Collect;
 using FIAP.Reconecta.Contracts.Models.Company;
 using FIAP.Reconecta.Contracts.Models.Residue;
+using FIAP.Reconecta.Contracts.Models.User;
 using Microsoft.EntityFrameworkCore;
 
 namespace FIAP.Reconecta.Infrastructure.Data.Repositories.Context
@@ -10,6 +11,8 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories.Context
     {
         public DbSet<Company> Company { get; set; }
 
+        public DbSet<User> User { get; set; }
+
         public DbSet<Collect> Collect { get; set; }
 
         public DbSet<CollectRating> CollectRating { get; set; }
@@ -17,6 +20,7 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories.Context
         public DbSet<Residue> Residue { get; set; }
 
         public DbSet<ResidueType> ResidueType { get; set; }
+
 
         public DataBaseContext(DbContextOptions options) : base(options)
         {
@@ -86,6 +90,14 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories.Context
                .HasOne(c => c.Rating)
                .WithOne(r => r.Collect);
 
+            #endregion
+
+            #region User
+
+            modelBuilder.Entity<User>()
+              .HasOne(c => c.Company)
+              .WithOne(u => u.User);
+            
             #endregion
         }
 

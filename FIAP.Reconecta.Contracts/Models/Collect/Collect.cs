@@ -15,7 +15,7 @@ namespace FIAP.Reconecta.Contracts.Models.Collect
 
         [Display(Name = "Data e hora da coleta")]
 
-        [Column("status_coleta")]
+        [Column("coleta_status")]
         public int Status { get; set; }
 
         [Column("coleta_valor")]
@@ -44,5 +44,10 @@ namespace FIAP.Reconecta.Contracts.Models.Collect
         public Organization? Organization { get; set; }
         public ICollection<CollectResidue>? Residues { get; set; }
         public CollectRating? Rating { get; set; }
+
+        public Collect()
+        {
+            
+        }
     }
 }

@@ -3,14 +3,14 @@ using FIAP.Reconecta.Contracts.DTO.Collect.Rating;
 using FIAP.Reconecta.Contracts.Enums;
 using FIAP.Reconecta.Contracts.Models.Collect;
 using FIAP.Reconecta.Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FIAP.Reconecta.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class CollectController : ControllerBase
+    [Authorize]
+    public class CollectController : BaseController
     {
         private readonly ICollectService _collectService;
         private readonly ICollectRatingService _collectRatingService;
@@ -26,17 +26,17 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Collect>> Get([FromQuery] CollectStatus? status = null)
         {
-            var collects = _collectService.Get(status);
+            var collects = _collectService.Get(CompanyType, CompanyId, status);
             return Ok(collects);
         }
 
         [HttpGet("{id}")]
         public ActionResult<Collect> Get([FromRoute] int id)
         {
-            var collection = _collectService.GetById(id);
+            var collects = _collectService.GetById(id);
 
-            if (collection != null)
-                return Ok(collection);
+            if (collects != null)
+                return Ok(collects);
             else
                 return NotFound();
         }
@@ -70,9 +70,9 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpDelete("{id}")]
         public ActionResult<Collect> Delete([FromRoute] int id)
         {
-            var collectionModel = _collectService.GetById(id);
+            var collect = _collectService.GetById(id);
 
-            if (collectionModel != null)
+            if (collect != null)
             {
                 _collectService.Delete(id);
                 return NoContent();
