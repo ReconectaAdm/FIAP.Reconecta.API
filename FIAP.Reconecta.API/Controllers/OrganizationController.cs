@@ -1,4 +1,5 @@
-﻿using FIAP.Reconecta.Contracts.DTO.Company;
+﻿using FIAP.Reconecta.Application.Services;
+using FIAP.Reconecta.Contracts.DTO.Company;
 using FIAP.Reconecta.Contracts.Enums;
 using FIAP.Reconecta.Contracts.Models.Company;
 using FIAP.Reconecta.Domain.Services;
@@ -33,15 +34,17 @@ namespace FIAP.Reconecta.API.Controllers
             return Ok(organizations);
         }
 
-        [HttpGet("me")]
-        public ActionResult<Company> GetMyProfile()
+        [HttpGet("nearest")]
+        public ActionResult<IEnumerable<Company>> GetNearestOrganizations([FromQuery] double latitude, [FromQuery] double longitude)
         {
-            var organization = _organizationService.GetById(CompanyId);
+            IEnumerable<Company> organizations;
 
-            if (organization != null)
-                return Ok(organization);
+            if (CompanyType == CompanyType.ESTABLISHMENT)
+                organizations = _organizationService.Get(latitude, longitude, CompanyId);
             else
-                return NotFound();
+                organizations = _organizationService.Get(latitude, longitude);
+
+            return Ok(organizations);
         }
 
         [HttpGet("{id}")]
@@ -106,5 +109,23 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         #endregion
+
+        [HttpGet("me")]
+        public ActionResult<Company> GetMyProfile()
+        {
+            var organization = _organizationService.GetById(CompanyId);
+
+            if (organization != null)
+                return Ok(organization);
+            else
+                return NotFound();
+        }
+
+        [HttpPatch("logo")]
+        public ActionResult<Company> PatchLogo([FromForm] IFormFile formFile)
+        {
+            _organizationService.UpdateLogo(CompanyId, formFile);
+            return NoContent();
+        }
     }
 }

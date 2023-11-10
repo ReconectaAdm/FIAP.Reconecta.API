@@ -18,23 +18,13 @@ namespace FIAP.Reconecta.API.Controllers
             _establishmentService = establishmentService;
         }
 
+        #region Base
+
         [HttpGet]
         public ActionResult<IEnumerable<Company>> Get()
         {
             var establishments = _establishmentService.Get();
             return Ok(establishments);
-        }
-
-
-        [HttpGet("me")]
-        public ActionResult<Company> GetMyProfile()
-        {
-            var organization = _establishmentService.GetById(CompanyId);
-
-            if (organization != null)
-                return Ok(organization);
-            else
-                return NotFound();
         }
 
         [HttpGet("{id}")]
@@ -97,6 +87,26 @@ namespace FIAP.Reconecta.API.Controllers
             {
                 return BadRequest(new { e.Message });
             }
+        }
+
+        #endregion
+
+        [HttpGet("me")]
+        public ActionResult<Company> GetMyProfile()
+        {
+            var establishment = _establishmentService.GetById(CompanyId);
+
+            if (establishment != null)
+                return Ok(establishment);
+            else
+                return NotFound();
+        }
+
+        [HttpPatch("logo")]
+        public ActionResult<Company> PatchLogo([FromForm] IFormFile file)
+        {
+            _establishmentService.UpdateLogo(CompanyId, file);
+            return NoContent();
         }
     }
 }

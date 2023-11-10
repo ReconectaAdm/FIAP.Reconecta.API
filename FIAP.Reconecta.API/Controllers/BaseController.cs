@@ -8,6 +8,6 @@ namespace FIAP.Reconecta.API.Controllers
     public abstract class BaseController : ControllerBase
     {
         public int CompanyId { get { return Convert.ToInt32(User.FindFirst("CompanyId")?.Value); } }
-        public CompanyType CompanyType { get { return (CompanyType)Convert.ToInt32(User.FindFirst("CompanyId")?.Value); } }
+        public CompanyType CompanyType { get { return (CompanyType)Convert.ToInt32(User.FindFirst("Type")?.Value); } }
     }
 }

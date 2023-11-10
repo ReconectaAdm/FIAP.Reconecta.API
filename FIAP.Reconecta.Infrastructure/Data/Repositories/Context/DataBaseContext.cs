@@ -10,6 +10,8 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories.Context
     public class DataBaseContext : DbContext
     {
         public DbSet<Company> Company { get; set; }
+        public DbSet<Establishment> Establishment { get; set; }
+        public DbSet<Organization> Organization { get; set; }
 
         public DbSet<User> User { get; set; }
 
@@ -67,6 +69,16 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories.Context
                .HasOne(c => c.Availability)
                .WithOne(ca => ca.Company);
 
+            modelBuilder.Entity<Organization>()
+               .HasMany(c => c.Collects)
+               .WithOne(r => r.Organization)
+               .HasForeignKey(k => k.OrganizationId);
+
+            modelBuilder.Entity<Establishment>()
+               .HasMany(c => c.Collects)
+               .WithOne(r => r.Establishment)
+               .HasForeignKey(k => k.EstablishmentId);
+
             #endregion
 
             #region Collect
@@ -76,15 +88,15 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories.Context
               .WithOne(r => r.Collect)
               .HasForeignKey(k => k.CollectId);
 
-            modelBuilder.Entity<Collect>()
-              .HasOne(c => c.Organization)
-              .WithMany(r => r.Collects)
-              .HasForeignKey(k => k.OrganizationId);
+            //modelBuilder.Entity<Collect>()
+            //  .HasOne(c => c.Organization)
+            //  .WithMany(r => r.Collects)
+            //  .HasForeignKey(k => k.OrganizationId);
 
-            modelBuilder.Entity<Collect>()
-              .HasOne(c => c.Establishment)
-              .WithMany(r => r.Collects)
-              .HasForeignKey(k => k.EstablishmentId);
+            //modelBuilder.Entity<Collect>()
+            //  .HasOne(c => c.Establishment)
+            //  .WithMany(r => r.Collects)
+            //  .HasForeignKey(k => k.EstablishmentId);
 
             modelBuilder.Entity<Collect>()
                .HasOne(c => c.Rating)
@@ -94,10 +106,10 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories.Context
 
             #region User
 
-            modelBuilder.Entity<User>()
-              .HasOne(c => c.Company)
-              .WithOne(u => u.User);
-            
+            //modelBuilder.Entity<User>()
+            //  .HasOne(c => c.Company)
+            //  .WithOne(u => u.User);
+
             #endregion
         }
 

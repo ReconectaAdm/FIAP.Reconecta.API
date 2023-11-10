@@ -42,12 +42,14 @@ namespace FIAP.Reconecta.Contracts.Models.Collect
 
         public Establishment? Establishment { get; set; }
         public Organization? Organization { get; set; }
+        [NotMapped]
+        public Company.Company? Company { get; set; }
         public ICollection<CollectResidue>? Residues { get; set; }
         public CollectRating? Rating { get; set; }
 
         public Collect()
         {
-            
+
         }
     }
 }
