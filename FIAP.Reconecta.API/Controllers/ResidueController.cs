@@ -24,12 +24,12 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Residue>> Get()
         {
-            var residues = _residueService.Get();
+            if (CompanyType == Contracts.Enums.CompanyType.ESTABLISHMENT)
+                return Forbid();
 
-            if (residues != null)
-                return Ok(residues);
-            else
-                return NotFound();
+            var residues = _residueService.Get(CompanyId);
+
+            return Ok(residues);
         }
 
         [HttpGet("{id}")]

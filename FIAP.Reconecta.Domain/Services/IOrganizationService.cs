@@ -7,6 +7,7 @@ namespace FIAP.Reconecta.Domain.Services
     {
         IEnumerable<Company> Get(int establishmentId = 0);
         IEnumerable<Company> Get(double latitude, double longitude, int establishmentId = 0);
+        void UpdateDescription(int organizationId, string description);
         void UpdateLogo(int organizationId, IFormFile file);
     }
 }

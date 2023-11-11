@@ -21,7 +21,7 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
 
         public ResidueType? GetById(int id)
         {
-            return dataBaseContext.ResidueType.AsNoTracking().FirstOrDefault(t => t.Id == id);
+            return dataBaseContext.ResidueType.AsNoTracking().FirstOrDefault(rt => rt.Id == id);
         }
 
         public void Add(ResidueType residue)

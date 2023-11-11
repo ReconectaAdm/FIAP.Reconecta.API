@@ -14,14 +14,20 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
             dataBaseContext = ctx;
         }
 
+        #region Base
         public IEnumerable<Residue> Get()
         {
             return dataBaseContext.Residue;
         }
 
+        public IEnumerable<Residue> Get(int organizationId)
+        {
+            return dataBaseContext.Residue.Where(r => r.OrganizationId == organizationId);
+        }
+
         public Residue? GetById(int id)
         {
-            return dataBaseContext.Residue.AsNoTracking().FirstOrDefault(t => t.Id == id);
+            return dataBaseContext.Residue.AsNoTracking().FirstOrDefault(r => r.Id == id);
         }
 
         public void Add(Residue residue)
@@ -48,5 +54,6 @@ namespace FIAP.Reconecta.Infrastructure.Data.Repositories
             dataBaseContext.Residue.Remove(residue);
             dataBaseContext.SaveChanges();
         }
+        #endregion
     }
 }

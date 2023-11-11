@@ -1,4 +1,5 @@
 ﻿using NetTopologySuite.Geometries;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
@@ -7,6 +8,7 @@ namespace FIAP.Reconecta.Contracts.Models.Company
     [Table("t_endereco_empresa")]
     public class CompanyAddress
     {
+        [Key]
         [Column("endereco_empresa_id")]
         public int Id { get; set; }
         
@@ -34,6 +36,9 @@ namespace FIAP.Reconecta.Contracts.Models.Company
         [Column("geolocalizacao")]
         [JsonIgnore]
         public Point? Geolocalization { get; set; }
+
+        [Column("padrao")]
+        public bool Default { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column("endereco_empresa_data_criacao")]

@@ -21,12 +21,14 @@ namespace FIAP.Reconecta.Application.Services
 
         public IEnumerable<Company> Get(double latitude, double longitude, int establishmentId = 0)
         {
-            var organizations = _companyRepository.GetNearestOrganizations(latitude, longitude, 2000, establishmentId);
+            var organizations = _companyRepository.GetNearestOrganizations(latitude, longitude, 10000, establishmentId);
 
             foreach (var organization in organizations)
             {
                 foreach (var adress in organization.Addresses)
                     adress.CalculateDistance(latitude, longitude);
+
+                organization.Addresses = organization.Addresses.OrderBy(a => a.Distance).ToArray();
             }
 
             return organizations;
@@ -43,6 +45,11 @@ namespace FIAP.Reconecta.Application.Services
             file.CopyTo(stream);
 
             _companyRepository.UpdateLogo(new Company { Id = organizationId, Logo = stream.ToArray() });
+        }
+
+        public void UpdateDescription(int organizationId, string description)
+        {
+            _companyRepository.UpdateDescription(new Company { Id = organizationId, Description = description });
         }
     }
 }

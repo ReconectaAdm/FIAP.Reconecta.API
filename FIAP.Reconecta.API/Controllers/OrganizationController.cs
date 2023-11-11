@@ -13,16 +13,18 @@ namespace FIAP.Reconecta.API.Controllers
     public class OrganizationController : BaseController
     {
         private readonly IOrganizationService _organizationService;
+        private readonly ICompanyAddressService _companyAddressService;
 
-        public OrganizationController(IOrganizationService organizationService)
+        public OrganizationController(IOrganizationService organizationService, ICompanyAddressService companyAddressService)
         {
             _organizationService = organizationService;
+            _companyAddressService = companyAddressService;
         }
 
         #region Base
 
         [HttpGet]
-        public ActionResult<IEnumerable<Company>> Get()
+        public ActionResult Get()
         {
             IEnumerable<Company> organizations;
 
@@ -34,21 +36,8 @@ namespace FIAP.Reconecta.API.Controllers
             return Ok(organizations);
         }
 
-        [HttpGet("nearest")]
-        public ActionResult<IEnumerable<Company>> GetNearestOrganizations([FromQuery] double latitude, [FromQuery] double longitude)
-        {
-            IEnumerable<Company> organizations;
-
-            if (CompanyType == CompanyType.ESTABLISHMENT)
-                organizations = _organizationService.Get(latitude, longitude, CompanyId);
-            else
-                organizations = _organizationService.Get(latitude, longitude);
-
-            return Ok(organizations);
-        }
-
         [HttpGet("{id}")]
-        public ActionResult<Company> Get([FromRoute] int id)
+        public ActionResult Get([FromRoute] int id)
         {
             var organization = _organizationService.GetById(id);
 
@@ -60,7 +49,7 @@ namespace FIAP.Reconecta.API.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult<Company> Post([FromBody] PostCompany dto)
+        public ActionResult Post([FromBody] PostCompany dto)
         {
             if (!ModelState.IsValid)
             {
@@ -77,7 +66,7 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<Company> Put([FromRoute] int id, [FromBody] PutCompany dto)
+        public ActionResult Put([FromRoute] int id, [FromBody] PutCompany dto)
         {
             if (!ModelState.IsValid)
             {
@@ -93,7 +82,7 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult<Company> Delete([FromRoute] int id)
+        public ActionResult Delete([FromRoute] int id)
         {
             var organization = _organizationService.GetById(id);
 
@@ -110,8 +99,21 @@ namespace FIAP.Reconecta.API.Controllers
 
         #endregion
 
+        [HttpGet("nearest")]
+        public ActionResult GetNearestPayments([FromQuery] double latitude, [FromQuery] double longitude)
+        {
+            IEnumerable<Company> organizations;
+
+            if (CompanyType == CompanyType.ESTABLISHMENT)
+                organizations = _organizationService.Get(latitude, longitude, CompanyId);
+            else
+                organizations = _organizationService.Get(latitude, longitude);
+
+            return Ok(organizations);
+        }
+
         [HttpGet("me")]
-        public ActionResult<Company> GetMyProfile()
+        public ActionResult GetMyProfile()
         {
             var organization = _organizationService.GetById(CompanyId);
 
@@ -122,10 +124,31 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpPatch("logo")]
-        public ActionResult<Company> PatchLogo([FromForm] IFormFile formFile)
+        public ActionResult PatchLogo([FromForm] IFormFile formFile)
         {
             _organizationService.UpdateLogo(CompanyId, formFile);
             return NoContent();
+        }
+
+        [HttpPatch("description")]
+        public ActionResult PatchDescription(PatchCompanyDescription dto)
+        {
+            _organizationService.UpdateDescription(CompanyId, dto.Description);
+            return NoContent();
+        }
+
+        [HttpDelete("address/{id}")]
+        public ActionResult DeleteAddress(int id)
+        {
+            var companyAddress = _companyAddressService.GetById(id);
+
+            if (companyAddress != null)
+            {
+                _companyAddressService.Delete(id);
+                return NoContent();
+            }
+            else
+                return NotFound();
         }
     }
 }

@@ -11,5 +11,7 @@ namespace FIAP.Reconecta.Contracts.Models.Residue
         public int Id { get; set; }
         [Column("tipo_residuo_nome")]
         public string? Name { get; set; }
+        [Column("caminho")]
+        public string? Path { get; set; }
     }
 }

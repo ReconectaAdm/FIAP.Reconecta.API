@@ -2,27 +2,31 @@
 using FIAP.Reconecta.Contracts.DTO.Company.Availability;
 using FIAP.Reconecta.Contracts.DTO.User;
 using FIAP.Reconecta.Contracts.Models.Company;
+using System.ComponentModel.DataAnnotations;
 
 namespace FIAP.Reconecta.Contracts.DTO.Company
 {
     public class PostCompany
     {
+        [Required]
         public string? Cnpj { get; set; }
+        [Required]
         public string? Name { get; set; }
-        public string? Description { get; set; }
+        [Required]
         public string? CorporateReason { get; set; }
-        public IEnumerable<PostCompanyAddress>? Addresses { get; set; }
-        public PostCompanyAvailability? Availability { get; set; }
+        public string? Description { get; set; }
+        [Required]
+        public IEnumerable<PostCompanyAddress> Addresses { get; set; } = Enumerable.Empty<PostCompanyAddress>();
+        [Required]
         public PostUser? User { get; set; }
 
         public static explicit operator Models.Company.Company(PostCompany company) => new()
         {
             Cnpj = company.Cnpj,
-            Description = company.Description,
             Name = company.Name,
             CorporateReason = company.CorporateReason,
-            Addresses = company.Addresses?.Select(address => (CompanyAddress)address).ToArray(),
-            Availability = company.Availability is not null ? (CompanyAvailability)company.Availability : null,
+            Description = company.Description,
+            Addresses = company.Addresses.Select(address => (CompanyAddress)address).ToArray(),
             User = company.User is not null ? (Models.User.User)company.User : null
         };
     }
