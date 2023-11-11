@@ -1,0 +1,24 @@
+﻿using FIAP.Reconecta.Models.Entities.Payment;
+
+namespace FIAP.Reconecta.Models.DTO.Payment
+{
+    public class PostEstablishmentPayment
+    {
+        public string? BankId { get; set; }
+        public string? Agency { get; set; }
+        public string? Account { get; set; }
+        public string? Name { get; set; }
+        public string? Cnpj { get; set; }
+        public string? Pix { get; set; }
+
+        public static explicit operator EstablishmentPayment(PostEstablishmentPayment dto) => new()
+        {
+            BankId = dto.BankId,
+            Agency = dto.Agency,
+            Account = dto.Account,
+            Name = dto.Name,
+            Cnpj = dto.Cnpj,
+            Pix = dto.Pix
+        };
+    }
+}

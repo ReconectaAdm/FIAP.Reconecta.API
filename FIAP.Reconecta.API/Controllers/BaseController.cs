@@ -1,4 +1,4 @@
-﻿using FIAP.Reconecta.Contracts.Enums;
+﻿using FIAP.Reconecta.Models.Enums;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FIAP.Reconecta.API.Controllers

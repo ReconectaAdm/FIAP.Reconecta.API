@@ -1,11 +1,10 @@
-﻿using FIAP.Reconecta.Contracts.Models;
-using FIAP.Reconecta.Contracts.Models.User;
+﻿using FIAP.Reconecta.Models.Entities.User;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace FIAP.Reconecta.Application.Services
+namespace FIAP.Reconecta.Services.Services
 {
     public static class TokenService
     {

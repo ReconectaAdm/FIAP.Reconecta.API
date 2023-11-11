@@ -1,9 +1,9 @@
-﻿using FIAP.Reconecta.Contracts.Models.Company;
-using FIAP.Reconecta.Domain.Repositories;
+﻿using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Domain.Services;
+using FIAP.Reconecta.Models.Entities.Company;
 using Microsoft.AspNetCore.Http;
 
-namespace FIAP.Reconecta.Application.Services
+namespace FIAP.Reconecta.Services.Services
 {
     public class EstablishmentService : BaseService<Company>, IEstablishmentService
     {

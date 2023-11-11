@@ -1,6 +1,6 @@
-﻿using FIAP.Reconecta.Contracts.DTO.Residue;
-using FIAP.Reconecta.Contracts.Models.Residue;
-using FIAP.Reconecta.Domain.Services;
+﻿using FIAP.Reconecta.Domain.Services;
+using FIAP.Reconecta.Models.DTO.Residue;
+using FIAP.Reconecta.Models.Entities.Residue;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +24,7 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Residue>> Get()
         {
-            if (CompanyType == Contracts.Enums.CompanyType.ESTABLISHMENT)
+            if (CompanyType == Models.Enums.CompanyType.ESTABLISHMENT)
                 return Forbid();
 
             var residues = _residueService.Get(CompanyId);

@@ -1,7 +1,7 @@
-﻿using FIAP.Reconecta.Application.Services;
-using FIAP.Reconecta.Contracts.DTO.User;
-using FIAP.Reconecta.Contracts.Models.User;
-using FIAP.Reconecta.Domain.Services;
+﻿using FIAP.Reconecta.Domain.Services;
+using FIAP.Reconecta.Models.DTO.User;
+using FIAP.Reconecta.Models.Entities.User;
+using FIAP.Reconecta.Services.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FIAP.Reconecta.API.Controllers
@@ -17,8 +17,6 @@ namespace FIAP.Reconecta.API.Controllers
             _userService = userService;
         }
 
-        #region Base
-
         [HttpPost("token")]
         public ActionResult<User> Post([FromBody] PostUser dto)
         {
@@ -29,12 +27,8 @@ namespace FIAP.Reconecta.API.Controllers
 
             var token = TokenService.GenerateToken(user);
 
-            //Hide password
-            user.Password = string.Empty;
-
             return Ok(new { token, user });
         }
 
-        #endregion
     }
 }

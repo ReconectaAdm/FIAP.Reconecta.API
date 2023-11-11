@@ -1,11 +1,12 @@
-﻿using FIAP.Reconecta.Application.Services;
-using FIAP.Reconecta.Contracts.DTO.Company;
-using FIAP.Reconecta.Contracts.Enums;
-using FIAP.Reconecta.Contracts.Models.Company;
-using FIAP.Reconecta.Domain.Services;
+﻿using FIAP.Reconecta.Domain.Services;
+using FIAP.Reconecta.Models.DTO.Company;
+using FIAP.Reconecta.Models.DTO.Company.Availability;
+using FIAP.Reconecta.Models.Entities.Company;
+using FIAP.Reconecta.Models.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace FIAP.Reconecta.API.Controllers
 {
@@ -14,11 +15,13 @@ namespace FIAP.Reconecta.API.Controllers
     {
         private readonly IOrganizationService _organizationService;
         private readonly ICompanyAddressService _companyAddressService;
+        private readonly ICompanyAvailabilityService _companyAvailabilityService;
 
-        public OrganizationController(IOrganizationService organizationService, ICompanyAddressService companyAddressService)
+        public OrganizationController(IOrganizationService organizationService, ICompanyAddressService companyAddressService, ICompanyAvailabilityService companyAvailabilityService)
         {
             _organizationService = organizationService;
             _companyAddressService = companyAddressService;
+            _companyAvailabilityService = companyAvailabilityService;
         }
 
         #region Base
@@ -100,7 +103,7 @@ namespace FIAP.Reconecta.API.Controllers
         #endregion
 
         [HttpGet("nearest")]
-        public ActionResult GetNearestPayments([FromQuery] double latitude, [FromQuery] double longitude)
+        public ActionResult GetNearestOrganizations([FromQuery] double latitude, [FromQuery] double longitude)
         {
             IEnumerable<Company> organizations;
 
@@ -150,5 +153,57 @@ namespace FIAP.Reconecta.API.Controllers
             else
                 return NotFound();
         }
+
+        #region Availability
+
+        [HttpGet("availability")]
+        public ActionResult GetAvailability()
+        {
+            if (CompanyType == CompanyType.ESTABLISHMENT)
+                return Forbid();
+
+            var companyAvailability = _companyAvailabilityService.GetByCompanyId(CompanyId);
+            return Ok(companyAvailability);
+        }
+
+        [HttpPost("availability")]
+        public ActionResult PostAvailability(IEnumerable<PostCompanyAvailability> dtos)
+        {
+            if (CompanyType == CompanyType.ESTABLISHMENT)
+                return Forbid();
+
+                var companyAvailability = dtos.Select(dto =>
+            {
+                var dayAvailability = (CompanyAvailability)dto;
+                dayAvailability.CompanyId = CompanyId;
+
+                return dayAvailability;
+            });
+
+            _companyAvailabilityService.AddRange(companyAvailability);
+
+            return NoContent();
+        }
+
+        [HttpPut("availability")]
+        public ActionResult PutAvailability(IEnumerable<PutCompanyAvailability> dtos)
+        {
+            if (CompanyType == CompanyType.ESTABLISHMENT)
+                return Forbid();
+
+            var companyAvailability = dtos.Select(dto =>
+            {
+                var dayAvailability = (CompanyAvailability)dto;
+                dayAvailability.CompanyId = CompanyId;
+
+                return dayAvailability;
+            });
+
+            _companyAvailabilityService.UpdateRange(companyAvailability);
+
+            return NoContent();
+        }
+
+        #endregion
     }
 }

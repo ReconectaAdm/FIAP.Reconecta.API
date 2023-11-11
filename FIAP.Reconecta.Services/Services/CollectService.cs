@@ -1,9 +1,9 @@
-﻿using FIAP.Reconecta.Contracts.Enums;
-using FIAP.Reconecta.Contracts.Models.Collect;
-using FIAP.Reconecta.Domain.Repositories;
+﻿using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Domain.Services;
+using FIAP.Reconecta.Models.Entities.Collect;
+using FIAP.Reconecta.Models.Enums;
 
-namespace FIAP.Reconecta.Application.Services
+namespace FIAP.Reconecta.Services.Services
 {
     public class CollectService : BaseService<Collect>, ICollectService
     {
@@ -17,9 +17,9 @@ namespace FIAP.Reconecta.Application.Services
         {
             if (status is null)
             {
-                if(companyType == CompanyType.ORGANIZATION)
+                if (companyType == CompanyType.ORGANIZATION)
                     return _collectionRepository.GetByOrganizationId(organizationId: companyId);
-                
+
                 else
                     return _collectionRepository.GetByEstablishmentId(establishmentId: companyId);
             }

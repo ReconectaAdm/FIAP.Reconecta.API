@@ -1,8 +1,8 @@
-﻿using FIAP.Reconecta.Contracts.Models.Company;
+﻿using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Domain.Services;
-using FIAP.Reconecta.Infrastructure.Data.Repositories;
+using FIAP.Reconecta.Models.Entities.Company;
 
-namespace FIAP.Reconecta.Application.Services
+namespace FIAP.Reconecta.Services.Services
 {
     public class CompanyAddressService : BaseService<CompanyAddress>, ICompanyAddressService
     {

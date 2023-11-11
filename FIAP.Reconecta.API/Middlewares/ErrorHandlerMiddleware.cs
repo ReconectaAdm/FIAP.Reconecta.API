@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text.Json;
 
-namespace FIAP.Reconecta.Application.Middlewares
+namespace FIAP.Reconecta.API.Middlewares
 {
     public class ErrorHandlerMiddleware
     {

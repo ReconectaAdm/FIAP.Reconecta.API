@@ -14,9 +14,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\FIAP.Reconecta.Contracts\FIAP.Reconecta.Contracts.csproj" />
-		<ProjectReference Include="..\FIAP.Reconecta.Infrastructure\FIAP.Reconecta.Infrastructure.csproj" />
-		<ProjectReference Include="..\FIAP.Reconecta.Services\FIAP.Reconecta.Application.csproj" />
+		<ProjectReference Include="..\FIAP.Reconecta.Models\FIAP.Reconecta.Models.csproj" />
+		<ProjectReference Include="..\FIAP.Reconecta.Repositories\FIAP.Reconecta.Repositories.csproj" />
+		<ProjectReference Include="..\FIAP.Reconecta.Services\FIAP.Reconecta.Services.csproj" />
 
 	</ItemGroup>
 

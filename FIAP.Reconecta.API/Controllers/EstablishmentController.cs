@@ -1,7 +1,7 @@
-﻿using FIAP.Reconecta.Contracts.DTO.Company;
-using FIAP.Reconecta.Contracts.Enums;
-using FIAP.Reconecta.Contracts.Models.Company;
-using FIAP.Reconecta.Domain.Services;
+﻿using FIAP.Reconecta.Domain.Services;
+using FIAP.Reconecta.Models.DTO.Company;
+using FIAP.Reconecta.Models.Entities.Company;
+using FIAP.Reconecta.Models.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -95,7 +95,6 @@ namespace FIAP.Reconecta.API.Controllers
         public ActionResult<Company> GetMyProfile()
         {
             var establishment = _establishmentService.GetById(CompanyId);
-
             if (establishment != null)
                 return Ok(establishment);
             else

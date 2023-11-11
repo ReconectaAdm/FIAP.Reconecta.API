@@ -1,8 +1,8 @@
-﻿using FIAP.Reconecta.Contracts.Models.Residue;
-using FIAP.Reconecta.Domain.Repositories;
+﻿using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Domain.Services;
+using FIAP.Reconecta.Models.Entities.Residue;
 
-namespace FIAP.Reconecta.Application.Services
+namespace FIAP.Reconecta.Services.Services
 {
     public class ResidueService : BaseService<Residue>, IResidueService
     {

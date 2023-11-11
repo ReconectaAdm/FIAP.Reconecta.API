@@ -1,7 +1,7 @@
 ﻿using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Domain.Services;
 
-namespace FIAP.Reconecta.Application.Services
+namespace FIAP.Reconecta.Services.Services
 {
     public class BaseService<T> : IBaseService<T>
     {
@@ -26,6 +26,11 @@ namespace FIAP.Reconecta.Application.Services
             _baseRepository.Add(entity);
         }
 
+        public void AddRange(IEnumerable<T> entities)
+        {
+            _baseRepository.AddRange(entities);
+        }
+
         public virtual void Update(T entity)
         {
             _baseRepository.Update(entity);
@@ -35,6 +40,5 @@ namespace FIAP.Reconecta.Application.Services
         {
             _baseRepository.Delete(id);
         }
-
     }
 }

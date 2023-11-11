@@ -1,6 +1,6 @@
-using FIAP.Reconecta.Application.Middlewares;
-using FIAP.Reconecta.Infrastructure.Data.Repositories.Context;
-using FIAP.Reconecta.Infrastructure.IoC;
+using FIAP.Reconecta.API.IoC;
+using FIAP.Reconecta.API.Middlewares;
+using FIAP.Reconecta.Repositories.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 

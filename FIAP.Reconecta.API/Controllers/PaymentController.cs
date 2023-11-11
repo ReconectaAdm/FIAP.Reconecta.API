@@ -1,6 +1,6 @@
-﻿using FIAP.Reconecta.Contracts.DTO.Payment;
-using FIAP.Reconecta.Contracts.Models.Payment;
-using FIAP.Reconecta.Domain.Services;
+﻿using FIAP.Reconecta.Domain.Services;
+using FIAP.Reconecta.Models.DTO.Payment;
+using FIAP.Reconecta.Models.Entities.Payment;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +24,7 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet("organization")]
         public ActionResult GetOrganizationPayments()
         {
-            if (CompanyType == Contracts.Enums.CompanyType.ESTABLISHMENT)
+            if (CompanyType == Models.Enums.CompanyType.ESTABLISHMENT)
                 return Forbid();
 
             var payments = _organizationPaymentService.Get();
@@ -35,7 +35,7 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpPost("organization")]
         public ActionResult Post([FromBody] PostOrganizationPayment dto)
         {
-            if (CompanyType == Contracts.Enums.CompanyType.ESTABLISHMENT)
+            if (CompanyType == Models.Enums.CompanyType.ESTABLISHMENT)
                 return Forbid();
 
             if (!ModelState.IsValid)
@@ -52,7 +52,7 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpDelete("organization/{id}")]
         public ActionResult Delete([FromRoute] int id)
         {
-            if (CompanyType == Contracts.Enums.CompanyType.ESTABLISHMENT)
+            if (CompanyType == Models.Enums.CompanyType.ESTABLISHMENT)
                 return Forbid();
 
             var payment = _organizationPaymentService.GetById(id);
@@ -73,7 +73,7 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet("establishment")]
         public ActionResult GetEstablishmentPayments()
         {
-            if (CompanyType == Contracts.Enums.CompanyType.ORGANIZATION)
+            if (CompanyType == Models.Enums.CompanyType.ORGANIZATION)
                 return Forbid();
 
             var payments = _establishmentPaymentService.Get();
@@ -85,7 +85,7 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpPost("establishment")]
         public ActionResult PostEstablishmentPayment([FromBody] PostEstablishmentPayment dto)
         {
-            if (CompanyType == Contracts.Enums.CompanyType.ORGANIZATION)
+            if (CompanyType == Models.Enums.CompanyType.ORGANIZATION)
                 return Forbid();
 
             if (!ModelState.IsValid)
@@ -102,7 +102,7 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpDelete("establishment/{id}")]
         public ActionResult DeleteEstablishmentPayment([FromRoute] int id)
         {
-            if (CompanyType == Contracts.Enums.CompanyType.ORGANIZATION)
+            if (CompanyType == Models.Enums.CompanyType.ORGANIZATION)
                 return Forbid();
 
             var payment = _establishmentPaymentService.GetById(id);

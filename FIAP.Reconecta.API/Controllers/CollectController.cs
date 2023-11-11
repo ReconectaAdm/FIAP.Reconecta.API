@@ -1,8 +1,8 @@
-﻿using FIAP.Reconecta.Contracts.DTO.Collect;
-using FIAP.Reconecta.Contracts.DTO.Collect.Rating;
-using FIAP.Reconecta.Contracts.Enums;
-using FIAP.Reconecta.Contracts.Models.Collect;
-using FIAP.Reconecta.Domain.Services;
+﻿using FIAP.Reconecta.Domain.Services;
+using FIAP.Reconecta.Models.DTO.Collect;
+using FIAP.Reconecta.Models.DTO.Collect.Rating;
+using FIAP.Reconecta.Models.Entities.Collect;
+using FIAP.Reconecta.Models.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -24,14 +24,14 @@ namespace FIAP.Reconecta.API.Controllers
         #region Base
 
         [HttpGet]
-        public ActionResult<IEnumerable<Collect>> Get([FromQuery] CollectStatus? status = null)
+        public ActionResult Get([FromQuery] CollectStatus? status = null)
         {
             var collects = _collectService.Get(CompanyType, CompanyId, status);
             return Ok(collects);
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Collect> Get([FromRoute] int id)
+        public ActionResult GetById([FromRoute] int id)
         {
             var collects = _collectService.GetById(id);
 
@@ -42,7 +42,7 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Collect> Post([FromBody] PostCollect dto)
+        public ActionResult Post([FromBody] PostCollect dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -55,7 +55,7 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<Collect> Put([FromRoute] int id, [FromBody] PutCollect dto)
+        public ActionResult Put([FromRoute] int id, [FromBody] PutCollect dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -68,7 +68,7 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult<Collect> Delete([FromRoute] int id)
+        public ActionResult Delete([FromRoute] int id)
         {
             var collect = _collectService.GetById(id);
 
