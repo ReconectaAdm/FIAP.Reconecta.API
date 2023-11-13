@@ -1,35 +1,26 @@
-﻿using FIAP.Reconecta.Domain.Repositories;
-using FIAP.Reconecta.Domain.Services;
+﻿using FIAP.Reconecta.Domain.Services;
+using FIAP.Reconecta.Interfaces.Repositories;
 using FIAP.Reconecta.Models.Entities.Company;
-using Microsoft.AspNetCore.Http;
 
 namespace FIAP.Reconecta.Services.Services
 {
-    public class EstablishmentService : BaseService<Company>, IEstablishmentService
+    public class EstablishmentService : CompanyService, IEstablishmentService
     {
-        private readonly ICompanyRepository _companyRepository;
-        public EstablishmentService(ICompanyRepository companyRepository)
-            : base(companyRepository)
+        private readonly IEstablishmentRepository _establishmentRepository;
+        public EstablishmentService(IEstablishmentRepository establishmentRepository)
+            : base(establishmentRepository)
         {
-            _companyRepository = companyRepository;
+            _establishmentRepository = establishmentRepository;
         }
 
-        public override IEnumerable<Company> Get()
+        public override IEnumerable<Establishment> Get()
         {
-            return _companyRepository.GetEstablishments();
+            return _establishmentRepository.Get();
         }
 
-        public override Company? GetById(int id)
+        public override Establishment? GetById(int id)
         {
-            return _companyRepository.GetEstablishmentById(id);
-        }
-
-        public void UpdateLogo(int establishmentId, IFormFile file)
-        {
-            using var stream = new MemoryStream();
-            file.CopyTo(stream);
-
-            _companyRepository.UpdateLogo(new Company { Id = establishmentId, Logo = stream.ToArray() });
+            return _establishmentRepository.GetById(id);
         }
     }
 }

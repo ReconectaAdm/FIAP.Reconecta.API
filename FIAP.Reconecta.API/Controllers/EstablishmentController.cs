@@ -101,6 +101,17 @@ namespace FIAP.Reconecta.API.Controllers
                 return NotFound();
         }
 
+        [HttpGet("logo/{id}")]
+        public ActionResult GetLogo([FromRoute] int id)
+        {
+            var logo = _establishmentService.GetLogo(id);
+
+            if (logo is null)
+                return NotFound();
+
+            return File(logo, "image/jpeg");
+        }
+
         [HttpPatch("logo")]
         public ActionResult<Company> PatchLogo([FromForm] IFormFile file)
         {

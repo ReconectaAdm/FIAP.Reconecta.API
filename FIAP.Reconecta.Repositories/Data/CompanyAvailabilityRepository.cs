@@ -47,8 +47,8 @@ namespace FIAP.Reconecta.Repositories.Data
 
         public void Delete(int id)
         {
-            var companyAvailability = new CompanyAvailability { Id = id };
-            dataBaseContext.CompanyAvailability.Remove(companyAvailability);
+            //var companyAvailability = new CompanyAvailability { CompanyId = id };
+            dataBaseContext.CompanyAvailability.RemoveRange(dataBaseContext.CompanyAvailability.Where(ca => ca.CompanyId == id));
             dataBaseContext.SaveChanges();
         }
 

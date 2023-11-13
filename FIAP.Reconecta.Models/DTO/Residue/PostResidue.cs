@@ -7,6 +7,6 @@
         public int Type { get; set; }
 
         public static explicit operator Entities.Residue.Residue(PostResidue residue)
-            => new() { Name = residue.Name, UnitOfMeasure = residue.UnitOfMeasure, Type = residue.Type };
+            => new() { Name = residue.Name, UnitOfMeasure = residue.UnitOfMeasure, TypeId = residue.Type };
     }
 }

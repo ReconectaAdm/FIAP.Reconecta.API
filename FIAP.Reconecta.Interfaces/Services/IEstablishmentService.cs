@@ -1,10 +1,10 @@
-﻿using FIAP.Reconecta.Models.Entities.Company;
+﻿using FIAP.Reconecta.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 
 namespace FIAP.Reconecta.Domain.Services
 {
-    public interface IEstablishmentService : IBaseService<Company>
+    public interface IEstablishmentService : ICompanyService
     {
-        void UpdateLogo(int establishmentId, IFormFile file);
+ 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using FIAP.Reconecta.Models.Entities.Company;
+using FIAP.Reconecta.Models.Enums;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,7 +17,7 @@ namespace FIAP.Reconecta.Models.Entities.Collect
         [Display(Name = "Data e hora da coleta")]
 
         [Column("coleta_status")]
-        public int Status { get; set; }
+        public CollectStatus Status { get; set; }
 
         [Column("coleta_valor")]
         public decimal Value { get; set; }

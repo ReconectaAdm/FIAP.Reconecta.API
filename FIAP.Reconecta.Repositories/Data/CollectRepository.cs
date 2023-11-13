@@ -1,6 +1,6 @@
 ﻿using FIAP.Reconecta.Domain.Repositories;
-using FIAP.Reconecta.Models.Enums;
 using FIAP.Reconecta.Models.Entities.Collect;
+using FIAP.Reconecta.Models.Enums;
 using FIAP.Reconecta.Repositories.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +15,7 @@ namespace FIAP.Reconecta.Repositories.Data
             dataBaseContext = ctx;
         }
 
+        #region Base
         public IEnumerable<Collect> Get()
         {
             return dataBaseContext.Collect
@@ -27,7 +28,7 @@ namespace FIAP.Reconecta.Repositories.Data
 
         public IEnumerable<Collect> Get(CollectStatus status)
         {
-            return dataBaseContext.Collect.Where(c => c.Status == (int)status)
+            return dataBaseContext.Collect.Where(c => c.Status == status)
                 .Include(c => c.Residues)
                 .Include(c => c.Establishment)
                     .ThenInclude(e => e.Addresses)
@@ -40,50 +41,6 @@ namespace FIAP.Reconecta.Repositories.Data
             var collection = dataBaseContext.Collect.AsNoTracking()
                 .FirstOrDefault(c => c.Id == id);
             return collection;
-        }
-
-        public IEnumerable<Collect> GetByOrganizationId(int organizationId)
-        {
-            return dataBaseContext.Collect
-                 .Where(c => c.OrganizationId == organizationId)
-                 .Include(c => c.Residues)
-                 .Include(c => c.Establishment)
-                     .ThenInclude(e => e.Addresses)
-                 .Include(c => c.Organization)
-                     .ThenInclude(o => o.Addresses);
-        }
-
-        public IEnumerable<Collect> GetByOrganizationId(int organizationId, CollectStatus status)
-        {
-            return dataBaseContext.Collect
-                 .Where(c => c.OrganizationId == organizationId && c.Status == (int)status)
-                 .Include(c => c.Residues)
-                 .Include(c => c.Establishment)
-                     .ThenInclude(e => e.Addresses)
-                 .Include(c => c.Organization)
-                     .ThenInclude(o => o.Addresses);
-        }
-
-        public IEnumerable<Collect> GetByEstablishmentId(int establishmentId)
-        {
-            return dataBaseContext.Collect
-                 .Where(c => c.EstablishmentId == establishmentId)
-                 .Include(c => c.Residues)
-                 .Include(c => c.Establishment)
-                     .ThenInclude(e => e.Addresses)
-                 .Include(c => c.Organization)
-                     .ThenInclude(o => o.Addresses);
-        }
-
-        public IEnumerable<Collect> GetByEstablishmentId(int establishmentId, CollectStatus status)
-        {
-            return dataBaseContext.Collect
-                 .Where(c => c.EstablishmentId == establishmentId && c.Status == (int)status)
-                 .Include(c => c.Residues)
-                 .Include(c => c.Establishment)
-                     .ThenInclude(e => e.Addresses)
-                 .Include(c => c.Organization)
-                     .ThenInclude(o => o.Addresses);
         }
 
         public void Add(Collect collection)
@@ -110,6 +67,61 @@ namespace FIAP.Reconecta.Repositories.Data
             dataBaseContext.Collect.Remove(collection);
             dataBaseContext.SaveChanges();
         }
+
+        #endregion
+
+        public IEnumerable<Collect> GetByOrganizationId(int organizationId)
+        {
+            return dataBaseContext.Collect
+                 .Where(c => c.OrganizationId == organizationId)
+                 .Include(c => c.Residues)
+                 .Include(c => c.Establishment)
+                     .ThenInclude(e => e.Addresses)
+                 .Include(c => c.Organization)
+                     .ThenInclude(o => o.Addresses);
+        }
+
+        public IEnumerable<Collect> GetByOrganizationId(int organizationId, CollectStatus status)
+        {
+            return dataBaseContext.Collect
+                 .Where(c => c.OrganizationId == organizationId && c.Status == status)
+                 .Include(c => c.Residues)
+                 .Include(c => c.Establishment)
+                     .ThenInclude(e => e.Addresses)
+                 .Include(c => c.Organization)
+                     .ThenInclude(o => o.Addresses);
+        }
+
+        public IEnumerable<Collect> GetByEstablishmentId(int establishmentId)
+        {
+            return dataBaseContext.Collect
+                 .Where(c => c.EstablishmentId == establishmentId)
+                 .Include(c => c.Residues)
+                 .Include(c => c.Establishment)
+                     .ThenInclude(e => e.Addresses)
+                 .Include(c => c.Organization)
+                     .ThenInclude(o => o.Addresses);
+        }
+
+        public IEnumerable<Collect> GetByEstablishmentId(int establishmentId, CollectStatus status)
+        {
+            return dataBaseContext.Collect
+                 .Where(c => c.EstablishmentId == establishmentId && c.Status == status)
+                 .Include(c => c.Residues)
+                 .Include(c => c.Establishment)
+                     .ThenInclude(e => e.Addresses)
+                 .Include(c => c.Organization)
+                     .ThenInclude(o => o.Addresses);
+        }
+
+        public IEnumerable<Collect> GetSummary()
+        {
+            return dataBaseContext.Collect
+                .Include(c => c.Residues)!
+                    .ThenInclude(cr => cr.Residue)
+                    .ThenInclude(r => r.Type);
+        }
+
 
     }
 }

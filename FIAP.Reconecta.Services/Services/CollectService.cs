@@ -1,5 +1,6 @@
 ﻿using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Domain.Services;
+using FIAP.Reconecta.Models.DTO.Collect;
 using FIAP.Reconecta.Models.Entities.Collect;
 using FIAP.Reconecta.Models.Enums;
 
@@ -32,6 +33,23 @@ namespace FIAP.Reconecta.Services.Services
                 else
                     return _collectionRepository.GetByEstablishmentId(establishmentId: companyId, status: status.Value);
             }
+        }
+
+        public GetCollectSummary GetSummary()
+        {
+            var collects = _collectionRepository.GetSummary();
+
+            var summary = new GetCollectSummary
+            {
+                Collects = collects.Count(),
+                Points = collects.Sum(c => c.Residues.Sum(cr => cr.Points)),
+                Value = collects.Sum(c => c.Value)
+            };
+
+            summary.GenerateResiduesSummary(collects);
+            summary.GenerateStatusSummary(collects);
+
+            return summary;
         }
     }
 }

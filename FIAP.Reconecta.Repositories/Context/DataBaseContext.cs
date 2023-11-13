@@ -5,6 +5,7 @@ using FIAP.Reconecta.Models.Entities.Residue;
 using FIAP.Reconecta.Models.Entities.User;
 using FIAP.Reconecta.Models.Enums;
 using Microsoft.EntityFrameworkCore;
+using System.Xml;
 
 namespace FIAP.Reconecta.Repositories.Context
 {
@@ -13,6 +14,7 @@ namespace FIAP.Reconecta.Repositories.Context
         public DbSet<Company> Company { get; set; }
         public DbSet<CompanyAddress> CompanyAddress { get; set; }
         public DbSet<CompanyAvailability> CompanyAvailability { get; set; }
+        public DbSet<CompanyFavorite> CompanyFavorite { get; set; }
         public DbSet<Establishment> Establishment { get; set; }
         public DbSet<Organization> Organization { get; set; }
         public DbSet<User> User { get; set; }

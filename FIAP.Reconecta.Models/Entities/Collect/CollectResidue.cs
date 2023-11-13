@@ -15,11 +15,15 @@ namespace FIAP.Reconecta.Models.Entities.Collect
         [Column("quantidade")]
         public int Quantity { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column("residuo_coleta_data_criacao")]
         public DateTime CreationDate { get; set; }
 
         [Column("residuo_coleta_data_atualizacao")]
         public DateTime UpdateDate { get; set; }
+
+        [Column("pontos")]
+        public int Points { get; set; }
 
         [Column("residuo_id")]
         public int? ResidueId { get; set; }

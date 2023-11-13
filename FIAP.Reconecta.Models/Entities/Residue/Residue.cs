@@ -22,7 +22,7 @@ namespace FIAP.Reconecta.Models.Entities.Residue
 
         [Display(Name = "Categoria do resíduo")]
         [Column("tipo_residuo_id")]
-        public int Type { get; set; }
+        public int TypeId { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column("residuo_data_criacao")]
@@ -35,6 +35,8 @@ namespace FIAP.Reconecta.Models.Entities.Residue
         public int OrganizationId { get; set; }
 
         public Company.Company? Organization { get; set; }
+
+        public ResidueType? Type { get; set; }
 
         //public IList<Collect>? Coletas { get; set; }
         //public IList<Company>? Estabelecimentos { get; set; }

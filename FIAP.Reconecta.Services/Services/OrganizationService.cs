@@ -1,27 +1,26 @@
 ﻿using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Domain.Services;
 using FIAP.Reconecta.Models.Entities.Company;
-using Microsoft.AspNetCore.Http;
 
 namespace FIAP.Reconecta.Services.Services
 {
-    public class OrganizationService : BaseService<Company>, IOrganizationService
+    public class OrganizationService : CompanyService, IOrganizationService
     {
-        private readonly ICompanyRepository _companyRepository;
-        public OrganizationService(ICompanyRepository companyRepository) : base(companyRepository)
+        private readonly IOrganizationRepository _organizationRepository;
+        public OrganizationService(IOrganizationRepository organizationRepository) : base(organizationRepository)
         {
-            _companyRepository = companyRepository;
+            _organizationRepository = organizationRepository;
         }
 
-        public IEnumerable<Company> Get(int establishmentId = 0)
+        public IEnumerable<Organization> Get(int establishmentId = 0)
         {
-            var organizations = _companyRepository.GetOrganizations(establishmentId);
+            var organizations = _organizationRepository.Get(establishmentId);
             return organizations;
         }
 
-        public IEnumerable<Company> Get(double latitude, double longitude, int establishmentId = 0)
+        public IEnumerable<Organization> Get(double latitude, double longitude, int establishmentId = 0)
         {
-            var organizations = _companyRepository.GetNearestOrganizations(latitude, longitude, 10000, establishmentId);
+            var organizations = _organizationRepository.GetByDistance(latitude, longitude, 10000, establishmentId);
 
             foreach (var organization in organizations)
             {
@@ -34,22 +33,9 @@ namespace FIAP.Reconecta.Services.Services
             return organizations;
         }
 
-        public override Company? GetById(int id)
+        public override Organization? GetById(int id)
         {
-            return _companyRepository.GetOrganizationById(id);
-        }
-
-        public void UpdateLogo(int organizationId, IFormFile file)
-        {
-            using var stream = new MemoryStream();
-            file.CopyTo(stream);
-
-            _companyRepository.UpdateLogo(new Company { Id = organizationId, Logo = stream.ToArray() });
-        }
-
-        public void UpdateDescription(int organizationId, string description)
-        {
-            _companyRepository.UpdateDescription(new Company { Id = organizationId, Description = description });
+            return _organizationRepository.GetById(id);
         }
     }
 }

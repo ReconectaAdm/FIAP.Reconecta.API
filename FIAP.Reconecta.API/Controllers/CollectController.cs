@@ -115,7 +115,15 @@ namespace FIAP.Reconecta.API.Controllers
             var location = new Uri(Request.GetEncodedUrl() + "/" + collectRating.CollectId);
             return Created(location, collectRating);
         }
+
         #endregion
+
+        [HttpGet("summary")]
+        public ActionResult GetSummary()
+        {
+            var summary = _collectService.GetSummary();
+            return Ok(summary);
+        }
     }
 }
 

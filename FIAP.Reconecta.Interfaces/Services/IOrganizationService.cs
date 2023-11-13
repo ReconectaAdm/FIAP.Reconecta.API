@@ -1,13 +1,11 @@
-﻿using FIAP.Reconecta.Models.Entities.Company;
-using Microsoft.AspNetCore.Http;
+﻿using FIAP.Reconecta.Interfaces.Services;
+using FIAP.Reconecta.Models.Entities.Company;
 
 namespace FIAP.Reconecta.Domain.Services
 {
-    public interface IOrganizationService : IBaseService<Company>
+    public interface IOrganizationService : ICompanyService
     {
-        IEnumerable<Company> Get(int establishmentId = 0);
-        IEnumerable<Company> Get(double latitude, double longitude, int establishmentId = 0);
-        void UpdateDescription(int organizationId, string description);
-        void UpdateLogo(int organizationId, IFormFile file);
+        IEnumerable<Organization> Get(int establishmentId = 0);
+        IEnumerable<Organization> Get(double latitude, double longitude, int establishmentId = 0);
     }
 }

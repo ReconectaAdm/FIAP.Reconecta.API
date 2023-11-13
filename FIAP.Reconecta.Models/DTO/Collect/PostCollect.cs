@@ -1,12 +1,13 @@
 ﻿using FIAP.Reconecta.Models.DTO.Collect.Residue;
 using FIAP.Reconecta.Models.Entities.Collect;
+using FIAP.Reconecta.Models.Enums;
 
 namespace FIAP.Reconecta.Models.DTO.Collect
 {
     public class PostCollect
     {
         public DateTime Date { get; set; }
-        public int Status { get; set; }
+        public CollectStatus Status { get; set; }
         public int EstablishmentId { get; set; }
         public int OrganizationId { get; set; }
         public decimal Value { get; set; }

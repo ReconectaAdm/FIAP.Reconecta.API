@@ -6,7 +6,6 @@ using FIAP.Reconecta.Models.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace FIAP.Reconecta.API.Controllers
 {
@@ -16,12 +15,14 @@ namespace FIAP.Reconecta.API.Controllers
         private readonly IOrganizationService _organizationService;
         private readonly ICompanyAddressService _companyAddressService;
         private readonly ICompanyAvailabilityService _companyAvailabilityService;
+        private readonly ICompanyFavoriteService _companyFavoriteService;
 
-        public OrganizationController(IOrganizationService organizationService, ICompanyAddressService companyAddressService, ICompanyAvailabilityService companyAvailabilityService)
+        public OrganizationController(IOrganizationService organizationService, ICompanyAddressService companyAddressService, ICompanyAvailabilityService companyAvailabilityService, ICompanyFavoriteService companyFavoriteService)
         {
             _organizationService = organizationService;
             _companyAddressService = companyAddressService;
             _companyAvailabilityService = companyAvailabilityService;
+            _companyFavoriteService = companyFavoriteService;
         }
 
         #region Base
@@ -29,7 +30,7 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet]
         public ActionResult Get()
         {
-            IEnumerable<Company> organizations;
+            IEnumerable<Organization> organizations;
 
             if (CompanyType == CompanyType.ESTABLISHMENT)
                 organizations = _organizationService.Get(CompanyId);
@@ -105,7 +106,7 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet("nearest")]
         public ActionResult GetNearestOrganizations([FromQuery] double latitude, [FromQuery] double longitude)
         {
-            IEnumerable<Company> organizations;
+            IEnumerable<Organization> organizations;
 
             if (CompanyType == CompanyType.ESTABLISHMENT)
                 organizations = _organizationService.Get(latitude, longitude, CompanyId);
@@ -126,10 +127,21 @@ namespace FIAP.Reconecta.API.Controllers
                 return NotFound();
         }
 
-        [HttpPatch("logo")]
-        public ActionResult PatchLogo([FromForm] IFormFile formFile)
+        [HttpGet("logo/{id}")]
+        public ActionResult GetLogo([FromRoute] int id)
         {
-            _organizationService.UpdateLogo(CompanyId, formFile);
+            var logo = _organizationService.GetLogo(id);
+
+            if (logo is null)
+                return NotFound();
+
+            return File(logo, "image/jpeg");
+        }
+
+        [HttpPatch("logo")]
+        public ActionResult PatchLogo([FromForm] IFormFile file)
+        {
+            _organizationService.UpdateLogo(CompanyId, file);
             return NoContent();
         }
 
@@ -154,56 +166,21 @@ namespace FIAP.Reconecta.API.Controllers
                 return NotFound();
         }
 
-        #region Availability
-
-        [HttpGet("availability")]
-        public ActionResult GetAvailability()
+        [HttpPatch("favorite/{organizationId}/{isFavorite}")]
+        public ActionResult UpdateFavorite(int organizationId, bool isFavorite)
         {
-            if (CompanyType == CompanyType.ESTABLISHMENT)
-                return Forbid();
+            if (CompanyType == CompanyType.ORGANIZATION)
+                throw new Exception("Não é permitido que uma organização favorite outra.");
 
-            var companyAvailability = _companyAvailabilityService.GetByCompanyId(CompanyId);
-            return Ok(companyAvailability);
-        }
-
-        [HttpPost("availability")]
-        public ActionResult PostAvailability(IEnumerable<PostCompanyAvailability> dtos)
-        {
-            if (CompanyType == CompanyType.ESTABLISHMENT)
-                return Forbid();
-
-                var companyAvailability = dtos.Select(dto =>
+            _companyFavoriteService.Update(new CompanyFavorite
             {
-                var dayAvailability = (CompanyAvailability)dto;
-                dayAvailability.CompanyId = CompanyId;
-
-                return dayAvailability;
+                OrganizationId = organizationId,
+                IsFavorite = isFavorite,
+                EstablishmentId = CompanyId
             });
-
-            _companyAvailabilityService.AddRange(companyAvailability);
 
             return NoContent();
         }
 
-        [HttpPut("availability")]
-        public ActionResult PutAvailability(IEnumerable<PutCompanyAvailability> dtos)
-        {
-            if (CompanyType == CompanyType.ESTABLISHMENT)
-                return Forbid();
-
-            var companyAvailability = dtos.Select(dto =>
-            {
-                var dayAvailability = (CompanyAvailability)dto;
-                dayAvailability.CompanyId = CompanyId;
-
-                return dayAvailability;
-            });
-
-            _companyAvailabilityService.UpdateRange(companyAvailability);
-
-            return NoContent();
-        }
-
-        #endregion
     }
 }

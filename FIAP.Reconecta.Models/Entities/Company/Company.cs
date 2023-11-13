@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace FIAP.Reconecta.Models.Entities.Company
 {
@@ -39,12 +40,15 @@ namespace FIAP.Reconecta.Models.Entities.Company
         [Column("empresa_data_atualizacao")]
         public DateTime UpdateDate { get; set; }
 
+        [JsonIgnore]
         [Column("logo")]
-        public byte[]? Logo { get; set; }
+        public virtual byte[]? Logo { get; set; }
 
         public User.User? User { get; set; }
         public CompanyAvailability? Availability { get; set; }
         public ICollection<Residue.Residue>? Residues { get; set; }
+
+        [JsonIgnore]
         public ICollection<CompanyFavorite> Favorites { get; set; } = new List<CompanyFavorite>();
         public ICollection<CompanyAddress> Addresses { get; set; } = new List<CompanyAddress>();
         public ICollection<CompanyPoint>? Points { get; set; }
