@@ -1,12 +1,14 @@
-﻿namespace FIAP.Reconecta.Models.DTO.Residue
+﻿using FIAP.Reconecta.Models.Enums;
+
+namespace FIAP.Reconecta.Models.DTO.Residue
 {
     public class PutResidue
     {
         public string? Name { get; set; }
-        public string? UnitOfMeasure { get; set; }
+        public UnitMeasure UnitMeasure { get; set; }
         public int Type { get; set; }
 
         public static explicit operator Entities.Residue.Residue(PutResidue residue)
-            => new() { Name = residue.Name, UnitOfMeasure = residue.UnitOfMeasure, TypeId = residue.Type };
+            => new() { Name = residue.Name, UnitMeasure = residue.UnitMeasure, TypeId = residue.Type };
     }
 }

@@ -7,6 +7,7 @@ namespace FIAP.Reconecta.Domain.Services
     public interface ICollectService : IBaseService<Collect>
     {
         IEnumerable<Collect> Get(CompanyType companyType, int companyId, CollectStatus? status = null);
+        Collect? GetById(int id, int companyId);
         GetCollectSummary GetSummary();
     }
 }

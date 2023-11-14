@@ -14,14 +14,12 @@ namespace FIAP.Reconecta.API.Controllers
     {
         private readonly IOrganizationService _organizationService;
         private readonly ICompanyAddressService _companyAddressService;
-        private readonly ICompanyAvailabilityService _companyAvailabilityService;
         private readonly ICompanyFavoriteService _companyFavoriteService;
 
-        public OrganizationController(IOrganizationService organizationService, ICompanyAddressService companyAddressService, ICompanyAvailabilityService companyAvailabilityService, ICompanyFavoriteService companyFavoriteService)
+        public OrganizationController(IOrganizationService organizationService, ICompanyAddressService companyAddressService, ICompanyFavoriteService companyFavoriteService)
         {
             _organizationService = organizationService;
             _companyAddressService = companyAddressService;
-            _companyAvailabilityService = companyAvailabilityService;
             _companyFavoriteService = companyFavoriteService;
         }
 
@@ -130,7 +128,7 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet("logo/{id}")]
         public ActionResult GetLogo([FromRoute] int id)
         {
-            var logo = _organizationService.GetLogo(id);
+            var logo = _organizationService.GetLogo(id, CompanyType.ORGANIZATION);
 
             if (logo is null)
                 return NotFound();
@@ -152,20 +150,6 @@ namespace FIAP.Reconecta.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("address/{id}")]
-        public ActionResult DeleteAddress(int id)
-        {
-            var companyAddress = _companyAddressService.GetById(id);
-
-            if (companyAddress != null)
-            {
-                _companyAddressService.Delete(id);
-                return NoContent();
-            }
-            else
-                return NotFound();
-        }
-
         [HttpPatch("favorite/{organizationId}/{isFavorite}")]
         public ActionResult UpdateFavorite(int organizationId, bool isFavorite)
         {
@@ -182,5 +166,18 @@ namespace FIAP.Reconecta.API.Controllers
             return NoContent();
         }
 
+        [HttpDelete("address/{id}")]
+        public ActionResult DeleteAddress(int id)
+        {
+            var companyAddress = _companyAddressService.GetById(id);
+
+            if (companyAddress != null)
+            {
+                _companyAddressService.Delete(id);
+                return NoContent();
+            }
+            else
+                return NotFound();
+        }
     }
 }

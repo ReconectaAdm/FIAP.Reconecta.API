@@ -1,6 +1,7 @@
 ﻿using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Interfaces.Services;
 using FIAP.Reconecta.Models.Entities.Company;
+using FIAP.Reconecta.Models.Enums;
 using Microsoft.AspNetCore.Http;
 
 namespace FIAP.Reconecta.Services.Services
@@ -13,9 +14,9 @@ namespace FIAP.Reconecta.Services.Services
             _companyRepository = companyRepository;
         }
 
-        public byte[]? GetLogo(int companyId)
+        public byte[]? GetLogo(int companyId, CompanyType companyType)
         {
-            return _companyRepository.GetLogo(companyId);
+            return _companyRepository.GetLogo(companyId, companyType);
         }
 
         public void UpdateLogo(int companyId, IFormFile file)

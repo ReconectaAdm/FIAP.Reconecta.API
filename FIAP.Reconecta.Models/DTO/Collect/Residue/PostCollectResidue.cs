@@ -7,13 +7,17 @@ namespace FIAP.Reconecta.Models.DTO.Collect.Residue
         public int ResidueId { get; set; }
         public int Quantity { get; set; }
 
-        public static explicit operator CollectResidue(PostCollectResidue residue)
+        public static explicit operator CollectResidue(PostCollectResidue dto)
         {
-            return new()
+            var residue = new CollectResidue()
             {
-                ResidueId = residue.ResidueId,
-                Quantity = residue.Quantity
+                ResidueId = dto.ResidueId,
+                Quantity = dto.Quantity
             };
+
+            residue.CalculatePoints();
+
+            return residue;
         }
     }
 }

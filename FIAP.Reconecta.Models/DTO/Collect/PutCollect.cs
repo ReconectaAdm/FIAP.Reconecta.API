@@ -6,17 +6,17 @@ namespace FIAP.Reconecta.Models.DTO.Collect
     {
         public DateTime Date { get; set; }
         public CollectStatus Status { get; set; }
-        public int EstablishmentId { get; set; }
         public int OrganizationId { get; set; }
         public decimal Value { get; set; }
+        public string? Hour { get; set; }
 
         public static explicit operator Entities.Collect.Collect(PutCollect collect) => new()
         {
             Date = collect.Date,
             Status = collect.Status,
-            EstablishmentId = collect.EstablishmentId,
             OrganizationId = collect.OrganizationId,
-            Value = collect.Value
+            Value = collect.Value,
+            Hour = collect.Hour
         };
     }
 }

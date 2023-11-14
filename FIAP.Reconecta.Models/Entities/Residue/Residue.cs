@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FIAP.Reconecta.Models.Enums;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,7 +19,7 @@ namespace FIAP.Reconecta.Models.Entities.Residue
 
         [Display(Name = "Unidade de Medida do resíduo")]
         [Column("unidade_medida")]
-        public string? UnitOfMeasure { get; set; }
+        public UnitMeasure? UnitMeasure { get; set; }
 
         [Display(Name = "Categoria do resíduo")]
         [Column("tipo_residuo_id")]

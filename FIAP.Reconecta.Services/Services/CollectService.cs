@@ -17,22 +17,15 @@ namespace FIAP.Reconecta.Services.Services
         public IEnumerable<Collect> Get(CompanyType companyType, int companyId, CollectStatus? status = null)
         {
             if (status is null)
-            {
-                if (companyType == CompanyType.ORGANIZATION)
-                    return _collectionRepository.GetByOrganizationId(organizationId: companyId);
-
-                else
-                    return _collectionRepository.GetByEstablishmentId(establishmentId: companyId);
-            }
+                return _collectionRepository.GetByCompanyId(companyId: companyId);
 
             else
-            {
-                if (companyType == CompanyType.ORGANIZATION)
-                    return _collectionRepository.GetByOrganizationId(organizationId: companyId, status: status.Value);
+                return _collectionRepository.GetByCompanyId(companyId: companyId, status: status.Value);
+        }
 
-                else
-                    return _collectionRepository.GetByEstablishmentId(establishmentId: companyId, status: status.Value);
-            }
+        public Collect? GetById(int id, int companyId)
+        {
+            return _collectionRepository.GetById(id, companyId);
         }
 
         public GetCollectSummary GetSummary()

@@ -22,7 +22,7 @@ namespace FIAP.Reconecta.API.Controllers
         #region Base
 
         [HttpGet]
-        public ActionResult<IEnumerable<Residue>> Get()
+        public ActionResult Get()
         {
             if (CompanyType == Models.Enums.CompanyType.ESTABLISHMENT)
                 return Forbid();
@@ -33,7 +33,7 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Residue> Get([FromRoute] int id)
+        public ActionResult Get([FromRoute] int id)
         {
             var residue = _residueService.GetById(id);
 
@@ -44,12 +44,14 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Residue> Post([FromBody] PostResidue dto)
+        public ActionResult Post([FromBody] PostResidue dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var residue = (Residue)dto;
+            residue.OrganizationId = CompanyId;
+
             _residueService.Add(residue);
 
             var location = new Uri(Request.GetEncodedUrl() + "/" + residue.Id);
@@ -57,20 +59,21 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<Residue> Put([FromRoute] int id, [FromBody] PutResidue dto)
+        public ActionResult Put([FromRoute] int id, [FromBody] PutResidue dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var residue = (Residue)dto;
             residue.Id = id;
+            residue.OrganizationId = CompanyId;
 
             _residueService.Update(residue);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public ActionResult<Residue> Delete([FromRoute] int id)
+        public ActionResult Delete([FromRoute] int id)
         {
             var residue = _residueService.GetById(id);
 
@@ -88,7 +91,7 @@ namespace FIAP.Reconecta.API.Controllers
         #region Type
 
         [HttpGet("type")]
-        public ActionResult<ResidueType> GetTypes()
+        public ActionResult GetTypes()
         {
             var residueTypes = _residueTypeService.Get();
             return Ok(residueTypes);

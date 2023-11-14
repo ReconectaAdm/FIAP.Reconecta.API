@@ -21,14 +21,14 @@ namespace FIAP.Reconecta.API.Controllers
         #region Base
 
         [HttpGet]
-        public ActionResult<IEnumerable<Company>> Get()
+        public ActionResult Get()
         {
             var establishments = _establishmentService.Get();
             return Ok(establishments);
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Company> Get([FromRoute] int id)
+        public ActionResult Get([FromRoute] int id)
         {
             var establishment = _establishmentService.GetById(id);
 
@@ -40,8 +40,8 @@ namespace FIAP.Reconecta.API.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult<Company> Post([FromBody] PostCompany dto)
-        {
+        public ActionResult Post([FromBody] PostCompany dto)
+        {   
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
@@ -55,7 +55,7 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<Company> Put([FromRoute] int id, [FromBody] PutCompany dto)
+        public ActionResult Put([FromRoute] int id, [FromBody] PutCompany dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -69,30 +69,25 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult<Company> Delete([FromRoute] int id)
+        public ActionResult Delete([FromRoute] int id)
         {
-            try
-            {
-                var establishment = _establishmentService.GetById(id);
 
-                if (establishment != null)
-                {
-                    _establishmentService.Delete(id);
-                    return NoContent();
-                }
-                else
-                    return NotFound();
-            }
-            catch (Exception e)
+            var establishment = _establishmentService.GetById(id);
+
+            if (establishment != null)
             {
-                return BadRequest(new { e.Message });
+                _establishmentService.Delete(id);
+                return NoContent();
             }
+            else
+                return NotFound();
+
         }
 
         #endregion
 
         [HttpGet("me")]
-        public ActionResult<Company> GetMyProfile()
+        public ActionResult GetMyProfile()
         {
             var establishment = _establishmentService.GetById(CompanyId);
             if (establishment != null)
@@ -104,7 +99,7 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet("logo/{id}")]
         public ActionResult GetLogo([FromRoute] int id)
         {
-            var logo = _establishmentService.GetLogo(id);
+            var logo = _establishmentService.GetLogo(id, CompanyType.ESTABLISHMENT);
 
             if (logo is null)
                 return NotFound();
@@ -113,7 +108,7 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpPatch("logo")]
-        public ActionResult<Company> PatchLogo([FromForm] IFormFile file)
+        public ActionResult PatchLogo([FromForm] IFormFile file)
         {
             _establishmentService.UpdateLogo(CompanyId, file);
             return NoContent();

@@ -33,10 +33,10 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet("{id}")]
         public ActionResult GetById([FromRoute] int id)
         {
-            var collects = _collectService.GetById(id);
+            var collect = _collectService.GetById(id, CompanyId);
 
-            if (collects != null)
-                return Ok(collects);
+            if (collect != null)
+                return Ok(collect);
             else
                 return NotFound();
         }
@@ -48,6 +48,8 @@ namespace FIAP.Reconecta.API.Controllers
                 return BadRequest(ModelState);
 
             var collect = (Collect)dto;
+            collect.EstablishmentId = CompanyId;
+
             _collectService.Add(collect);
 
             var location = new Uri(Request.GetEncodedUrl() + "/" + collect.Id);
@@ -57,11 +59,15 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpPut("{id}")]
         public ActionResult Put([FromRoute] int id, [FromBody] PutCollect dto)
         {
+            if (CompanyType == CompanyType.ORGANIZATION)
+                throw new Exception("Não é possível uma organização atualizar os dados da coleta.");
+
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var collect = (Collect)dto;
             collect.Id = id;
+            collect.EstablishmentId = CompanyId;
 
             _collectService.Update(collect);
             return NoContent();
@@ -85,29 +91,25 @@ namespace FIAP.Reconecta.API.Controllers
 
         #region Rating
 
-        [HttpGet("rating")]
-        public ActionResult<CollectRating> GetRatings()
+        [HttpGet("rating/{organizationId}")]
+        public ActionResult GetRatings(int organizationId)
         {
-            var ratings = _collectRatingService.Get();
+            var ratings = _collectRatingService.GetByOrganizationId(organizationId);
             return Ok(ratings);
         }
 
-        [HttpGet("rating/{id}")]
-        public ActionResult<CollectRating> GetRatingById(int id)
+        [HttpGet("rating/summary")]
+        public ActionResult GetRatingSummary()
         {
-            var rating = _collectRatingService.GetById(id);
-            return Ok(rating);
-        }
+            if (CompanyType == CompanyType.ESTABLISHMENT)
+                throw new Exception("Não é possível gerar sumarização de avaliações para empresas do tipo estabelecimento.");
 
-        [HttpGet("rating/summary/{id}")]
-        public ActionResult<CollectRating> GetRatingSummary(int id)
-        {
-            var ratings = _collectRatingService.GetSummary(id);
+            var ratings = _collectRatingService.GetSummary(CompanyId);
             return Ok(ratings);
         }
 
         [HttpPost("rating")]
-        public ActionResult<CollectRating> PostRating(PostCollectRating dto)
+        public ActionResult PostRating(PostCollectRating dto)
         {
             var collectRating = (CollectRating)dto;
             _collectRatingService.Add(collectRating);

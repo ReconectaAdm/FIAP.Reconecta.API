@@ -12,6 +12,11 @@ namespace FIAP.Reconecta.Services.Services
             _collectionRepository = collectionRepository;
         }
 
+        public IEnumerable<CollectRating> GetByOrganizationId(int organizationId)
+        {
+            return _collectionRepository.GetByOrganizationId(organizationId);
+        }
+
         public CollectRating GetSummary(int organizationId)
         {
             return _collectionRepository.GetSummary(organizationId) ?? new CollectRating();

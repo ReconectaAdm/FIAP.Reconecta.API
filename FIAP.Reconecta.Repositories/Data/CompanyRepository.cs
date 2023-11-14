@@ -1,5 +1,6 @@
 ﻿using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Models.Entities.Company;
+using FIAP.Reconecta.Models.Enums;
 using FIAP.Reconecta.Repositories.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -53,9 +54,9 @@ namespace FIAP.Reconecta.Repositories.Data
 
         #endregion
 
-        public byte[]? GetLogo(int companyId)
+        public byte[]? GetLogo(int companyId, CompanyType companyType)
         {
-            return dataBaseContext.Company.AsNoTracking().FirstOrDefault(c => c.Id == companyId)?.Logo;
+            return dataBaseContext.Company.AsNoTracking().FirstOrDefault(c => c.Id == companyId && c.Type == companyType)?.Logo;
         }
 
         public void UpdateLogo(Company company)

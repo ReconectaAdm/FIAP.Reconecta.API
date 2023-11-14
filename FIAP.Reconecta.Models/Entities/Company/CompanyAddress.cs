@@ -37,8 +37,8 @@ namespace FIAP.Reconecta.Models.Entities.Company
         [JsonIgnore]
         public Point? Geolocalization { get; set; }
 
-        [Column("padrao")]
-        public bool Default { get; set; }
+        //[Column("padrao")]
+        //public bool Default { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column("endereco_empresa_data_criacao")]

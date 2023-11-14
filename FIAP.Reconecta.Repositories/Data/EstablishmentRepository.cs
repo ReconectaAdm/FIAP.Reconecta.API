@@ -18,15 +18,15 @@ namespace FIAP.Reconecta.Repositories.Data
         public override IEnumerable<Establishment> Get()
         {
             return dataBaseContext.Establishment
-                .Include(company => company.Addresses)
-                .Where(company => company.Type == CompanyType.ESTABLISHMENT);
+                .Include(c => c.Addresses)
+                .Where(c => c.Type == CompanyType.ESTABLISHMENT);
         }
 
         public override Establishment? GetById(int id)
         {
             return dataBaseContext.Establishment.AsNoTracking()
-                .Include(company => company.Points)
-                .Include(company => company.Collects)
+                .Include(c => c.Addresses)
+                .Include(c => c.Collects)
                     .ThenInclude(cl => cl.Residues)
                 .FirstOrDefault(e => e.Id == id && e.Type == CompanyType.ESTABLISHMENT);
         }

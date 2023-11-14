@@ -33,5 +33,14 @@ namespace FIAP.Reconecta.Models.Entities.Collect
 
         public Residue.Residue? Residue { get; set; }
         public Collect? Collect { get; set; }
+
+        public void CalculatePoints()
+        {
+            if (Quantity > 0 && Quantity <= 10) Points = 5;
+
+            if (Quantity <= 49) Points = 20;
+
+            else Points = 100;
+        }
     }
 }

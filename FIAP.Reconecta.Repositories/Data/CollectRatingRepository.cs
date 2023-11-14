@@ -21,6 +21,14 @@ namespace FIAP.Reconecta.Repositories.Data
                     .ThenInclude(c => c!.Establishment);
         }
 
+        public IEnumerable<CollectRating> GetByOrganizationId(int organizationId)
+        {
+            return dataBaseContext.CollectRating
+                .Include(cr => cr.Collect)
+                    .ThenInclude(c => c!.Establishment)
+                .Where(cr => cr.Collect.OrganizationId == organizationId);
+        }
+
         public CollectRating? GetById(int id)
         {
             return dataBaseContext.CollectRating.AsNoTracking().FirstOrDefault(t => t.CollectId == id);
