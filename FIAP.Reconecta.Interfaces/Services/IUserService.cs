@@ -6,5 +6,6 @@ namespace FIAP.Reconecta.Domain.Services
     {
         void Delete(int id, int companyId);
         public User? GetByLogin(string email, string password);
+        void UpdatePassword(string email, string password);
     }
 }

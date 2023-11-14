@@ -31,6 +31,14 @@ namespace FIAP.Reconecta.API.Controllers
             return Ok(new { token, user });
         }
 
+        [HttpPatch("password")]
+        [AllowAnonymous]
+        public ActionResult UpdatePassword([FromBody] PatchUser dto)
+        {
+            _userService.UpdatePassword(dto.Email, dto.Password);
+            return NoContent();
+        }
+
         [HttpDelete]
         public ActionResult Delete()
         {

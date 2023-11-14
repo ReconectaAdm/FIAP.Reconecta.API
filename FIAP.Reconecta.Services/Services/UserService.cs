@@ -19,6 +19,15 @@ namespace FIAP.Reconecta.Services.Services
             return _userRepository.GetByLogin(email, password);
         }
 
+        public void UpdatePassword(string email, string password)
+        {
+            var user = _userRepository.GetByEmail(email) 
+                ?? throw new Exception("Não foi possível alterar a senha: email não localizado na base de dados.");
+            
+            user.Password = password;
+            _userRepository.UpdatePassword(user);
+        }
+
         public void Delete(int id, int companyId)
         {
             base.Delete(id);

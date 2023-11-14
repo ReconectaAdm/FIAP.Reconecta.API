@@ -27,12 +27,21 @@ namespace FIAP.Reconecta.Repositories.Data
             return user;
         }
 
+        public User? GetByEmail(string email)
+        {
+            var user = dataBaseContext.User.AsNoTracking()
+                .FirstOrDefault(u => u.Email == email);
+
+            return user;
+        }
+
         public User? GetById(int id)
         {
             var user = dataBaseContext.User.AsNoTracking()
                 .FirstOrDefault(u => u.Id == id);
             return user;
         }
+
 
         public void Add(User user)
         {
@@ -56,6 +65,12 @@ namespace FIAP.Reconecta.Repositories.Data
         {
             var user = new User { Id = id };
             dataBaseContext.User.Remove(user);
+            dataBaseContext.SaveChanges();
+        }
+
+        public void UpdatePassword(User user)
+        {
+            dataBaseContext.Entry(user).Property(u => u.Password).IsModified = true;
             dataBaseContext.SaveChanges();
         }
 
