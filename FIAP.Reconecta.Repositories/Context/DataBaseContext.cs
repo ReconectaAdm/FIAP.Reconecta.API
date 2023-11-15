@@ -63,11 +63,6 @@ namespace FIAP.Reconecta.Repositories.Context
                .HasForeignKey(k => k.OrganizationId);
 
             modelBuilder.Entity<Company>()
-               .HasMany(c => c.Points)
-               .WithOne(ca => ca.Company)
-               .HasForeignKey(k => k.CompanyId);
-
-            modelBuilder.Entity<Company>()
                .HasOne(c => c.Availability)
                .WithOne(ca => ca.Company);
 

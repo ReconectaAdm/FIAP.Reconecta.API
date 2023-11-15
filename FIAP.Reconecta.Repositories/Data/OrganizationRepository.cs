@@ -30,7 +30,6 @@ namespace FIAP.Reconecta.Repositories.Data
                 .Include(company => company.Addresses)
                 .Include(company => company.Residues)
                 .Include(company => company.Availability)
-                .Include(company => company.Points)
                 .Include(company => company.Collects)
                     .ThenInclude(cl => cl.Residues)
                 .FirstOrDefault(o => o.Id == id && o.Type == CompanyType.ORGANIZATION);

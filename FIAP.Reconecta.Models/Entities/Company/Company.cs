@@ -51,7 +51,6 @@ namespace FIAP.Reconecta.Models.Entities.Company
         [JsonIgnore]
         public ICollection<CompanyFavorite> Favorites { get; set; } = new List<CompanyFavorite>();
         public ICollection<CompanyAddress> Addresses { get; set; } = new List<CompanyAddress>();
-        public ICollection<CompanyPoint>? Points { get; set; }
         public ICollection<Collect.Collect> Collects { get; set; } = new List<Collect.Collect>();
     }
 }
