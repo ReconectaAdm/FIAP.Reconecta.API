@@ -3,6 +3,7 @@ using FIAP.Reconecta.Models.Entities.Collect;
 using FIAP.Reconecta.Models.Enums;
 using FIAP.Reconecta.Repositories.Context;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace FIAP.Reconecta.Repositories.Data
 {
@@ -108,14 +109,19 @@ namespace FIAP.Reconecta.Repositories.Data
                      .ThenInclude(o => o.Addresses);
         }
 
-        public IEnumerable<Collect> GetSummary()
+        public IEnumerable<Collect> GetSummary(int companyId)
         {
             return dataBaseContext.Collect
+                .Where(c => c.OrganizationId == companyId || c.EstablishmentId == companyId)
                 .Include(c => c.Residues)!
                     .ThenInclude(cr => cr.Residue)
                     .ThenInclude(r => r.Type);
         }
 
-
+        public void UpdateStatus(Collect collect)
+        {
+            dataBaseContext.Entry(collect).Property(c => c.Status).IsModified = true;
+            dataBaseContext.SaveChanges();
+        }
     }
 }

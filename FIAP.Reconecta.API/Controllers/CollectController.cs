@@ -120,10 +120,17 @@ namespace FIAP.Reconecta.API.Controllers
 
         #endregion
 
+        [HttpPatch("{id}/status/{status}")]
+        public ActionResult UpdateStatus(int id, CollectStatus status)
+        {
+            _collectService.UpdateStatus(id, status, CompanyId);
+            return NoContent();
+        }
+
         [HttpGet("summary")]
         public ActionResult GetSummary()
         {
-            var summary = _collectService.GetSummary();
+            var summary = _collectService.GetSummary(CompanyId);
             return Ok(summary);
         }
     }

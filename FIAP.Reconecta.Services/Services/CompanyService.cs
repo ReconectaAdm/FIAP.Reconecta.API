@@ -14,22 +14,22 @@ namespace FIAP.Reconecta.Services.Services
             _companyRepository = companyRepository;
         }
 
-        public byte[]? GetLogo(int companyId, CompanyType companyType)
+        public byte[]? GetLogo(int id, CompanyType companyType)
         {
-            return _companyRepository.GetLogo(companyId, companyType);
+            return _companyRepository.GetLogo(id, companyType);
         }
 
-        public void UpdateLogo(int companyId, IFormFile file)
+        public void UpdateLogo(int id, IFormFile file)
         {
             using var stream = new MemoryStream();
             file.CopyTo(stream);
 
-            _companyRepository.UpdateLogo(new Company { Id = companyId, Logo = stream.ToArray() });
+            _companyRepository.UpdateLogo(new Company { Id = id, Logo = stream.ToArray() });
         }
 
-        public void UpdateDescription(int companyId, string description)
+        public void UpdateDescription(int id, string description)
         {
-            _companyRepository.UpdateDescription(new Company { Id = companyId, Description = description });
+            _companyRepository.UpdateDescription(new Company { Id = id, Description = description });
         }
     }
 }

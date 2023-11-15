@@ -1,4 +1,5 @@
 ﻿using FIAP.Reconecta.API.Exceptions;
+using System.Data.Entity.Core;
 using System.Net;
 using System.Text.Json;
 
@@ -28,9 +29,10 @@ namespace FIAP.Reconecta.API.Middlewares
                 {
                     AppException => (int)HttpStatusCode.BadRequest,// custom application error
                     KeyNotFoundException => (int)HttpStatusCode.NotFound,// not found error
+                    ObjectNotFoundException => (int)HttpStatusCode.NotFound,
                     _ => (int)HttpStatusCode.BadRequest,// unhandled error
                 };
-                var result = JsonSerializer.Serialize(new { error?.Message, InnerExceptionMessage = error?.InnerException?.Message });
+                var result = JsonSerializer.Serialize(new { message = error?.Message, innerExceptionMessage = error?.InnerException?.Message });
                 await response.WriteAsync(result);
             }
         }

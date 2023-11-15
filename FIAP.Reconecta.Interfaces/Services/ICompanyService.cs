@@ -7,8 +7,8 @@ namespace FIAP.Reconecta.Interfaces.Services
 {
     public interface ICompanyService : IBaseService<Company>
     {
-        void UpdateLogo(int organizationId, IFormFile file);
-        void UpdateDescription(int organizationId, string description);
+        void UpdateLogo(int companyId, IFormFile file);
+        void UpdateDescription(int companyId, string description);
         byte[]? GetLogo(int companyId, CompanyType companyType);
     }
 }

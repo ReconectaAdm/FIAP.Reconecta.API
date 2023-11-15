@@ -1,5 +1,4 @@
-﻿using FIAP.Reconecta.Models.DTO.Collect;
-using FIAP.Reconecta.Models.Entities.Collect;
+﻿using FIAP.Reconecta.Models.Entities.Collect;
 using FIAP.Reconecta.Models.Enums;
 
 namespace FIAP.Reconecta.Domain.Repositories
@@ -10,6 +9,7 @@ namespace FIAP.Reconecta.Domain.Repositories
         IEnumerable<Collect> GetByCompanyId(int companyId);
         IEnumerable<Collect> GetByCompanyId(int companyId, CollectStatus status);
         Collect? GetById(int id, int companyId);
-        IEnumerable<Collect> GetSummary();
+        IEnumerable<Collect> GetSummary(int companyId);
+        void UpdateStatus(Collect collect);
     }
 }

@@ -3,6 +3,7 @@ using FIAP.Reconecta.Domain.Services;
 using FIAP.Reconecta.Models.DTO.Collect;
 using FIAP.Reconecta.Models.Entities.Collect;
 using FIAP.Reconecta.Models.Enums;
+using System.Data.Entity.Core;
 
 namespace FIAP.Reconecta.Services.Services
 {
@@ -28,9 +29,9 @@ namespace FIAP.Reconecta.Services.Services
             return _collectionRepository.GetById(id, companyId);
         }
 
-        public GetCollectSummary GetSummary()
+        public GetCollectSummary GetSummary(int companyId)
         {
-            var collects = _collectionRepository.GetSummary();
+            var collects = _collectionRepository.GetSummary(companyId);
 
             var summary = new GetCollectSummary
             {
@@ -43,6 +44,16 @@ namespace FIAP.Reconecta.Services.Services
             summary.GenerateStatusSummary(collects);
 
             return summary;
+        }
+
+        public void UpdateStatus(int id, CollectStatus status, int companyId)
+        {
+            var collect = _collectionRepository.GetById(id) ?? throw new ObjectNotFoundException("Coleta não encontrada");
+
+            if (collect.OrganizationId != companyId && collect.EstablishmentId != companyId)
+                throw new Exception("Não é possível alterar o status de uma coleta não pertencente ao estabelecimento/organização");
+
+            _collectionRepository.UpdateStatus(new Collect { Id = id, Status = status});;
         }
     }
 }
