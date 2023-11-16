@@ -1,6 +1,5 @@
 ﻿using FIAP.Reconecta.Models.Entities.Company;
 using NetTopologySuite.Geometries;
-using System.Data.Entity.Spatial;
 
 namespace FIAP.Reconecta.Models.DTO.Company.Address
 {

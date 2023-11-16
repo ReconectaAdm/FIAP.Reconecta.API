@@ -14,6 +14,7 @@ namespace FIAP.Reconecta.Models.DTO.Company
         [Required]
         public string? CorporateReason { get; set; }
         public string? Description { get; set; }
+        public string? Phone { get; set; }
         [Required]
         public IEnumerable<PostCompanyAddress> Addresses { get; set; } = Enumerable.Empty<PostCompanyAddress>();
         [Required]
@@ -25,6 +26,7 @@ namespace FIAP.Reconecta.Models.DTO.Company
             Name = company.Name,
             CorporateReason = company.CorporateReason,
             Description = company.Description,
+            Phone = company.Phone,  
             Addresses = company.Addresses.Select(address => (CompanyAddress)address).ToArray(),
             User = company.User is not null ? (Entities.User.User)company.User : null
         };
