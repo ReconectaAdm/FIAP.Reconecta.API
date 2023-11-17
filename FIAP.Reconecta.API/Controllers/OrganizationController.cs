@@ -3,6 +3,7 @@ using FIAP.Reconecta.Models.DTO.Company;
 using FIAP.Reconecta.Models.DTO.Company.Availability;
 using FIAP.Reconecta.Models.Entities.Company;
 using FIAP.Reconecta.Models.Enums;
+using FIAP.Reconecta.Services.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -126,8 +127,14 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpGet("logo/{id}")]
-        public ActionResult GetLogo([FromRoute] int id)
+        [AllowAnonymous]
+        public ActionResult GetLogo([FromRoute] int id, [FromQuery] string token)
         {
+            var isValid = TokenService.ValidateToken(token);
+
+            if (!isValid)
+                return Unauthorized();
+
             var logo = _organizationService.GetLogo(id, CompanyType.ORGANIZATION);
 
             if (logo is null)
