@@ -45,12 +45,6 @@ namespace FIAP.Reconecta.Repositories.Context
               .HasValue<Establishment>(CompanyType.ESTABLISHMENT);
 
             modelBuilder.Entity<CompanyFavorite>().HasKey(k => new { k.EstablishmentId, k.OrganizationId });
-            modelBuilder.Entity<CompanyResidue>().HasKey(k => new { k.ResidueId, k.OrganizationId });
-
-            //modelBuilder.Entity<Company>()
-            //   .HasMany(c => c.Addresses)
-            //   .WithOne(s => s.Company)
-            //   .HasForeignKey(k => k.CompanyId);
 
             modelBuilder.Entity<Company>()
                .HasMany(c => c.Favorites)

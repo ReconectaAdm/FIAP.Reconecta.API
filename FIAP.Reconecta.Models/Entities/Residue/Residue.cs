@@ -1,4 +1,5 @@
-﻿using FIAP.Reconecta.Models.Enums;
+﻿using FIAP.Reconecta.Models.Entities.Company;
+using FIAP.Reconecta.Models.Enums;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,6 +22,10 @@ namespace FIAP.Reconecta.Models.Entities.Residue
         [Column("unidade_medida")]
         public UnitMeasure? UnitMeasure { get; set; }
 
+        [Display(Name = "Valor pago do resíduo pela organização")]
+        [Column("valor_pago")]
+        public decimal AmountPaid { get; set; }
+
         [Display(Name = "Categoria do resíduo")]
         [Column("tipo_residuo_id")]
         public int TypeId { get; set; }
@@ -36,7 +41,6 @@ namespace FIAP.Reconecta.Models.Entities.Residue
         public int OrganizationId { get; set; }
 
         public Company.Company? Organization { get; set; }
-
         public ResidueType? Type { get; set; }
 
         //public IList<Collect>? Coletas { get; set; }
