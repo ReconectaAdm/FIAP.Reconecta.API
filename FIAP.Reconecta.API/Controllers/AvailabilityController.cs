@@ -20,10 +20,14 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpGet]
         public ActionResult Get()
         {
-            if (CompanyType == CompanyType.ESTABLISHMENT)
-                return Forbid();
-
             var companyAvailability = _companyAvailabilityService.GetByCompanyId(CompanyId);
+            return Ok(companyAvailability);
+        }
+
+        [HttpGet("organization/{organizationId}")]
+        public ActionResult GetByCompanyId(int organizationId)
+        {
+            var companyAvailability = _companyAvailabilityService.GetByCompanyId(organizationId);
             return Ok(companyAvailability);
         }
 
