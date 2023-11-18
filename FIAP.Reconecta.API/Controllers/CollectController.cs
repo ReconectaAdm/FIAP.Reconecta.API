@@ -91,20 +91,27 @@ namespace FIAP.Reconecta.API.Controllers
 
         #region Rating
 
-        [HttpGet("rating/{organizationId}")]
+        [HttpGet("rating/organization/{organizationId}")]
         public ActionResult GetRatings(int organizationId)
         {
             var ratings = _collectRatingService.GetByOrganizationId(organizationId);
             return Ok(ratings);
         }
 
-        [HttpGet("rating/summary")]
+        [HttpGet("rating/organization/summary")]
         public ActionResult GetRatingSummary()
         {
             if (CompanyType == CompanyType.ESTABLISHMENT)
                 throw new Exception("Não é possível gerar sumarização de avaliações para empresas do tipo estabelecimento.");
 
             var ratings = _collectRatingService.GetSummary(CompanyId);
+            return Ok(ratings);
+        }
+
+        [HttpGet("rating/{id}")]
+        public ActionResult GetRatingById(int id)
+        {
+            var ratings = _collectRatingService.GetById(id);
             return Ok(ratings);
         }
 
