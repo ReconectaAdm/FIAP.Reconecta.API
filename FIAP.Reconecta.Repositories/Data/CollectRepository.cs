@@ -44,6 +44,7 @@ namespace FIAP.Reconecta.Repositories.Data
                     .ThenInclude(cr => cr.Residue)
                  .Include(c => c.Establishment)
                  .Include(c => c.Organization)
+                 .Include(c => c.Rating)
                  .FirstOrDefault(c => c.Id == id);
             return collection;
         }
@@ -55,6 +56,7 @@ namespace FIAP.Reconecta.Repositories.Data
                     .ThenInclude(cr => cr.Residue)
                  .Include(c => c.Establishment)
                  .Include(c => c.Organization)
+                 .Include(c => c.Rating)
                  .FirstOrDefault(c => c.OrganizationId == companyId || c.EstablishmentId == companyId && c.Id == id);
 
             return collection;
