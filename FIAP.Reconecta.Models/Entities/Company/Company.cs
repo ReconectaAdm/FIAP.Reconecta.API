@@ -48,7 +48,7 @@ namespace FIAP.Reconecta.Models.Entities.Company
         public virtual byte[]? Logo { get; set; }
 
         public User.User? User { get; set; }
-        public CompanyAvailability? Availability { get; set; }
+        public ICollection<CompanyAvailability>? Availability { get; set; }
         public ICollection<Residue.Residue>? Residues { get; set; }
 
         [JsonIgnore]

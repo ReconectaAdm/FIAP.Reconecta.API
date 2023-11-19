@@ -16,7 +16,6 @@ namespace FIAP.Reconecta.Models.DTO.Company
         public string? Description { get; set; }
         public string? Phone { get; set; }
         public IEnumerable<PutCompanyAddress> Addresses { get; set; } = Enumerable.Empty<PutCompanyAddress>();
-        public PutCompanyAvailability? Availability { get; set; }
 
         public static explicit operator Entities.Company.Company(PutCompany company) => new()
         {
@@ -26,7 +25,6 @@ namespace FIAP.Reconecta.Models.DTO.Company
             Description = company.Description,
             Phone = company.Phone,
             Addresses = company.Addresses.Select(address => (CompanyAddress)address).ToArray(),
-            Availability = company.Availability is not null ? (CompanyAvailability)company.Availability : null
         };
     }
 }

@@ -57,7 +57,7 @@ namespace FIAP.Reconecta.Repositories.Context
                .HasForeignKey(k => k.OrganizationId);
 
             modelBuilder.Entity<Company>()
-               .HasOne(c => c.Availability)
+               .HasMany(c => c.Availability)
                .WithOne(ca => ca.Company);
 
             #endregion
