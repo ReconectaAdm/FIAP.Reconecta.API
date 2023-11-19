@@ -19,7 +19,7 @@ namespace FIAP.Reconecta.Models.Entities.Collect
         [Column("satisfacao")]
         public decimal Satisfaction { get; set; }
 
-        public decimal Rating { get => (Punctuality + Satisfaction) / 2; }
+        public decimal Rating { get => Math.Round((Punctuality + Satisfaction) / 2, 2); }
         public Collect? Collect { get; set; }
     }
 }

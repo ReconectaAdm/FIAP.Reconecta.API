@@ -108,13 +108,6 @@ namespace FIAP.Reconecta.API.Controllers
             return Ok(ratings);
         }
 
-        [HttpGet("rating/{id}")]
-        public ActionResult GetRatingById(int id)
-        {
-            var ratings = _collectRatingService.GetById(id);
-            return Ok(ratings);
-        }
-
         [HttpPost("rating")]
         public ActionResult PostRating(PostCollectRating dto)
         {
