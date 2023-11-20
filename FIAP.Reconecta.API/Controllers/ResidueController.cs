@@ -43,17 +43,6 @@ namespace FIAP.Reconecta.API.Controllers
                 return NotFound();
         }
 
-        [HttpGet("organization/{organizationId}")]
-        public ActionResult GetOrganizationResidues([FromRoute] int organizationId)
-        {
-            var residue = _residueService.Get(organizationId);
-
-            if (residue != null)
-                return Ok(residue);
-            else
-                return NotFound();
-        }
-
         [HttpPost]
         public ActionResult Post([FromBody] PostResidue dto)
         {
@@ -109,5 +98,16 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         #endregion
+
+        [HttpGet("organization/{organizationId}")]
+        public ActionResult GetOrganizationResidues([FromRoute] int organizationId)
+        {
+            var residue = _residueService.Get(organizationId);
+
+            if (residue != null)
+                return Ok(residue);
+            else
+                return NotFound();
+        }
     }
 }

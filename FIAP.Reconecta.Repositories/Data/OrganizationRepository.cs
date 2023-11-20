@@ -27,23 +27,25 @@ namespace FIAP.Reconecta.Repositories.Data
         public override Organization? GetById(int id)
         {
             return dataBaseContext.Organization.AsNoTracking()
-                .Include(company => company.Addresses)
-                .Include(company => company.Residues)
-                .Include(company => company.Availability)
-                //.Include(company => company.Collects)
+                .Include(c => c.Addresses)
+                .Include(c => c.Residues)
+                .Include(c => c.Availability)
+                //.Include(c => c.Collects)
                 //    .ThenInclude(cl => cl.Residues)
-                .FirstOrDefault(o => o.Id == id && o.Type == CompanyType.ORGANIZATION);
+                .FirstOrDefault(c => c.Id == id && c.Type == CompanyType.ORGANIZATION);
         }
 
-        public IEnumerable<Organization> GetByDistance(double latitude, double longitude, int miles = 10000, int establishmentId = 0)
+        public IEnumerable<Organization> GetByDistanceAndResidueTypeId(double latitude, double longitude, int residueTypeId, int miles = 10000, int establishmentId = 0)
         {
             var geometryFactory = NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326);
             var location = geometryFactory.CreatePoint(new Coordinate(latitude, longitude));
 
             var organizations = dataBaseContext.Organization.Where(
-                    company => company.Type == CompanyType.ORGANIZATION)
+                    c => c.Type == CompanyType.ORGANIZATION)
                 .Include(c => c.Addresses)
-                .Include(c => c.Favorites.Where(f => f.EstablishmentId == establishmentId));
+                .Include(c => c.Favorites.Where(f => f.EstablishmentId == establishmentId))
+                .Include(c => c.Residues)
+                .Where(c => c.Residues!.Any(r => r.TypeId == residueTypeId));
 
             var nearestOrganizations = organizations.Where(c => c.Addresses != null &&
                            c.Addresses.Any(a => a.Geolocalization != null &&
@@ -51,6 +53,15 @@ namespace FIAP.Reconecta.Repositories.Data
                        ));
 
             return nearestOrganizations;
+        }
+
+        public IEnumerable<Organization> GetByResidueTypeId(int residueTypeId, int establishmentId)
+        {
+            return dataBaseContext.Organization
+                .Include(c => c.Addresses)
+                .Include(c => c.Favorites.Where(f => f.EstablishmentId == establishmentId))
+                .Include(c => c.Residues)
+                .Where(c => c.Residues!.Any(r => r.TypeId == residueTypeId));
         }
     }
 }

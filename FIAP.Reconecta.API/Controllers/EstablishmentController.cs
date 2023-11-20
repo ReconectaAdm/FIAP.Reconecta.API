@@ -29,7 +29,7 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult Get([FromRoute] int id)
+        public ActionResult GetById([FromRoute] int id)
         {
             var establishment = _establishmentService.GetById(id);
 

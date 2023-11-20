@@ -18,9 +18,9 @@ namespace FIAP.Reconecta.Services.Services
             return organizations;
         }
 
-        public IEnumerable<Organization> Get(double latitude, double longitude, int establishmentId = 0)
+        public IEnumerable<Organization> Get(double latitude, double longitude, int residueTypeId, int establishmentId = 0)
         {
-            var organizations = _organizationRepository.GetByDistance(latitude, longitude, 10000, establishmentId);
+            var organizations = _organizationRepository.GetByDistanceAndResidueTypeId(latitude, longitude, residueTypeId, 10000, establishmentId);
 
             foreach (var organization in organizations)
             {
@@ -36,6 +36,11 @@ namespace FIAP.Reconecta.Services.Services
         public override Organization? GetById(int id)
         {
             return _organizationRepository.GetById(id);
+        }
+
+        public IEnumerable<Organization> GetByResidueTypeId(int residueTypeId, int establishmentId = 0)
+        {
+            return _organizationRepository.GetByResidueTypeId(residueTypeId, establishmentId);
         }
     }
 }

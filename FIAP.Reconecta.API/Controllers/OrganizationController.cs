@@ -40,14 +40,14 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult Get([FromRoute] int id)
+        public ActionResult GetById([FromRoute] int id)
         {
             var organization = _organizationService.GetById(id);
 
-            if (organization != null)
-                return Ok(organization);
-            else
+            if (organization is null)
                 return NotFound();
+
+            return Ok(organization);
         }
 
         [HttpPost]
@@ -55,9 +55,7 @@ namespace FIAP.Reconecta.API.Controllers
         public ActionResult Post([FromBody] PostCompany dto)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
             var organization = (Company)dto;
             organization.Type = CompanyType.ORGANIZATION;
@@ -72,9 +70,7 @@ namespace FIAP.Reconecta.API.Controllers
         public ActionResult Put([FromRoute] int id, [FromBody] PutCompany dto)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
             var organization = (Company)dto;
             organization.Id = id;
@@ -89,28 +85,24 @@ namespace FIAP.Reconecta.API.Controllers
         {
             var organization = _organizationService.GetById(id);
 
-            if (organization != null)
-            {
-                _organizationService.Delete(id);
-                return NoContent();
-            }
-            else
-            {
+            if (organization is null)
                 return NotFound();
-            }
+
+            _organizationService.Delete(id);
+            return NoContent();
         }
 
         #endregion
 
         [HttpGet("nearest")]
-        public ActionResult GetNearestOrganizations([FromQuery] double latitude, [FromQuery] double longitude)
+        public ActionResult GetNearestOrganizations([FromQuery] int residueTypeId, [FromQuery] double latitude, [FromQuery] double longitude)
         {
             IEnumerable<Organization> organizations;
 
             if (CompanyType == CompanyType.ESTABLISHMENT)
-                organizations = _organizationService.Get(latitude, longitude, CompanyId);
+                organizations = _organizationService.Get(latitude, longitude, residueTypeId, CompanyId);
             else
-                organizations = _organizationService.Get(latitude, longitude);
+                organizations = _organizationService.Get(latitude, longitude, residueTypeId);
 
             return Ok(organizations);
         }
@@ -120,10 +112,10 @@ namespace FIAP.Reconecta.API.Controllers
         {
             var organization = _organizationService.GetById(CompanyId);
 
-            if (organization != null)
-                return Ok(organization);
-            else
+            if (organization is null)
                 return NotFound();
+
+            return Ok(organization);
         }
 
         [HttpGet("logo/{id}")]
@@ -141,6 +133,17 @@ namespace FIAP.Reconecta.API.Controllers
                 return NotFound();
 
             return File(logo, "image/jpeg");
+        }
+
+        [HttpGet("residueType/{residueTypeId}")]
+        public ActionResult GetByResidueTypeId([FromRoute] int residueTypeId)
+        {
+            var organizations = _organizationService.GetByResidueTypeId(residueTypeId, CompanyId);
+
+            if (organizations is null)
+                return NotFound();
+
+            return Ok(organizations);
         }
 
         [HttpPatch("logo")]

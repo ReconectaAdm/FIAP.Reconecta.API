@@ -59,9 +59,6 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpPut("{id}")]
         public ActionResult Put([FromRoute] int id, [FromBody] PutCollect dto)
         {
-            if (CompanyType == CompanyType.ORGANIZATION)
-                throw new Exception("Não é possível uma organização atualizar os dados da coleta.");
-
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
