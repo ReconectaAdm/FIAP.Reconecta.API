@@ -70,14 +70,14 @@ namespace FIAP.Reconecta.Repositories.Context
               .HasForeignKey(k => k.CollectId);
 
             modelBuilder.Entity<Collect>()
-              .HasOne(c => c.Organization)
-              .WithMany(r => r.Collects)
-              .HasForeignKey(k => k.OrganizationId);
+              .HasOne(c => c.Organization);
+            //.WithMany(r => r.Collects)
+            //.HasForeignKey(k => k.OrganizationId);
 
             modelBuilder.Entity<Collect>()
-              .HasOne(c => c.Establishment)
-              .WithMany(r => r.Collects)
-              .HasForeignKey(k => k.EstablishmentId);
+              .HasOne(c => c.Establishment);
+              //.WithMany(r => r.Collects)
+              //.HasForeignKey(k => k.EstablishmentId);
 
             modelBuilder.Entity<Collect>()
                .HasOne(c => c.Rating)

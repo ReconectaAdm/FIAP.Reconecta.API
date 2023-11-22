@@ -30,9 +30,11 @@ namespace FIAP.Reconecta.Models.Entities.Collect
         public DateTime UpdateDate { get; set; }
 
         [Column("estabelecimento_id")]
+        [ForeignKey("estabelecimento_id")]
         public int EstablishmentId { get; set; }
 
         [Column("organizacao_id")]
+        [ForeignKey("organizacao_id")]
         public int OrganizationId { get; set; }
 
         [Column("coleta_data")]

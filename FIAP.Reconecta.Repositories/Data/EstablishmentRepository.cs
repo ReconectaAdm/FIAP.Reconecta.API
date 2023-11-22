@@ -26,8 +26,6 @@ namespace FIAP.Reconecta.Repositories.Data
         {
             return dataBaseContext.Establishment.AsNoTracking()
                 .Include(c => c.Addresses)
-                .Include(c => c.Collects)
-                    .ThenInclude(cl => cl.Residues)
                 .FirstOrDefault(e => e.Id == id && e.Type == CompanyType.ESTABLISHMENT);
         }
 

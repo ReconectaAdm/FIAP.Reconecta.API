@@ -55,6 +55,5 @@ namespace FIAP.Reconecta.Models.Entities.Company
         public ICollection<CompanyAvailability>? Availability { get; set; } = new List<CompanyAvailability>();
         public ICollection<Residue.Residue>? Residues { get; set; } = new List<Residue.Residue>();
         public ICollection<CompanyAddress> Addresses { get; set; } = new List<CompanyAddress>();
-        public ICollection<Collect.Collect> Collects { get; set; } = new List<Collect.Collect>();
     }
 }
