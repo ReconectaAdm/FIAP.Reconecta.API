@@ -22,9 +22,7 @@ namespace FIAP.Reconecta.Repositories.Data
             return dataBaseContext.Collect
                  .Include(c => c.Residues)
                  .Include(c => c.Establishment)
-                     .ThenInclude(e => e.Addresses)
-                 .Include(c => c.Organization)
-                     .ThenInclude(o => o.Addresses);
+                 .Include(c => c.Organization);
         }
 
         public IEnumerable<Collect> Get(CollectStatus status)
@@ -32,9 +30,7 @@ namespace FIAP.Reconecta.Repositories.Data
             return dataBaseContext.Collect.Where(c => c.Status == status)
                 .Include(c => c.Residues)
                 .Include(c => c.Establishment)
-                    .ThenInclude(e => e.Addresses)
-                .Include(c => c.Organization)
-                    .ThenInclude(o => o.Addresses);
+                .Include(c => c.Organization);
         }
 
         public Collect? GetById(int id)
@@ -46,6 +42,7 @@ namespace FIAP.Reconecta.Repositories.Data
                  .Include(c => c.Organization)
                  .Include(c => c.Rating)
                  .FirstOrDefault(c => c.Id == id);
+
             return collection;
         }
 
