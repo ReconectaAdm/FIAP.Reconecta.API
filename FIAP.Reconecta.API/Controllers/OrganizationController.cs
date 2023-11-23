@@ -1,7 +1,5 @@
 ﻿using FIAP.Reconecta.Domain.Services;
 using FIAP.Reconecta.Models.DTO.Company;
-using FIAP.Reconecta.Models.DTO.Company.Address;
-using FIAP.Reconecta.Models.DTO.Company.Availability;
 using FIAP.Reconecta.Models.Entities.Company;
 using FIAP.Reconecta.Models.Enums;
 using FIAP.Reconecta.Services.Services;
@@ -15,13 +13,11 @@ namespace FIAP.Reconecta.API.Controllers
     public class OrganizationController : BaseController
     {
         private readonly IOrganizationService _organizationService;
-        private readonly ICompanyAddressService _companyAddressService;
         private readonly ICompanyFavoriteService _companyFavoriteService;
 
-        public OrganizationController(IOrganizationService organizationService, ICompanyAddressService companyAddressService, ICompanyFavoriteService companyFavoriteService)
+        public OrganizationController(IOrganizationService organizationService, ICompanyFavoriteService companyFavoriteService)
         {
             _organizationService = organizationService;
-            _companyAddressService = companyAddressService;
             _companyFavoriteService = companyFavoriteService;
         }
 

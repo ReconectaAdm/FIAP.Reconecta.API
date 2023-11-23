@@ -21,7 +21,8 @@ namespace FIAP.Reconecta.Repositories.Data
         {
             return dataBaseContext.Organization.Where(c => c.Type == CompanyType.ORGANIZATION)
                 .Include(c => c.Addresses)
-                .Include(c => c.Residues)
+                .Include(c => c.Residues)!
+                    .ThenInclude(r => r.Type)
                 .Include(c => c.Favorites.Where(f => f.EstablishmentId == establishmentId));
         }
 
@@ -59,7 +60,8 @@ namespace FIAP.Reconecta.Repositories.Data
             return dataBaseContext.Organization
                 .Include(c => c.Addresses)
                 .Include(c => c.Favorites.Where(f => f.EstablishmentId == establishmentId))
-                .Include(c => c.Residues)
+                .Include(c => c.Residues)!
+                    .ThenInclude(r => r.Type)
                 .Where(c => c.Residues!.Any(r => r.TypeId == residueTypeId));
         }
     }
