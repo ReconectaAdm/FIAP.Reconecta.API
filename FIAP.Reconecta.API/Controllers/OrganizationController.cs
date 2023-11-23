@@ -1,5 +1,6 @@
 ﻿using FIAP.Reconecta.Domain.Services;
 using FIAP.Reconecta.Models.DTO.Company;
+using FIAP.Reconecta.Models.DTO.Company.Address;
 using FIAP.Reconecta.Models.DTO.Company.Availability;
 using FIAP.Reconecta.Models.Entities.Company;
 using FIAP.Reconecta.Models.Enums;
@@ -174,6 +175,16 @@ namespace FIAP.Reconecta.API.Controllers
             });
 
             return NoContent();
+        }
+
+        [HttpPost("address")]
+        public ActionResult CreateAddress(List<PostCompanyAddress> dtos)
+        {
+            var addresses = dtos.Select(dto => (CompanyAddress)dto);
+
+            _companyAddressService.AddRange(addresses);
+
+            return Ok();
         }
 
         [HttpDelete("address/{id}")]
