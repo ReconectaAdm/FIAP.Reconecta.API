@@ -5,6 +5,7 @@ namespace FIAP.Reconecta.Models.DTO.Company.Address
 {
     public class PostCompanyAddress
     {
+        public int CompanyId { get; set; }
         public string? Street { get; set; }
         public string? Number { get; set; }
         public string? City { get; set; }
@@ -15,6 +16,7 @@ namespace FIAP.Reconecta.Models.DTO.Company.Address
 
         public static explicit operator CompanyAddress(PostCompanyAddress companyAddress) => new()
         {
+            CompanyId = companyAddress.CompanyId,
             Street = companyAddress.Street,
             Number = companyAddress.Number,
             City = companyAddress.City,

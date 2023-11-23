@@ -180,7 +180,11 @@ namespace FIAP.Reconecta.API.Controllers
         [HttpPost("address")]
         public ActionResult CreateAddress(List<PostCompanyAddress> dtos)
         {
-            var addresses = dtos.Select(dto => (CompanyAddress)dto);
+            var addresses = dtos.Select(dto =>
+            {
+                dto.CompanyId = CompanyId;
+                return (CompanyAddress)dto;
+            });
 
             _companyAddressService.AddRange(addresses);
 
