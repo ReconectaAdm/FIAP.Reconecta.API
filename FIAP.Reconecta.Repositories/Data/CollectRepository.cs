@@ -120,7 +120,7 @@ namespace FIAP.Reconecta.Repositories.Data
         public IEnumerable<Collect> GetSummary(int companyId, DateTime initialDate, DateTime endDate)
         {
             return dataBaseContext.Collect
-                .Where(c => c.OrganizationId == companyId || c.EstablishmentId == companyId && 
+                .Where(c => (c.OrganizationId == companyId || c.EstablishmentId == companyId) && 
                        c.CreationDate >= initialDate && c.CreationDate <= endDate)
                 .Include(c => c.Residues)!
                     .ThenInclude(cr => cr.Residue)
