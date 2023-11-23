@@ -23,6 +23,7 @@ namespace FIAP.Reconecta.Repositories.Data
         {
             var user = dataBaseContext.User.AsNoTracking()
                 .Include(u => u.Company)
+                    .ThenInclude(c => c!.Addresses)
                 .FirstOrDefault(u => u.Email == email && u.Password == password);
             return user;
         }
