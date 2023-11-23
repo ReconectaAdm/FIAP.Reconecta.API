@@ -8,7 +8,7 @@ namespace FIAP.Reconecta.Domain.Services
     {
         IEnumerable<Collect> Get(CompanyType companyType, int companyId, CollectStatus? status = null);
         Collect? GetById(int id, int companyId);
-        GetCollectSummary GetSummary(int companyId);
+        GetCollectSummary GetSummary(int companyId, DateTime? initialDate, DateTime? endDate);
         void UpdateStatus(int id, CollectStatus status, int companyId);
     }
 }

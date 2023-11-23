@@ -10,6 +10,7 @@ namespace FIAP.Reconecta.Domain.Repositories
         IEnumerable<Collect> GetByCompanyId(int companyId, CollectStatus status);
         Collect? GetById(int id, int companyId);
         IEnumerable<Collect> GetSummary(int companyId);
+        IEnumerable<Collect> GetSummary(int companyId, DateTime initialDate, DateTime endDate);
         void UpdateStatus(Collect collect);
     }
 }

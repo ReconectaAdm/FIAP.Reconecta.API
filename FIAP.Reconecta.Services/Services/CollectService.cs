@@ -46,6 +46,30 @@ namespace FIAP.Reconecta.Services.Services
             return summary;
         }
 
+        public GetCollectSummary GetSummary(int companyId, DateTime? initialDate, DateTime? endDate)
+        {
+            IEnumerable<Collect> collects;
+
+            if (initialDate != null && endDate != null)
+                collects = _collectionRepository.GetSummary(companyId, initialDate.Value, endDate.Value);
+
+            else
+                collects = _collectionRepository.GetSummary(companyId);
+
+
+            var summary = new GetCollectSummary
+            {
+                Collects = collects.Count(),
+                Points = collects.Sum(c => c.Residues.Sum(cr => cr.Points)),
+                Value = collects.Sum(c => c.Value)
+            };
+
+            summary.GenerateResiduesSummary(collects);
+            summary.GenerateStatusSummary(collects);
+
+            return summary;
+        }
+
         public void UpdateStatus(int id, CollectStatus status, int companyId)
         {
             var collect = _collectionRepository.GetById(id) ?? throw new ObjectNotFoundException("Coleta não encontrada");
@@ -53,7 +77,7 @@ namespace FIAP.Reconecta.Services.Services
             if (collect.OrganizationId != companyId && collect.EstablishmentId != companyId)
                 throw new Exception("Não é possível alterar o status de uma coleta não pertencente ao estabelecimento/organização");
 
-            _collectionRepository.UpdateStatus(new Collect { Id = id, Status = status});;
+            _collectionRepository.UpdateStatus(new Collect { Id = id, Status = status }); ;
         }
     }
 }

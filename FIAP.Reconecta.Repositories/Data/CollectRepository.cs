@@ -85,7 +85,7 @@ namespace FIAP.Reconecta.Repositories.Data
         }
 
         #endregion
-       
+
         public IEnumerable<Collect> GetByCompanyId(int companyId)
         {
             return dataBaseContext.Collect
@@ -112,6 +112,16 @@ namespace FIAP.Reconecta.Repositories.Data
         {
             return dataBaseContext.Collect
                 .Where(c => c.OrganizationId == companyId || c.EstablishmentId == companyId)
+                .Include(c => c.Residues)!
+                    .ThenInclude(cr => cr.Residue)
+                    .ThenInclude(r => r.Type);
+        }
+
+        public IEnumerable<Collect> GetSummary(int companyId, DateTime initialDate, DateTime endDate)
+        {
+            return dataBaseContext.Collect
+                .Where(c => c.OrganizationId == companyId || c.EstablishmentId == companyId && 
+                       c.CreationDate >= initialDate && c.CreationDate <= endDate)
                 .Include(c => c.Residues)!
                     .ThenInclude(cr => cr.Residue)
                     .ThenInclude(r => r.Type);

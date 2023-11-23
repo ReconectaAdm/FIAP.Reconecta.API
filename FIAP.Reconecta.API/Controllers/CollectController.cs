@@ -125,9 +125,9 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpGet("summary")]
-        public ActionResult GetSummary()
+        public ActionResult GetSummary([FromQuery] DateTime? initialDate, [FromQuery] DateTime? endDate)
         {
-            var summary = _collectService.GetSummary(CompanyId);
+            var summary = _collectService.GetSummary(CompanyId, initialDate, endDate);
             return Ok(summary);
         }
     }
