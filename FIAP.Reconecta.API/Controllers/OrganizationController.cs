@@ -176,33 +176,5 @@ namespace FIAP.Reconecta.API.Controllers
 
             return NoContent();
         }
-
-        [HttpPost("address")]
-        public ActionResult CreateAddress(List<PostCompanyAddress> dtos)
-        {
-            var addresses = dtos.Select(dto =>
-            {
-                dto.CompanyId = CompanyId;
-                return (CompanyAddress)dto;
-            });
-
-            _companyAddressService.AddRange(addresses);
-
-            return Ok();
-        }
-
-        [HttpDelete("address/{id}")]
-        public ActionResult DeleteAddress(int id)
-        {
-            var companyAddress = _companyAddressService.GetById(id);
-
-            if (companyAddress != null)
-            {
-                _companyAddressService.Delete(id);
-                return NoContent();
-            }
-            else
-                return NotFound();
-        }
     }
 }
