@@ -9,12 +9,12 @@ namespace FIAP.Reconecta.Models.DTO.Collect.Rating
         public decimal Satisfaction { get; set; }
         public int CollectId { get; set; }
 
-        public static explicit operator CollectRating(PostCollectRating rating) => new()
+        public static explicit operator CollectRating(PostCollectRating dto) => new()
         {
-            Punctuality = rating.Punctuality,
-            Satisfaction = rating.Satisfaction,
-            Comment = rating.Comment,
-            CollectId = rating.CollectId
+            Punctuality = dto.Punctuality,
+            Satisfaction = dto.Satisfaction,
+            Comment = dto.Comment,
+            CollectId = dto.CollectId
         };
     }
 }

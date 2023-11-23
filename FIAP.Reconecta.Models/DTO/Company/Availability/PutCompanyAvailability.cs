@@ -10,13 +10,13 @@ namespace FIAP.Reconecta.Models.DTO.Company.Availability
         public string? EndHour { get; set; }
         public bool Available { get; set; }
 
-        public static explicit operator CompanyAvailability(PutCompanyAvailability companyAvailability) => new()
+        public static explicit operator CompanyAvailability(PutCompanyAvailability dto) => new()
         {
-            Id = companyAvailability.Id,
-            Day = companyAvailability.Day,
-            StartHour = companyAvailability.StartHour,
-            EndHour = companyAvailability.EndHour,
-            Available = companyAvailability.Available
+            Id = dto.Id,
+            Day = dto.Day,
+            StartHour = dto.StartHour,
+            EndHour = dto.EndHour,
+            Available = dto.Available
         };
     }
 }

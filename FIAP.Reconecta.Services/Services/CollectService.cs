@@ -1,6 +1,6 @@
 ﻿using FIAP.Reconecta.Domain.Repositories;
 using FIAP.Reconecta.Domain.Services;
-using FIAP.Reconecta.Models.DTO.Collect;
+using FIAP.Reconecta.Models.DTO.Collect.Summary;
 using FIAP.Reconecta.Models.Entities.Collect;
 using FIAP.Reconecta.Models.Enums;
 using System.Data.Entity.Core;

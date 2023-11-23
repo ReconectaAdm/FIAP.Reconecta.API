@@ -109,7 +109,7 @@ namespace FIAP.Reconecta.API.Controllers
         }
 
         [HttpGet("me")]
-        public ActionResult GetMyProfile()
+        public ActionResult GetProfile()
         {
             var organization = _organizationService.GetById(CompanyId);
 

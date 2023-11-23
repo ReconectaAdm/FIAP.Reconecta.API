@@ -88,7 +88,7 @@ namespace FIAP.Reconecta.API.Controllers
         #endregion
 
         [HttpGet("me")]
-        public ActionResult GetMyProfile()
+        public ActionResult GetProfile()
         {
             var establishment = _establishmentService.GetById(CompanyId);
             if (establishment != null)

@@ -10,13 +10,13 @@ namespace FIAP.Reconecta.Models.DTO.Collect
         public decimal Value { get; set; }
         public string? Hour { get; set; }
 
-        public static explicit operator Entities.Collect.Collect(PutCollect collect) => new()
+        public static explicit operator Entities.Collect.Collect(PutCollect dto) => new()
         {
-            Date = collect.Date,
-            Status = collect.Status,
-            OrganizationId = collect.OrganizationId,
-            Value = collect.Value,
-            Hour = collect.Hour
+            Date = dto.Date,
+            Status = dto.Status,
+            OrganizationId = dto.OrganizationId,
+            Value = dto.Value,
+            Hour = dto.Hour
         };
     }
 }

@@ -31,8 +31,8 @@ namespace FIAP.Reconecta.Models.Entities.Collect
         [Column("coleta_id")]
         public int? CollectId { get; set; }
 
-        public Residue.Residue? Residue { get; set; }
-        public Collect? Collect { get; set; }
+        public Residue.Residue Residue { get; set; } = new Residue.Residue();
+        public Collect Collect { get; set; } = new Collect();
 
         public void CalculatePoints()
         {

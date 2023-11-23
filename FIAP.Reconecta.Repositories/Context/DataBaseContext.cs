@@ -5,7 +5,6 @@ using FIAP.Reconecta.Models.Entities.Residue;
 using FIAP.Reconecta.Models.Entities.User;
 using FIAP.Reconecta.Models.Enums;
 using Microsoft.EntityFrameworkCore;
-using System.Xml;
 
 namespace FIAP.Reconecta.Repositories.Context
 {
@@ -71,13 +70,9 @@ namespace FIAP.Reconecta.Repositories.Context
 
             modelBuilder.Entity<Collect>()
               .HasOne(c => c.Organization);
-            //.WithMany(r => r.Collects)
-            //.HasForeignKey(k => k.OrganizationId);
-
+            
             modelBuilder.Entity<Collect>()
               .HasOne(c => c.Establishment);
-              //.WithMany(r => r.Collects)
-              //.HasForeignKey(k => k.EstablishmentId);
 
             modelBuilder.Entity<Collect>()
                .HasOne(c => c.Rating)

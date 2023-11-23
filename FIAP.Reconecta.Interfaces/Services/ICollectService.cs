@@ -1,4 +1,4 @@
-﻿using FIAP.Reconecta.Models.DTO.Collect;
+﻿using FIAP.Reconecta.Models.DTO.Collect.Summary;
 using FIAP.Reconecta.Models.Entities.Collect;
 using FIAP.Reconecta.Models.Enums;
 

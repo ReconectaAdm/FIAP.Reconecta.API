@@ -26,7 +26,7 @@ namespace FIAP.Reconecta.Repositories.Data
             return dataBaseContext.CollectRating
                 .Include(cr => cr.Collect)
                     .ThenInclude(c => c!.Establishment)
-                .Where(cr => cr.Collect.OrganizationId == organizationId);
+                .Where(cr => cr.Collect!.OrganizationId == organizationId);
         }
 
         public CollectRating? GetById(int id)

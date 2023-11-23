@@ -9,6 +9,6 @@ namespace FIAP.Reconecta.Models.DTO.User
         [Required]
         public string Password { get; set; } = string.Empty;
 
-        public static explicit operator Entities.User.User(PatchUser user) => new() { Email = user.Email, Password = user.Password };
+        public static explicit operator Entities.User.User(PatchUser dto) => new() { Email = dto.Email, Password = dto.Password };
     }
 }

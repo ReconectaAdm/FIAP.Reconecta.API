@@ -14,6 +14,8 @@ namespace FIAP.Reconecta.Repositories.Data
             dataBaseContext = ctx;
         }
 
+        #region Base
+
         public IEnumerable<EstablishmentPayment> Get()
         {
             return dataBaseContext.EstablishmentPayment;
@@ -48,5 +50,8 @@ namespace FIAP.Reconecta.Repositories.Data
             dataBaseContext.EstablishmentPayment.Remove(establishmentPayment);
             dataBaseContext.SaveChanges();
         }
+        
+        #endregion
+
     }
 }

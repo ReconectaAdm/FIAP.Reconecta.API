@@ -20,15 +20,15 @@ namespace FIAP.Reconecta.Models.DTO.Company
         [Required]
         public PostUser? User { get; set; }
 
-        public static explicit operator Entities.Company.Company(PostCompany company) => new()
+        public static explicit operator Entities.Company.Company(PostCompany dto) => new()
         {
-            Cnpj = company.Cnpj,
-            Name = company.Name,
-            CorporateReason = company.CorporateReason,
-            Description = company.Description,
-            Phone = company.Phone,  
-            Addresses = company.Addresses.Select(address => (CompanyAddress)address).ToArray(),
-            User = company.User is not null ? (Entities.User.User)company.User : null
+            Cnpj = dto.Cnpj,
+            Name = dto.Name,
+            CorporateReason = dto.CorporateReason,
+            Description = dto.Description,
+            Phone = dto.Phone,  
+            Addresses = dto.Addresses.Select(address => (CompanyAddress)address).ToArray(),
+            User = dto.User is not null ? (Entities.User.User)dto.User : null
         };
     }
 }

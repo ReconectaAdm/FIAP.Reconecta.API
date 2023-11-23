@@ -92,9 +92,9 @@ namespace FIAP.Reconecta.Repositories.Data
                  .Where(c => c.EstablishmentId == companyId || c.OrganizationId == companyId)
                  .Include(c => c.Residues)
                  .Include(c => c.Establishment)
-                     .ThenInclude(e => e.Addresses)
+                     .ThenInclude(e => e!.Addresses)
                  .Include(c => c.Organization)
-                     .ThenInclude(o => o.Addresses);
+                     .ThenInclude(o => o!.Addresses);
         }
 
         public IEnumerable<Collect> GetByCompanyId(int companyId, CollectStatus status)
@@ -103,9 +103,9 @@ namespace FIAP.Reconecta.Repositories.Data
                  .Where(c => c.EstablishmentId == companyId || c.OrganizationId == companyId && c.Status == status)
                  .Include(c => c.Residues)
                  .Include(c => c.Establishment)
-                     .ThenInclude(e => e.Addresses)
+                     .ThenInclude(e => e!.Addresses)
                  .Include(c => c.Organization)
-                     .ThenInclude(o => o.Addresses);
+                     .ThenInclude(o => o!.Addresses);
         }
 
         public IEnumerable<Collect> GetSummary(int companyId)
@@ -114,7 +114,7 @@ namespace FIAP.Reconecta.Repositories.Data
                 .Where(c => c.OrganizationId == companyId || c.EstablishmentId == companyId)
                 .Include(c => c.Residues)!
                     .ThenInclude(cr => cr.Residue)
-                    .ThenInclude(r => r.Type);
+                    .ThenInclude(r => r!.Type);
         }
 
         public IEnumerable<Collect> GetSummary(int companyId, DateTime initialDate, DateTime endDate)
@@ -124,7 +124,7 @@ namespace FIAP.Reconecta.Repositories.Data
                        c.CreationDate >= initialDate && c.CreationDate <= endDate)
                 .Include(c => c.Residues)!
                     .ThenInclude(cr => cr.Residue)
-                    .ThenInclude(r => r.Type);
+                    .ThenInclude(r => r!.Type);
         }
 
         public void UpdateStatus(Collect collect)

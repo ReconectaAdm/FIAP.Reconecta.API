@@ -14,17 +14,17 @@ namespace FIAP.Reconecta.Models.DTO.Company.Address
         public double Latitude { get; set; }
         public double Longitude { get; set; }
 
-        public static explicit operator CompanyAddress(PutCompanyAddress companyAddress) => new()
+        public static explicit operator CompanyAddress(PutCompanyAddress dto) => new()
         {
-            Id = companyAddress.Id,
-            Street = companyAddress.Street,
-            Number = companyAddress.Number,
-            City = companyAddress.City,
-            State = companyAddress.State,
-            PostalCode = companyAddress.PostalCode,
-            Latitude = companyAddress.Latitude,
-            Longitude = companyAddress.Longitude,
-            Geolocalization = new Point(companyAddress.Latitude, companyAddress.Longitude) { SRID = 4326 }
+            Id = dto.Id,
+            Street = dto.Street,
+            Number = dto.Number,
+            City = dto.City,
+            State = dto.State,
+            PostalCode = dto.PostalCode,
+            Latitude = dto.Latitude,
+            Longitude = dto.Longitude,
+            Geolocalization = new Point(dto.Latitude, dto.Longitude) { SRID = 4326 }
         };
     }
 }

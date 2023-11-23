@@ -40,10 +40,7 @@ namespace FIAP.Reconecta.Models.Entities.Residue
         [Column("organizacao_id")]
         public int OrganizationId { get; set; }
 
-        public Company.Company? Organization { get; set; }
-        public ResidueType? Type { get; set; }
-
-        //public IList<Collect>? Coletas { get; set; }
-        //public IList<Company>? Estabelecimentos { get; set; }
+        public Company.Company Organization { get; set; } = new Organization();
+        public ResidueType Type { get; set; } = new ResidueType();
     }
 }

@@ -17,14 +17,14 @@ namespace FIAP.Reconecta.Models.DTO.Company
         public string? Phone { get; set; }
         public IEnumerable<PutCompanyAddress> Addresses { get; set; } = Enumerable.Empty<PutCompanyAddress>();
 
-        public static explicit operator Entities.Company.Company(PutCompany company) => new()
+        public static explicit operator Entities.Company.Company(PutCompany dto) => new()
         {
-            Cnpj = company.Cnpj,
-            Name = company.Name,
-            CorporateReason = company.CorporateReason,
-            Description = company.Description,
-            Phone = company.Phone,
-            Addresses = company.Addresses.Select(address => (CompanyAddress)address).ToArray(),
+            Cnpj = dto.Cnpj,
+            Name = dto.Name,
+            CorporateReason = dto.CorporateReason,
+            Description = dto.Description,
+            Phone = dto.Phone,
+            Addresses = dto.Addresses.Select(address => (CompanyAddress)address).ToArray(),
         };
     }
 }

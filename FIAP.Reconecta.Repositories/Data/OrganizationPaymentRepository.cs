@@ -14,6 +14,8 @@ namespace FIAP.Reconecta.Repositories.Data
             dataBaseContext = ctx;
         }
 
+        #region Base
+        
         public IEnumerable<OrganizationPayment> Get()
         {
             return dataBaseContext.OrganizationPayment;
@@ -48,5 +50,7 @@ namespace FIAP.Reconecta.Repositories.Data
             dataBaseContext.OrganizationPayment.Remove(organizationPayment);
             dataBaseContext.SaveChanges();
         }
+
+        #endregion
     }
 }
